@@ -23,7 +23,7 @@
 
         </TextView>
         <GridLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:rowCount="3"
             android:columnCount="2"
@@ -33,6 +33,8 @@
             android:columnOrderPreserved="false">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/bills"
+                android:clickable="true"
                 android:layout_width="170dp"
                 android:layout_height="170dp"
                 app:cardCornerRadius="12dp"
@@ -43,25 +45,24 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:focusableInTouchMode="false"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/ic_receipt_black_24dp"
-                        android:layout_marginTop="18dp">
-                    </ImageView>
+                        android:layout_marginTop="18dp"
+                        android:src="@drawable/ic_receipt_black_24dp"></ImageView>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bills"
-                        android:fontFamily="@font/alike_angular"
-                        android:textSize="18sp"
-                        android:textColor="@color/white"
                         android:layout_marginTop="20dp"
-                        >
+                        android:fontFamily="@font/alike_angular"
+                        android:text="Bills"
+                        android:textColor="@color/white"
+                        android:textSize="18sp">
 
                     </TextView>
                 </LinearLayout>
@@ -69,6 +70,8 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/members"
+                android:clickable="true"
                 android:layout_width="170dp"
                 android:layout_height="170dp"
                 app:cardCornerRadius="12dp"
@@ -103,13 +106,53 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="5dp"
-            app:cardBackgroundColor="@color/gray"
-            android:layout_margin="10dp">
+                android:id="@+id/society_fund"
+                android:clickable="true"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="5dp"
+                app:cardBackgroundColor="@color/gray"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusableInTouchMode="false"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="18dp"
+                        android:src="@drawable/ic_attach_money_black_24dp"></ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/alike_angular"
+                        android:text="Society Fund"
+                        android:textColor="@color/white"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/emergency_number"
+                android:clickable="true"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="5dp"
+                app:cardBackgroundColor="@color/gray"
+                android:layout_margin="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -127,7 +170,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Emargency Number"
+                    android:text="Emergency Number"
                     android:fontFamily="@font/alike_angular"
                     android:textSize="18sp"
                     android:textColor="@color/white"
@@ -137,13 +180,54 @@
                 </TextView>
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView><androidx.cardview.widget.CardView
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="5dp"
-            app:cardBackgroundColor="@color/gray"
-            android:layout_margin="10dp">
+        </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/my_building"
+                android:clickable="true"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="5dp"
+                app:cardBackgroundColor="@color/gray"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusableInTouchMode="false"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="18dp"
+                        android:src="@drawable/ic_business_black_24dp"></ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/alike_angular"
+                        android:text="My Building"
+                        android:textColor="@color/white"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/complaints"
+                android:clickable="true"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="5dp"
+                app:cardBackgroundColor="@color/gray"
+                android:layout_margin="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -161,7 +245,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Complains"
+                    android:text="Complaints"
                     android:fontFamily="@font/alike_angular"
                     android:textSize="18sp"
                     android:textColor="@color/white"
@@ -171,13 +255,17 @@
                 </TextView>
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView><androidx.cardview.widget.CardView
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="5dp"
-            app:cardBackgroundColor="@color/gray"
-            android:layout_margin="10dp">
+        </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/vehicles"
+                android:clickable="true"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="5dp"
+                app:cardBackgroundColor="@color/gray"
+                android:layout_margin="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -205,13 +293,17 @@
                 </TextView>
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView><androidx.cardview.widget.CardView
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="5dp"
-            app:cardBackgroundColor="@color/gray"
-            android:layout_margin="10dp">
+        </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/gatekeeper"
+                android:clickable="true"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="5dp"
+                app:cardBackgroundColor="@color/gray"
+                android:layout_margin="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
