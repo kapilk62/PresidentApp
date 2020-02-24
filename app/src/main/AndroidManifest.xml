@@ -11,15 +11,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".RegisterActivity">
+        <activity android:name=".Gate_Keeper"></activity>
+        <activity android:name=".Vehicles" />
+        <activity android:name=".Complaints" />
+        <activity android:name=".My_Building" />
+        <activity android:name=".Emergency_Number" />
+        <activity android:name=".Society_Fund" />
+        <activity android:name=".Members" />
+        <activity android:name=".Bills" />
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".LoginActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
+        <activity android:name=".RegisterActivity">
+
         </activity>
-        <activity android:name=".MainActivity"></activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
         <meta-data
             android:name="preloaded_fonts"
