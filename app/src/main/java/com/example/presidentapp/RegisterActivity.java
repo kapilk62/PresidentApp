@@ -75,6 +75,10 @@ public class RegisterActivity extends AppCompatActivity {
                     mMobileno.setError("Mobile Number is Required");
                     return;
                 }
+                if (m_no.length() != 10 ) {
+                    mMobileno.setError("Mobile Number Must be 10 digit !!");
+                    return;
+                }
 
                 if(TextUtils.isEmpty(fname)){
                     mFirstname.setError("First Name is Required");
