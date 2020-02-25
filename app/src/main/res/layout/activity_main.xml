@@ -341,6 +341,7 @@
 
 </ScrollView>
     <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
         app:headerLayout="@layout/header"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

@@ -4,20 +4,24 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
     private CardView billsCard, membersCard, societyfundCard, emergencynumberCard, mybuldingCard, complaintsCard, vehiclesCard, gatekeeperCard;
     private DrawerLayout mDrawerlayout;
     private ActionBarDrawerToggle mToggle;
 
+    private NavigationView mNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         complaintsCard = findViewById(R.id.complaints);
         vehiclesCard = findViewById(R.id.vehicles);
         gatekeeperCard = findViewById(R.id.gatekeeper);
+        mNavigationView = findViewById(R.id.navigationView);
 
         billsCard.setOnClickListener(this);
         membersCard.setOnClickListener(this);
@@ -47,7 +52,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
+        mNavigationView.setNavigationItemSelectedListener(this);
+
+
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -59,6 +68,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return super.onOptionsItemSelected(item);
         }
 
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item){
+        int id=item.getItemId();
+
+        if (id==R.id.complaints){
+            Intent i = new Intent(MainActivity.this,RegisterActivity.class);
+            startActivity(i);
+        }
+
+        else if (id==R.id.logoutbutton)
+        {
+            Intent i = new Intent(MainActivity.this,LoginActivity.class);
+            startActivity(i);
+        }
+
+        DrawerLayout drawer1 =findViewById(R.id.drawer);
+        drawer1.closeDrawer(GravityCompat.START);
+        return true;
     }
 
     public void onClick(View view) {
@@ -101,10 +130,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
     }
-
-
-
-
-
 
 }
