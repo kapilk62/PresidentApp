@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private DrawerLayout mDrawerlayout;
     private ActionBarDrawerToggle mToggle;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,22 +40,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         complaintsCard.setOnClickListener(this);
         vehiclesCard.setOnClickListener(this);
         gatekeeperCard.setOnClickListener(this);
-        mDrawerlayout = (DrawerLayout) findViewById(R.id.drawer);
+        mDrawerlayout = findViewById(R.id.drawer);
         mToggle = new ActionBarDrawerToggle(this, mDrawerlayout, R.string.open, R.string.close);
         mDrawerlayout.addDrawerListener(mToggle);
         mToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
     }
+
 
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (mToggle.onOptionsItemSelected(item)) {
+       if (mToggle.onOptionsItemSelected(item)) {
+
             return true;
         }
-        return super.onOptionsItemSelected(item);
+        else {
+            return super.onOptionsItemSelected(item);
+        }
 
     }
+
     public void onClick(View view) {
         Intent i;
         switch (view.getId()) {
@@ -95,4 +103,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
     }
+
+
+
+
+
+
 }
