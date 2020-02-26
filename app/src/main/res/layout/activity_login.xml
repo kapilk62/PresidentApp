@@ -4,28 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/screenimage"
+    android:background="@drawable/epparmentdp"
     tools:context=".LoginActivity">
-
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="90dp"
-        android:background="#6F65F3E2"
-        android:fontFamily="@font/alike_angular"
-        android:text="Login"
-        android:textAlignment="center"
-        android:textColor="#090101"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
     <View
@@ -33,18 +13,18 @@
         android:layout_width="293dp"
         android:layout_height="343dp"
         android:layout_marginStart="61dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="210dp"
         android:layout_marginEnd="61dp"
         android:background="#A1369DD5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="264dp"
         android:layout_height="37dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="220dp"
         android:fontFamily="@font/alike_angular"
         android:text="Login Now"
         android:textAlignment="center"
@@ -53,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/emailid"

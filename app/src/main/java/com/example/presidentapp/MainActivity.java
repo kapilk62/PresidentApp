@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         gatekeeperCard = findViewById(R.id.gatekeeper);
         mNavigationView = findViewById(R.id.navigationView);
 
+
         billsCard.setOnClickListener(this);
         membersCard.setOnClickListener(this);
         societyfundCard.setOnClickListener(this);
@@ -74,15 +75,87 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onNavigationItemSelected(MenuItem item){
         int id=item.getItemId();
 
-        if (id==R.id.complaints){
-            Intent i = new Intent(MainActivity.this,RegisterActivity.class);
+        if(id==R.id.sprofile)
+        {
+
+        }
+
+        else if(id==R.id.sdashboard)
+        {
+
+        }
+
+        else if(id==R.id.smy_bills)
+        {
+
+        }
+
+        else if(id==R.id.semergency_number)
+        {
+
+        }
+
+        else if(id==R.id.sevents)
+        {
+
+        }
+
+        else if (id==R.id.scomplaints){
+            Intent i = new Intent(MainActivity.this,Bills.class);
             startActivity(i);
+        }
+
+        else if(id==R.id.swallet)
+        {
+
+        }
+
+        else if(id==R.id.smember)
+        {
+
+        }
+
+        else if(id==R.id.svehicles)
+        {
+
+        }
+
+        else if(id==R.id.sannouncements)
+        {
+
+        }
+
+        else if(id==R.id.sbalance_sheet)
+        {
+
+        }
+
+        else if(id==R.id.srules)
+        {
+            Intent i = new Intent(MainActivity.this,Rules.class);
+            startActivity(i);
+        }
+
+        else if(id==R.id.snotification)
+        {
+
+        }
+
+        else if(id==R.id.ssetting)
+        {
+
         }
 
         else if (id==R.id.logoutbutton)
         {
-            Intent i = new Intent(MainActivity.this,LoginActivity.class);
-            startActivity(i);
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+            finish();
+        }
+
+        else if(id==R.id.scontact_us)
+        {
+
         }
 
         DrawerLayout drawer1 =findViewById(R.id.drawer);
