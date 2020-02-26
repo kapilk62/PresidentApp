@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         gatekeeperCard = findViewById(R.id.gatekeeper);
         mNavigationView = findViewById(R.id.navigationView);
 
+
         billsCard.setOnClickListener(this);
         membersCard.setOnClickListener(this);
         societyfundCard.setOnClickListener(this);
@@ -131,7 +132,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         else if(id==R.id.srules)
         {
-
+            Intent i = new Intent(MainActivity.this,Rules.class);
+            startActivity(i);
         }
 
         else if(id==R.id.snotification)

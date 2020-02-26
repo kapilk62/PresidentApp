@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "969239024526-juqn8h695ebogoo3bgtbb2e0o26j4usn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.presidentapp",
+            "certificate_hash": "d8989dd4b943bcfa50dd59acec6f4116d3e64171"
+          }
+        },
+        {
           "client_id": "969239024526-jfehic47solinkjgemi9t7ll403pvle1.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
