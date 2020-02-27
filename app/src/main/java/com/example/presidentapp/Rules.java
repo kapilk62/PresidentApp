@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -103,6 +104,7 @@ public class Rules extends AppCompatActivity{
 
         final EditText editTextRule = (EditText) dialogView.findViewById(R.id.update_rule_edit_txt);
         final Button buttonUpdate = dialogView.findViewById(R.id.update_rule_btn);
+        final Button buttonDelete = dialogView.findViewById(R.id.delete_rule_btn);
 
         dialogBuilder.setTitle("Updating rule: "+rule);
 
@@ -121,11 +123,23 @@ public class Rules extends AppCompatActivity{
                 }
                 updateRule(ruleId,rule);
                 alertDialog.dismiss();
-
+            }
+        });
+        buttonDelete.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                deleteRule(ruleId);
             }
         });
 
 
+    }
+
+    private void deleteRule(String ruleId) {
+        DatabaseReference drRule = FirebaseDatabase.getInstance().getReference("rules").child(ruleId);
+        drRule.removeValue();
+
+        Toast.makeText(this, "Rule is deleted", Toast.LENGTH_LONG).show();
     }
 
     private boolean updateRule(String id, String rule){
