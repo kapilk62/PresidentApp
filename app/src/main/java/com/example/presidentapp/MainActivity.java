@@ -77,7 +77,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(id==R.id.sprofile)
         {
-
+            Intent i = new Intent(MainActivity.this,Profile.class);
+            startActivity(i);
         }
 
         else if(id==R.id.sdashboard)
