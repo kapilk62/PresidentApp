@@ -129,6 +129,7 @@ public class Rules extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 deleteRule(ruleId);
+                alertDialog.dismiss();
             }
         });
 
