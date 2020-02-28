@@ -3,12 +3,16 @@ package com.example.presidentapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -36,12 +40,25 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
         mEmail = findViewById(R.id.emailid);
         mPassword = findViewById(R.id.paswd);
         mRegisterhere=findViewById(R.id.createtext);
         fAuth=FirebaseAuth.getInstance();
 
+        //Already login check logic
+
+        if (fAuth.getCurrentUser() != null) {
+
+            Toast.makeText(LoginActivity.this, "Already Logged In",
+                    Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
+
+        }
+
+        //login logic
         mLoginbutton = findViewById(R.id.loginbutton);
         mForgothere=findViewById(R.id.forgotpaswd);
 
@@ -72,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            finish();
 
                         }
                         else {
