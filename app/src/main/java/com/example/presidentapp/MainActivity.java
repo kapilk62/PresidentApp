@@ -81,10 +81,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(i);
         }
 
-        else if(id==R.id.sdashboard)
-        {
-
-        }
 
         else if(id==R.id.smy_bills)
         {
