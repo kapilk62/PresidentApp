@@ -9,7 +9,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <style name="TextAppearance.App.Button" parent="TextAppearance.MaterialComponents.Button">
-        <item name="fontFamily">@font/rubik</item>
+        <item name="fontFamily">@font/alike_angular</item>
         <item name="android:fontFamily">@font/alike_angular</item>
         <item name="android:backgroundTint">@color/lightblue</item>
     </style>
