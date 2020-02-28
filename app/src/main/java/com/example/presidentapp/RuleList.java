@@ -34,7 +34,7 @@ public class RuleList extends ArrayAdapter<Rule>{
 
         Rule rule = ruleList.get(position);
 
-        textViewrule.setText(rule.getRule());
+        textViewrule.setText("➡ "+rule.getRule());
 
         return listViewItem;
     }
