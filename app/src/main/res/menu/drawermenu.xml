@@ -2,7 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/sprofile" android:title="Profile" android:icon="@drawable/ic_profile"/>
-    <item android:id="@+id/sdashboard" android:title="DashBoard" android:icon="@drawable/ic_dashboard_black_24dp"/>
     <item android:id="@+id/smy_bills" android:title="My Bills" android:icon="@drawable/ic_mybills"/>
     <item android:id="@+id/semergency_number" android:title="Emergency Number" android:icon="@drawable/ic_emergency"/>
     <item android:id="@+id/sevents" android:title="Events" android:icon="@drawable/ic_event_black_24dp"/>
