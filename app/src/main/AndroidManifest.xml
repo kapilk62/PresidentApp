@@ -21,15 +21,15 @@
         <activity android:name=".Society_Fund" />
         <activity android:name=".Members" />
         <activity android:name=".Bills" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".MainActivity" android:launchMode="standard" />
+        <activity android:name=".LoginActivity" android:theme="@style/Theme.AppCompat.NoActionBar" android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".RegisterActivity" android:theme="@style/Theme.AppCompat.NoActionBar" android:launchMode="singleTask"/>
 
         <meta-data
             android:name="preloaded_fonts"
