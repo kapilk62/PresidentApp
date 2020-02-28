@@ -1,18 +1,23 @@
 package com.example.presidentapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.solver.widgets.Snapshot;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -52,6 +57,16 @@ public class Rules extends AppCompatActivity{
                 editTextRule.setText(null);
             }
         });
+
+        listViewRules.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Rule rule = ruleList.get(position);
+
+                showupdatedialog(rule.getRuleId(),rule.getRule());
+                return false;
+            }
+        });
     }
 
     @Override
@@ -80,13 +95,70 @@ public class Rules extends AppCompatActivity{
         });
     }
 
+    private void showupdatedialog(final String ruleId, String rule){
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+
+        LayoutInflater inflater = getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.update_rule_dialog, null);
+        dialogBuilder.setView(dialogView);
+
+        final EditText editTextRule = (EditText) dialogView.findViewById(R.id.update_rule_edit_txt);
+        final Button buttonUpdate = dialogView.findViewById(R.id.update_rule_btn);
+        final Button buttonDelete = dialogView.findViewById(R.id.delete_rule_btn);
+
+        dialogBuilder.setTitle("Updating rule: "+rule);
+
+        final AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog.show();
+
+
+        buttonUpdate.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                String rule = editTextRule.getText().toString().trim();
+
+                if(TextUtils.isEmpty(rule)){
+                    editTextRule.setError("Rule required");
+                    return;
+                }
+                updateRule(ruleId,rule);
+                alertDialog.dismiss();
+            }
+        });
+        buttonDelete.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                deleteRule(ruleId);
+                alertDialog.dismiss();
+            }
+        });
+
+
+    }
+
+    private void deleteRule(String ruleId) {
+        DatabaseReference drRule = FirebaseDatabase.getInstance().getReference("rules").child(ruleId);
+        drRule.removeValue();
+
+        Toast.makeText(this, "Rule is deleted", Toast.LENGTH_LONG).show();
+    }
+
+    private boolean updateRule(String id, String rule){
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("rules").child(id);
+        Rule rule1 = new Rule(id, rule);
+        databaseReference.setValue(rule1);
+        Toast.makeText(this, "Rule Updated", Toast.LENGTH_LONG).show();
+        return true;
+    }
+
     private void addRule(){
+
         String rule =  editTextRule.getText().toString().trim();
 
         if(!TextUtils.isEmpty(rule)){
-               String id = databaseRule.push().getKey();
-               Rule rule1 = new Rule(rule);
-               databaseRule.child(id).setValue(rule1);
+               String ruleId = databaseRule.push().getKey();
+               Rule rule1 = new Rule(ruleId, rule);
+               databaseRule.child(ruleId).setValue(rule1);
                Toast.makeText(this,"Rule added",Toast.LENGTH_LONG).show();
         }else{
             Toast.makeText(this, "You should enter the rule", Toast.LENGTH_LONG).show();
