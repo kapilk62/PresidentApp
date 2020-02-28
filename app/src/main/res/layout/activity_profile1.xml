@@ -90,13 +90,12 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-
-
     <Button
         android:id="@+id/updateprofile_btn"
-        android:layout_width="368dp"
-        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="31dp"
+        android:layout_margin="30dp"
         android:text="Update Profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
