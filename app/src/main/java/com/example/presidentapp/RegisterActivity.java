@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
     EditText mFirstname,mLastname,mEmail,mPassword,mMobileno;
@@ -56,11 +57,11 @@ public class RegisterActivity extends AppCompatActivity {
         mRegisterbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email=mEmail.getText().toString().trim();
+                final String email=mEmail.getText().toString().trim();
                 String password=mPassword.getText().toString().trim();
-                String fname=mFirstname.getText().toString().trim();
-                String lname=mLastname.getText().toString().trim();
-                String m_no=mMobileno.getText().toString().trim();
+                final String fname=mFirstname.getText().toString().trim();
+                final String lname=mLastname.getText().toString().trim();
+                final String m_no=mMobileno.getText().toString().trim();
 
                 if(TextUtils.isEmpty(email)){
                     mEmail.setError("Email is Required");
@@ -100,7 +101,22 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-
+                            User userm = new User(
+                                    fname,
+                                    lname,
+                                    email,
+                                    m_no
+                            );
+                            FirebaseDatabase.getInstance().getReference("Users")
+                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                            .setValue(userm).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                 if(task.isSuccessful()) {
+                                     Toast.makeText(RegisterActivity.this, "User is Created vishal", Toast.LENGTH_SHORT).show();
+                                 }else {}
+                                }
+                            });
                             FirebaseUser user=fAuth.getCurrentUser();
                             user.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
@@ -136,5 +152,14 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (fAuth.getCurrentUser()!=null){
+            //login user
+
+        }
     }
 }
