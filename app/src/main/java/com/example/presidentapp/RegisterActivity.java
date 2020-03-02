@@ -113,8 +113,10 @@ public class RegisterActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                  if(task.isSuccessful()) {
-                                     Toast.makeText(RegisterActivity.this, "User is Created vishal", Toast.LENGTH_SHORT).show();
-                                 }else {}
+                                     Toast.makeText(RegisterActivity.this, "User is Created", Toast.LENGTH_SHORT).show();
+                                 }else {
+                                     Toast.makeText(RegisterActivity.this, "Error !"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                 }
                                 }
                             });
                             FirebaseUser user=fAuth.getCurrentUser();
