@@ -20,7 +20,7 @@
         app:helperText="Eg.:-No Smoking in garden area !"
         app:helperTextTextColor="@color/lightblue"
         app:counterEnabled="true"
-        app:counterMaxLength="50"
+        app:counterMaxLength="100"
         app:startIconDrawable="@drawable/ic_rate_review_black_24dp"
         app:startIconTint="@color/lightblue">
 
@@ -28,7 +28,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/add_rule_txtfld"
             android:textColor="@color/white"
-            android:maxLength="50"
+            android:maxLength="100"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

@@ -11,25 +11,56 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Profile" android:label="Profile"></activity>
-        <activity android:name=".Rules" android:label="Rules" />
-        <activity android:name=".Gate_Keeper" android:label="Gate_Keeper"/>
-        <activity android:name=".Vehicles" android:label="Vehicles"/>
-        <activity android:name=".Complaints" android:label="Complaints"/>
-        <activity android:name=".My_Building" android:label="My_Building"/>
-        <activity android:name=".Emergency_Number" android:label="Emergency_Number"/>
-        <activity android:name=".Society_Fund" android:label="Society_Fund"/>
-        <activity android:name=".Members" android:label="Members"/>
-        <activity android:name=".Bills" android:label="Bills"/>
-        <activity android:name=".MainActivity" android:launchMode="standard" android:label="Dashboard" />
-        <activity android:name=".LoginActivity" android:theme="@style/Theme.AppCompat.NoActionBar" android:launchMode="singleTask">
+        <activity android:name=".Add_event"></activity>
+        <activity android:name=".Event" />
+        <activity
+            android:name=".Profile"
+            android:label="Profile" />
+        <activity
+            android:name=".Rules"
+            android:label="Rules" />
+        <activity
+            android:name=".Gate_Keeper"
+            android:label="Gate_Keeper" />
+        <activity
+            android:name=".Vehicles"
+            android:label="Vehicles" />
+        <activity
+            android:name=".Complaints"
+            android:label="Complaints" />
+        <activity
+            android:name=".My_Building"
+            android:label="My_Building" />
+        <activity
+            android:name=".Emergency_Number"
+            android:label="Emergency_Number" />
+        <activity
+            android:name=".Society_Fund"
+            android:label="Society_Fund" />
+        <activity
+            android:name=".Members"
+            android:label="Members" />
+        <activity
+            android:name=".Bills"
+            android:label="Bills" />
+        <activity
+            android:name=".MainActivity"
+            android:label="Dashboard"
+            android:launchMode="standard" />
+        <activity
+            android:name=".LoginActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" android:theme="@style/Theme.AppCompat.NoActionBar" android:launchMode="singleTask"/>
+        <activity
+            android:name=".RegisterActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
 
         <meta-data
             android:name="preloaded_fonts"
