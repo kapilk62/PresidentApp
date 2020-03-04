@@ -96,15 +96,12 @@ public class Event extends AppCompatActivity{
         final TextInputEditText editTextEventname = dialogView.findViewById(R.id.update_event_name_txt_fld);
         final TextInputEditText editTextEventdescription = dialogView.findViewById(R.id.update_event_description_txt_fld);
 
-        final TextInputEditText editTextdate = dialogView.findViewById(R.id.update_in_date);
 
-        final TextInputEditText editTexttime = dialogView.findViewById(R.id.update_in_time);
 
         final Button buttonUpdate = dialogView.findViewById(R.id.update_event_btn);
         final Button buttonDelete = dialogView.findViewById(R.id.delete_event_btn);
 
-        final Button btnDatePicker = (Button) findViewById(R.id.update_btn_date);
-        final Button btnTimePicker = (Button) findViewById(R.id.update_btn_time);
+
         dialogBuilder.setTitle("Updating event: " + eventName);
 
         final Button btnEventShow;
@@ -118,8 +115,6 @@ public class Event extends AppCompatActivity{
             public void onClick(View v) {
                 String eventName = editTextEventname.getText().toString().trim();
                 String eventDescription = editTextEventdescription.getText().toString().trim();
-                String eventDate = editTextdate.getText().toString().trim();
-                String eventTime = editTexttime.getText().toString().trim();
 
                 if (TextUtils.isEmpty(eventName)) {
                     editTextEventname.setError("Event name required");
@@ -148,7 +143,7 @@ public class Event extends AppCompatActivity{
                 alertDialog.dismiss();
             }
         });
-        
+
     }
 
     private void deleteEvent(String eventId) {
