@@ -1,9 +1,9 @@
 package com.example.presidentapp;
 
 public class User {
-    public String first_name, last_name , email, mobile_number ;
+    String first_name, last_name , email, mobile_number ;
 
-    public User (){ }
+    public User(){ }
 
     public User(String first_name, String last_name, String email,String mobile_number) {
         this.first_name = first_name;
