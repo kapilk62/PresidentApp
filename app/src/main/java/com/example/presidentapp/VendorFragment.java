@@ -1,5 +1,7 @@
 package com.example.presidentapp;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 /**
@@ -23,7 +27,29 @@ public class VendorFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    Activity context;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        context=getActivity();
+        //Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_vendor, container, false);
+    }
 
+    public void onStart(){
+        super.onStart();
+        FloatingActionButton bt=(FloatingActionButton) context.findViewById(R.id.Vendor_floatingActionButton);
+        bt.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+
+                //create an Intent object
+                Intent intent=new Intent(context, VendorForm.class);
+                //add data to the Intent object
+                startActivity(intent);
+            }
+
+        });
+    }
     public VendorFragment() {
         // Required empty public constructor
     }
@@ -55,10 +81,4 @@ public class VendorFragment extends Fragment {
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_vendor, container, false);
-    }
 }

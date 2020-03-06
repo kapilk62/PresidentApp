@@ -11,9 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".VendorForm"></activity>
         <activity android:name=".Add_event" />
         <activity android:name=".Event" />
-        <activity android:name=".EmergencyForm"></activity>
+        <activity android:name=".EmergencyForm" />
         <activity android:name=".ContactsActivity" />
         <activity
             android:name=".Profile"

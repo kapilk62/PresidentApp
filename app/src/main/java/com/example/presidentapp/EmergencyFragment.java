@@ -39,7 +39,7 @@ public class EmergencyFragment extends Fragment {
 
     public void onStart(){
         super.onStart();
-        FloatingActionButton bt=(FloatingActionButton) context.findViewById(R.id.floatingActionButton);
+        FloatingActionButton bt=(FloatingActionButton) context.findViewById(R.id.Emergency_floatingActionButton);
         bt.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 
