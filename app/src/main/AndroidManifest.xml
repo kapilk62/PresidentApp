@@ -3,7 +3,6 @@
     package="com.example.presidentapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Add_event" />
+        <activity android:name=".Event" />
         <activity android:name=".EmergencyForm"></activity>
         <activity android:name=".ContactsActivity" />
         <activity
@@ -46,6 +47,7 @@
             android:label="Bills" />
         <activity
             android:name=".MainActivity"
+            android:label="Dashboard"
             android:launchMode="standard" />
         <activity
             android:name=".LoginActivity"

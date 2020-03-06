@@ -94,7 +94,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         else if(id==R.id.sevents)
         {
-
+            Intent i = new Intent(MainActivity.this,Event.class);
+            startActivity(i);
         }
 
         else if (id==R.id.scomplaints){
