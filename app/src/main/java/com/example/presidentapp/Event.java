@@ -35,7 +35,7 @@ public class Event extends AppCompatActivity{
 
     FloatingActionButton btnAddEvent;
     ListView listViewEvents;
-    DatabaseReference databaseEvent;;
+    DatabaseReference databaseEvent;
     List<EventModel> eventModelList;
 
 
@@ -137,7 +137,7 @@ public class Event extends AppCompatActivity{
                     editTextEventname.setError("Event name required");
                     return;
                 }*/
-                updateRule(eventId, eventName, eventDescription, eventDate, eventTime);
+                updateEvent(eventId, eventName, eventDescription, eventDate, eventTime);
                 alertDialog.dismiss();
             }
         });
@@ -158,7 +158,7 @@ public class Event extends AppCompatActivity{
         Toast.makeText(this, "event is deleted", Toast.LENGTH_LONG).show();
     }
 
-    private boolean updateRule(String eventId, String eventName, String eventDescription, String eventDate, String eventTime){
+    private boolean updateEvent(String eventId, String eventName, String eventDescription, String eventDate, String eventTime){
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Events").child(eventId);
         EventModel eventModel = new EventModel(eventId, eventName, eventDescription, eventDate, eventTime);
         databaseReference.setValue(eventModel);
