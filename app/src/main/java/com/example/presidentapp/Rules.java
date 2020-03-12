@@ -67,6 +67,7 @@ public class Rules extends AppCompatActivity{
                 return false;
             }
         });
+
     }
 
     @Override
