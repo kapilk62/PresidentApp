@@ -1,15 +1,20 @@
 package com.example.presidentapp;
 
 public class User {
-    public String first_name, last_name , email, mobile_number ;
+    public String userId,first_name, last_name , email, mobile_number ;
 
     public User (){ }
 
-    public User(String first_name, String last_name, String email,String mobile_number) {
+    public User( String first_name, String last_name, String email,String mobile_number) {
+        //this.userId = userId;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.mobile_number = mobile_number;
+    }
+
+    public String getUserId() {
+        return userId;
     }
 
     public String getFirst_name() {

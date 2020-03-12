@@ -101,14 +101,15 @@ public class Event extends AppCompatActivity{
         final Button buttonUpdate = dialogView.findViewById(R.id.update_event_btn);
         final Button buttonDelete = dialogView.findViewById(R.id.delete_event_btn);
 
-
+        EventModel eventModel = new EventModel();
         dialogBuilder.setTitle("Updating event: " + eventName);
 
         final Button btnEventShow;
 
         final AlertDialog alertDialog = dialogBuilder.create();
-        alertDialog.show();
 
+        alertDialog.show();
+        editTextEventname.setText(eventModel.getEventName());
 
         buttonUpdate.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -133,6 +134,7 @@ public class Event extends AppCompatActivity{
                     return;
                 }*/
                 updateRule(eventId, eventName, eventDescription, eventDate, eventTime);
+
                 alertDialog.dismiss();
             }
         });
