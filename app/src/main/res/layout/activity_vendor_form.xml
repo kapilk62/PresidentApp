@@ -105,9 +105,10 @@
         android:layout_width="362dp"
         android:layout_height="39dp"
 
+        android:entries="@array/vendorcategory"
         android:outlineAmbientShadowColor="@color/gray"
-        android:outlineSpotShadowColor="@color/gray"
 
+        android:outlineSpotShadowColor="@color/gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

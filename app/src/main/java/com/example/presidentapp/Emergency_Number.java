@@ -11,15 +11,21 @@ import com.google.android.material.tabs.TabLayout;
 
 public class Emergency_Number extends AppCompatActivity {
 
+    TabItem tabEmergency;
+    TabItem tabVendor;
+    TabLayout tablayout;
+    ViewPager viewpager;
+    PageAdapter pageAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emergency__number);
-        TabLayout tablayout = findViewById(R.id.tabLayout);
-        TabItem tabemergency = findViewById(R.id.Emergencytab);
-        TabItem tabvendor = findViewById(R.id.Vendortab);
-        ViewPager viewpager = findViewById(R.id.viewPager);
-        PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager(), tablayout.getTabCount());
+        tablayout = findViewById(R.id.tabLayout);
+        tabEmergency = findViewById(R.id.Emergencytab);
+        tabVendor = findViewById(R.id.Vendortab);
+        viewpager = findViewById(R.id.viewPager);
+        pageAdapter = new PageAdapter(getSupportFragmentManager(), tablayout.getTabCount());
         viewpager.setAdapter(pageAdapter);
         viewpager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tablayout));
 

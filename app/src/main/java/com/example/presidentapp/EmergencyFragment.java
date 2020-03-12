@@ -28,7 +28,7 @@ public class EmergencyFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    Activity context;
+    private Activity context;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -39,10 +39,10 @@ public class EmergencyFragment extends Fragment {
 
     public void onStart(){
         super.onStart();
-        FloatingActionButton bt=(FloatingActionButton) context.findViewById(R.id.Emergency_floatingActionButton);
+        FloatingActionButton bt= context.findViewById(R.id.Emergency_floatingActionButton);
         bt.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                
+
                 //create an Intent object
                 Intent intent=new Intent(context, EmergencyForm.class);
                 //add data to the Intent object
