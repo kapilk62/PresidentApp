@@ -21,12 +21,14 @@
             android:id="@+id/Emergencytab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clickable="true"
             android:text="Emergency" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/Vendortab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clickable="true"
             android:text="Vendors" />
 
 
