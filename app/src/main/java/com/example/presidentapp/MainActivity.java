@@ -9,7 +9,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
@@ -89,7 +88,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         else if(id==R.id.semergency_number)
         {
-
+            Intent i = new Intent(MainActivity.this, Emergency_Number.class);
+            startActivity(i);
         }
 
         else if(id==R.id.sevents)
@@ -153,7 +153,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         else if(id==R.id.scontact_us)
         {
-
+            Intent i = new Intent(MainActivity.this, ContactsActivity.class);
+            startActivity(i);
         }
 
         DrawerLayout drawer1 =findViewById(R.id.drawer);
