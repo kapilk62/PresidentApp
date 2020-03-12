@@ -8,16 +8,6 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
-        android:text="@string/hello_blank_fragment"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/Emergency_floatingActionButton"
@@ -26,14 +16,19 @@
         android:layout_marginBottom="56dp"
         android:clickable="true"
         android:backgroundTint="@color/lightblue"
-        android:onClick=""
         android:src="@android:drawable/ic_input_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.89"
         app:layout_constraintStart_toStartOf="parent" />
 
-
+    <ListView
+        android:id="@+id/listViewEmergencyNumber"
+        android:layout_width="409dp"
+        android:layout_height="492dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="128dp"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
