@@ -2,6 +2,8 @@ package com.example.presidentapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
+
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
@@ -40,6 +42,8 @@ public class Profile extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile1);
@@ -98,6 +102,17 @@ public class Profile extends AppCompatActivity{
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private boolean updateprofile(String FirstName, String LastName, String Email , String MobileNumber){
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseAuth.getUid());
         User user = new User(FirstName, LastName, Email, MobileNumber);
@@ -105,7 +120,6 @@ public class Profile extends AppCompatActivity{
         Toast.makeText(this, "Profile Updated", Toast.LENGTH_LONG).show();
         return true;
     }
-
 }
 
 
