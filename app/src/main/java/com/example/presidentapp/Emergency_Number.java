@@ -11,11 +11,10 @@ import com.google.android.material.tabs.TabLayout;
 
 public class Emergency_Number extends AppCompatActivity {
 
-    TabItem tabEmergency;
-    TabItem tabVendor;
-    TabLayout tablayout;
-    ViewPager viewpager;
-    PageAdapter pageAdapter;
+    private TabItem tabEmergency,tabVendor;
+    private TabLayout tablayout;
+    private ViewPager viewpager;
+    private PageAdapter pageAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,31 @@ public class Emergency_Number extends AppCompatActivity {
         viewpager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tablayout));
 
 
+    tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        @Override
+        public void onTabSelected(TabLayout.Tab tab) {
+            viewpager.setCurrentItem(tab.getPosition());
+            if (tab.getPosition()==0) {
+                pageAdapter.notifyDataSetChanged();
+            }
+               else if (tab.getPosition() == 1) {
+                    pageAdapter.notifyDataSetChanged();
+                }
 
+        }
+
+        @Override
+        public void onTabUnselected(TabLayout.Tab tab) {
+
+        }
+
+        @Override
+        public void onTabReselected(TabLayout.Tab tab) {
+
+        }
+    });
+
+    viewpager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tablayout));
     }
 
 }

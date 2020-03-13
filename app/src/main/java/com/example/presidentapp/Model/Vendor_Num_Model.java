@@ -5,10 +5,17 @@ public class Vendor_Num_Model {
     String vendorName;
     String vendorNumber;
     String vendorAddress;
-    String VendorCategory;
+    String vendorCategory;
 
-    public Vendor_Num_Model()
+    public Vendor_Num_Model(){};
+
+    public Vendor_Num_Model(String vendorNumberid, String vendorName, String vendorNumber,String vendorAddress,String vendorCategory)
     {
+        this.vendorAddress = vendorAddress;
+        this.vendorName = vendorName;
+        this.vendorNumber = vendorNumber;
+        this.vendorNumberid=vendorNumberid;
+        this.vendorCategory=vendorCategory;
 
     };
 
@@ -29,7 +36,7 @@ public class Vendor_Num_Model {
     }
 
     public String getVendorCategory() {
-        return VendorCategory;
+        return vendorCategory;
     }
 
 
