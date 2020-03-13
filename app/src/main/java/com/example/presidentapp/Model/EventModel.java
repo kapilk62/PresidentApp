@@ -1,4 +1,4 @@
-package com.example.presidentapp;
+package com.example.presidentapp.Model;
 
 public class EventModel{
 
