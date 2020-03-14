@@ -61,10 +61,11 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/EmerSubmitBtn"
+        android:id="@+id/VendorSubmitBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Button"
+        style="@style/TextAppearance.App.Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
@@ -101,12 +102,18 @@
 
     <Spinner
         android:id="@+id/VendorSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="-4dp"
-        android:outlineAmbientShadowColor="@color/lightblue"
+        android:layout_width="362dp"
+        android:layout_height="39dp"
+
+        android:entries="@array/vendorcategory"
+        android:outlineAmbientShadowColor="@color/gray"
+
         android:outlineSpotShadowColor="@color/gray"
-        tools:layout_editor_absoluteY="527dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
+        app:layout_constraintVertical_bias="0.193" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewVendorName"
+        android:layout_width="205dp"
+        android:layout_height="57dp"
+        android:text="TextView"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/textViewVendorCategory"
+        android:layout_width="203dp"
+        android:layout_height="34dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textViewVendorNumber"
+        android:layout_width="201dp"
+        android:layout_height="30dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textViewVendorAddress"
+        android:layout_width="203dp"
+        android:layout_height="30dp"
+        android:text="TextView" />
+
+</LinearLayout>

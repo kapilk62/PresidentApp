@@ -9,4 +9,31 @@
     <item> BUILDING </item>
     <item> COMMERCIAL </item>
     </array>
+
+    <array name="vendorcategory">
+        <item> Banking Service </item>
+    <item> Car Service </item>
+    <item> Carpenter </item>
+    <item> CCTV Service </item>
+    <item> Civil Work </item>
+        <item> Electrician </item>
+        <item> Cleaning Service </item>
+        <item> Elevator Service </item>
+        <item> Gardener Service </item>
+        <item> Hardware Service </item>
+        <item> Gym Maintenance </item>
+        <item> LaundryService </item>
+        <item> Milk Supplier </item>
+        <item> Maid </item>
+        <item> Plumber </item>
+        <item> RO Service </item>
+        <item> Water Supplier </item>
+        <item> Municipal Corporation </item>
+        <item> Internet Service provider </item>
+        <item> Generator Service </item>
+        <item> Power Supplier </item>
+        <item> Event Planner </item>
+        <item> Driver Service </item>
+        <item> News Paper Supplier </item>
+    </array>
 </resources>
