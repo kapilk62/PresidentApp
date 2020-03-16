@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Create_New_Society">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp"
+            tools:context=".Create_New_Society">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="Building Details"
+                android:textColor="@color/lightblue"
+                android:textSize="40dp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="161dp"
+                tools:layout_editor_absoluteY="23dp"
+                tools:text="Building Details" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Building Type"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="bold"/>
+
+            <Spinner
+                android:id="@+id/building_type_spinner"
+                android:layout_width="372dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:entries="@array/BuildingType"
+                tools:layout_editor_absoluteX="1dp"
+                tools:layout_editor_absoluteY="76dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Building Name"
+                app:boxBackgroundColor="@color/white"
+                android:layout_marginTop="20dp"
+                app:helperTextEnabled="true"
+                app:startIconDrawable="@drawable/ic_business_black_24dp"
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/building_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Number of Wings"
+                app:boxBackgroundColor="@color/white"
+                android:layout_marginTop="20dp"
+                app:helperTextEnabled="true"
+                app:startIconDrawable="@drawable/wings"
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/building_wings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="State"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="bold"/>
+
+            <Spinner
+                android:id="@+id/building_state_spinner"
+                android:layout_width="372dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                tools:layout_editor_absoluteX="1dp"
+                tools:layout_editor_absoluteY="76dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="City"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="bold"/>
+
+            <Spinner
+                android:id="@+id/building_city_spinner"
+                android:layout_width="372dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                tools:layout_editor_absoluteX="1dp"
+                tools:layout_editor_absoluteY="76dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Building Address"
+                app:boxBackgroundColor="@color/white"
+                android:layout_marginTop="20dp"
+                app:helperTextEnabled="true"
+                app:startIconDrawable="@drawable/address"
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/building_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+
+                android:id="@+id/submit_new_society_button"
+                style="@style/TextAppearance.App.Button"
+                android:layout_width="201dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:text="Create New Society" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
