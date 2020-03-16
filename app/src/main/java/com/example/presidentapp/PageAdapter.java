@@ -1,5 +1,6 @@
 package com.example.presidentapp;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -13,10 +14,6 @@ public class PageAdapter extends FragmentPagerAdapter {
         this.numOfTabs = numOfTabs;
     }
 
-    public PageAdapter(FragmentManager fm) {
-        super(fm);
-    }
-
     @Override
     public Fragment getItem(int position) {
         switch (position) {
@@ -24,6 +21,7 @@ public class PageAdapter extends FragmentPagerAdapter {
                 return new EmergencyFragment();
             case 1:
                 return new VendorFragment();
+
             default:
                 return null;
         }
@@ -34,5 +32,8 @@ public class PageAdapter extends FragmentPagerAdapter {
         return numOfTabs;
     }
 
-
+    @Override
+    public int getItemPosition(@NonNull Object object) {
+        return POSITION_NONE;
+    }
 }

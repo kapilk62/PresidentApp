@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.presidentapp.Model.Rule;
+
 import java.util.List;
 
 public class RuleList extends ArrayAdapter<Rule>{

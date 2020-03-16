@@ -83,7 +83,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         else if(id==R.id.smy_bills)
         {
-
+            Intent i = new Intent(MainActivity.this,Join_Building_Page.class);
+            startActivity(i);
         }
 
         else if(id==R.id.semergency_number)
