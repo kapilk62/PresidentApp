@@ -11,7 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Join_Your_Building"></activity>
+        <activity android:name=".MyBuilding.MybuildngAddBank"></activity>
+        <activity android:name=".MyBuilding.MyBuildingDocuments" />
+        <activity android:name=".MyBuilding.MyBuildingBank" />
+        <activity android:name=".MyBuilding.MyBuildingStatistics" />
+        <activity android:name=".MyBuilding.MyBuildingInfo" />
+        <activity android:name=".MyBuilding.MyBuildingWings" />
+        <activity android:name=".Join_Your_Building" />
         <activity android:name=".Create_New_Society" />
         <activity android:name=".Join_Building_Page" />
         <activity

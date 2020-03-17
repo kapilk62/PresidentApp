@@ -1,9 +1,11 @@
 package com.example.presidentapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,14 +17,18 @@ import com.example.presidentapp.Model.CreateNewSocietyModel;
 import com.example.presidentapp.Model.EventModel;
 import com.example.presidentapp.Model.Rule;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.sql.Struct;
 import java.util.ArrayList;
 
 public class Create_New_Society extends AppCompatActivity{
-
+    private static final String TAG = "wings";
     Spinner sp_state, sp_city, sp_buildingtype;
     ArrayList<String> arrayList_parent;
     ArrayAdapter<String> arrayAdapter_parent;
@@ -33,6 +39,8 @@ public class Create_New_Society extends AppCompatActivity{
     Button btnCreateNewSociety;
     DatabaseReference databaseReferenceNewSociety;
     TextInputEditText buildingname, buildingwings, buildingaddress;
+    FirebaseAuth firebaseAuth;
+    FirebaseDatabase firebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +54,7 @@ public class Create_New_Society extends AppCompatActivity{
         buildingname = findViewById(R.id.building_name);
         buildingwings = findViewById(R.id.building_wings);
         buildingaddress = findViewById(R.id.building_address);
-        databaseReferenceNewSociety = FirebaseDatabase.getInstance().getReference("New Buildings1");
+        databaseReferenceNewSociety = FirebaseDatabase.getInstance().getReference("New Buildings");
 
         arrayList_parent = new ArrayList<>();
         arrayList_parent.add("Andhra Paresh");
@@ -55,6 +63,24 @@ public class Create_New_Society extends AppCompatActivity{
         arrayAdapter_parent = new ArrayAdapter<>(getApplication(),android.R.layout.simple_spinner_dropdown_item,arrayList_parent);
 
         sp_state.setAdapter(arrayAdapter_parent);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+
+        final DatabaseReference databaseReference = firebaseDatabase.getInstance().getReference("New Buildings").child("M2XQKEWMfXQFGydHcBA");
+        databaseReference.addValueEventListener(new ValueEventListener(){
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                CreateNewSocietyModel createNewSocietyModel = dataSnapshot.getValue(CreateNewSocietyModel.class);
+                String pic = dataSnapshot.child("buildingWings").getValue(String.class);
+                Log.d(TAG, "onDataChange: wing::"+pic);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(Create_New_Society.this, databaseError.getCode(),Toast.LENGTH_LONG).show();
+            }
+        });
 
         btnCreateNewSociety.setOnClickListener(new View.OnClickListener(){
             @Override

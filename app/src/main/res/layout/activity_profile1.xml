@@ -118,7 +118,7 @@
                 android:id="@+id/updateprofile_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="updateProfile"
+                style="@style/TextAppearance.App.Button"
                 android:text="Update Profile"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
