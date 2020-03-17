@@ -1,17 +1,13 @@
 package com.example.presidentapp;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-
 import com.example.presidentapp.Adapter.Emergency_number_adapter;
 import com.example.presidentapp.Model.Emergency_Num_Model;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -20,7 +16,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +49,6 @@ public class EmergencyFragment extends Fragment {
         EmergencyNumberList = new ArrayList<>();
         //Inflate the layout for this fragment
         return v;
-
     }
 
     public void onStart(){

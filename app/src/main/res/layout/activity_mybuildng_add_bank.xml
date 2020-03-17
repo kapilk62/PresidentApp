@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_centerHorizontal="true"
+    android:padding="15dp">
+
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Bank Name*"
+        app:boxBackgroundColor="@color/white"
+        app:helperTextEnabled="true"
+        app:startIconDrawable="@drawable/bank"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/bank_name_txt_fld"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="UPI Id(optional)"
+        app:boxBackgroundColor="@color/white"
+        app:helperTextEnabled="true"
+        app:startIconDrawable="@drawable/ic_upiid"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/upi_id_txt_fld"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Account Name(optional)"
+        app:boxBackgroundColor="@color/white"
+        app:helperTextEnabled="true"
+        app:startIconDrawable="@drawable/ic_account_name"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/account_name_txt_fld"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Account Number(optional)"
+        app:boxBackgroundColor="@color/white"
+        app:helperTextEnabled="true"
+        app:startIconDrawable="@drawable/ic_account_number"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/account_number_txt_fld"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="time">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="IFSC Code(optional)"
+        app:boxBackgroundColor="@color/white"
+        app:helperTextEnabled="true"
+        app:startIconDrawable="@drawable/ic_ifsccode"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ifsc_code_txt_fld"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Address(optional)"
+        app:boxBackgroundColor="@color/white"
+        app:helperTextEnabled="true"
+        app:startIconDrawable="@drawable/address"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/address_txt_fld"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/add_event_button_show"
+        style="@style/TextAppearance.App.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:layout_marginTop="15dp"
+        android:hint="Add Bank"
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+</LinearLayout>
