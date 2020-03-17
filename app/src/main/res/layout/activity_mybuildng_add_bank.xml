@@ -56,8 +56,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/account_name_txt_fld"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="date">
+            android:layout_height="wrap_content">
 
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
@@ -77,7 +76,7 @@
             android:id="@+id/account_number_txt_fld"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="time">
+            android:inputType="number">
 
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
@@ -95,8 +94,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ifsc_code_txt_fld"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="date">
+            android:layout_height="wrap_content">
 
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
@@ -112,16 +110,15 @@
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/address_txt_fld"
+            android:id="@+id/bank_address_txt_fld"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="date">
+            android:layout_height="wrap_content">
 
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/add_event_button_show"
+        android:id="@+id/add_bank_button"
         style="@style/TextAppearance.App.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -129,6 +126,7 @@
         android:layout_margin="15dp"
         android:layout_marginTop="15dp"
         android:hint="Add Bank"
+        android:onClick="AddBankDetails"
         android:padding="15dp"
         android:textColor="@color/black"
         android:textSize="20dp" />

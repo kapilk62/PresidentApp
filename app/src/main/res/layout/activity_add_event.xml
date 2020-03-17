@@ -103,7 +103,7 @@
         android:layout_alignStart="@+id/btn_date" />
 
     <Button
-        android:id="@+id/add_event_button_show"
+        android:id="@+id/add_bank_button"
         style="@style/TextAppearance.App.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
