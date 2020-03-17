@@ -977,37 +977,37 @@ public class Create_New_Society extends AppCompatActivity{
                 if(position==23){
                     arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Nagaland);
                 }
-                if(position==23){
+                if(position==24){
                     arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Odisha);
                 }
-                if(position==24){
+                if(position==25){
                     arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Puducherry);
                 }
-                if(position==25){
+                if(position==26){
                     arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Punjab);
                 }
-                if(position==26){
+                if(position==27){
                     arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Rajasthan);
                 }
-                if(position==27){
+                if(position==28){
                     arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Sikkim);
                 }
-                if(position==28){
+                if(position==29){
                     arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_TamilNadu);
                 }
-                if(position==29){
+                if(position==30){
                     arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Telangana);
                 }
-                if(position==30){
+                if(position==31){
                     arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Tripura);
                 }
-                if(position==31){
+                if(position==32){
                     arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Uttarakhand);
                 }
-                if(position==32){
+                if(position==33){
                     arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_UttarPradesh);
                 }
-                if(position==33){
+                if(position==34){
                     arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_WestBengal);
                 }
                 sp_city.setAdapter(arrayAdapter_child);
