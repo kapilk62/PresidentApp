@@ -42,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.043" />
 
-    <EditText
+    <!--<EditText
         android:id="@+id/paswd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -59,7 +59,23 @@
         app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailid"
-        app:layout_constraintVertical_bias="0.039" />
+        app:layout_constraintVertical_bias="0.039" />-->
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="First Name"
+        app:boxBackgroundColor="@color/white"
+        app:helperTextEnabled="true"
+        app:startIconDrawable="@drawable/ic_profile"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/firstname_txt_fld"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/loginbutton"
