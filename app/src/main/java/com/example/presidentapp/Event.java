@@ -55,7 +55,6 @@ public class Event extends AppCompatActivity{
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 EventModel eventModel = eventModelList.get(position);
-
                 showupdatedialog(eventModel.getEventId(),eventModel.getEventName(),eventModel.getEventDescription(),eventModel.getEventDate(),eventModel.getEventTime());
                 return false;
             }
