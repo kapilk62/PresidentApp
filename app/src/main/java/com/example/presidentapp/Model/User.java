@@ -1,4 +1,4 @@
-package com.example.presidentapp;
+package com.example.presidentapp.Model;
 
 public class User {
     String first_name, last_name , email, mobile_number ;
