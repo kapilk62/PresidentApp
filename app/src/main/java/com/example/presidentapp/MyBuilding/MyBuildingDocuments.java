@@ -5,12 +5,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -49,14 +51,17 @@ public class MyBuildingDocuments extends AppCompatActivity implements View.OnCli
         btnUpload.setOnClickListener(this);
     }
 
-
+    private  String getExtension(Uri uri){
+        ContentResolver contentResolver = getContentResolver();
+        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+        return mimeTypeMap.getMimeTypeFromExtension(contentResolver.getType(uri));
+    }
     private void uploadFile() {
-
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Uploading...");
         progressDialog.show();
         if (filepath != null) {
-            StorageReference riversRef = mStorageRef.child("images/rivers.jpg");
+            StorageReference riversRef = mStorageRef.child(System.currentTimeMillis()+"."+getExtension(filepath));
             riversRef.putFile(filepath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override

@@ -6,27 +6,58 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MyBuilding.MyBuildingInfo">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Building Name"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/lightblue">
+    </TextView>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:id="@+id/textViewbuildingname"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
     </TextView>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="gvrfcf"
+        android:text="Mobile Number"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/lightblue">
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:textColor="@color/black"
+        android:textStyle="bold"
         android:id="@+id/textViewbuildingmobilenumber"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
     </TextView>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Building Address"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/lightblue">
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:id="@+id/textViewbuildingaddress"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
     </TextView>
 </LinearLayout>
