@@ -7,6 +7,7 @@ import androidx.core.app.NavUtils;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -55,11 +56,14 @@ public class Profile extends AppCompatActivity{
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
-
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Loading...");
+        progressDialog.show();
         DatabaseReference databaseReference = firebaseDatabase.getInstance().getReference("Users").child(firebaseAuth.getUid());
         databaseReference.addValueEventListener(new ValueEventListener(){
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                progressDialog.dismiss();
                 User user = dataSnapshot.getValue(User.class);
                 profileFirstName.setText(user.getFirst_name());
                 profileLastName.setText(user.getLast_name());
@@ -70,6 +74,7 @@ public class Profile extends AppCompatActivity{
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+                progressDialog.dismiss();
                 Toast.makeText(Profile.this, databaseError.getCode(),Toast.LENGTH_LONG).show();
             }
         });

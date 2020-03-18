@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,6 +46,8 @@ public class LoginActivity extends AppCompatActivity {
         mRegisterhere=findViewById(R.id.createtext);
         fAuth=FirebaseAuth.getInstance();
 
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Loading...");
         //Already login check logic
 
         if (fAuth.getCurrentUser() != null) {
@@ -65,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
         mLoginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String email=mEmail.getText().toString().trim();
                 String password=mPassword.getText().toString().trim();
 
@@ -81,18 +85,20 @@ public class LoginActivity extends AppCompatActivity {
                     mPassword.setError("Password must be 8 or more Characters");
                     return;
                 }
-
+                progressDialog.show();
                 fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if(task.isSuccessful()){
+                            progressDialog.dismiss();
                             Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
                             finish();
 
                         }
                         else {
+                            progressDialog.dismiss();
                             Toast.makeText(LoginActivity.this, "Check Details and Try Again !"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
 
