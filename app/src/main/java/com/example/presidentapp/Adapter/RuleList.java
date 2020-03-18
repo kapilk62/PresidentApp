@@ -1,4 +1,4 @@
-package com.example.presidentapp;
+package com.example.presidentapp.Adapter;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.presidentapp.Model.Rule;
+import com.example.presidentapp.R;
 
 import java.util.List;
 

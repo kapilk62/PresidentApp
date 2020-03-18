@@ -20,5 +20,13 @@
         app:layout_constraintHorizontal_bias="0.89"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <ListView
+        android:id="@+id/listviewbankdetails"
+        android:layout_width="409dp"
+        android:layout_height="619dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

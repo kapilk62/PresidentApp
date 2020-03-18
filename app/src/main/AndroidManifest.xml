@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyBuilding.MybuildngAddBank"></activity>
+        <activity android:name=".Adapter.Bank_Full_Details_adapter"></activity>
+        <activity android:name=".MyBuilding.MyBuildingShowBankDetails" />
+        <activity android:name=".MyBuilding.MybuildngAddBank" />
         <activity android:name=".MyBuilding.MyBuildingDocuments" />
         <activity android:name=".MyBuilding.MyBuildingBank" />
         <activity android:name=".MyBuilding.MyBuildingStatistics" />
