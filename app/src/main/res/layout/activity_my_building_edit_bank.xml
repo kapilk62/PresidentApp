@@ -14,14 +14,14 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Event Name"
+        android:hint="Bank Name*"
         app:boxBackgroundColor="@color/white"
         app:helperTextEnabled="true"
-        app:startIconDrawable="@drawable/ic_event_black_24dp"
+        app:startIconDrawable="@drawable/bank"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/event_name_txt_fld"
+            android:id="@+id/edit_bank_name_txt_fld"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -30,14 +30,14 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Add Description"
+        android:hint="UPI Id(optional)"
         app:boxBackgroundColor="@color/white"
         app:helperTextEnabled="true"
-        app:startIconDrawable="@drawable/ic_description"
+        app:startIconDrawable="@drawable/ic_upiid"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/event_description_txt_fld"
+            android:id="@+id/edit_upi_id_txt_fld"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"/>
@@ -47,70 +47,85 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Select Date"
+        android:hint="Account Name(optional)"
         app:boxBackgroundColor="@color/white"
         app:helperTextEnabled="true"
-        app:startIconDrawable="@drawable/ic_date_range"
+        app:startIconDrawable="@drawable/ic_account_name"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/in_date"
+            android:id="@+id/edit_account_name_txt_fld"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="date">
+            android:layout_height="wrap_content">
 
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
-
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SELECT DATE"
-        android:id="@+id/btn_date"
-        android:layout_alignBottom="@+id/in_date"
-        android:layout_toRightOf="@+id/in_date"
-        android:layout_toEndOf="@+id/in_date" />
 
 
     <com.google.android.material.textfield.TextInputLayout
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Select Time"
+        android:hint="Account Number(optional)"
         app:boxBackgroundColor="@color/white"
         app:helperTextEnabled="true"
-        app:startIconDrawable="@drawable/ic_time"
+        app:startIconDrawable="@drawable/ic_account_number"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/in_time"
+            android:id="@+id/edit_account_number_txt_fld"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="time">
+            android:inputType="number">
 
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
 
-    <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SELECT TIME"
-        android:id="@+id/btn_time"
-        android:layout_below="@+id/btn_date"
-        android:layout_alignLeft="@+id/btn_date"
-        android:layout_alignStart="@+id/btn_date" />
+        android:hint="IFSC Code(optional)"
+        app:boxBackgroundColor="@color/white"
+        app:helperTextEnabled="true"
+        app:startIconDrawable="@drawable/ic_ifsccode"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_ifsc_code_txt_fld"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Address(optional)"
+        app:boxBackgroundColor="@color/white"
+        app:helperTextEnabled="true"
+        app:startIconDrawable="@drawable/address"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_bank_address_txt_fld"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/add_bank_button"
+        android:id="@+id/edit_bank_button"
         style="@style/TextAppearance.App.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="15dp"
         android:layout_marginTop="15dp"
-        android:hint="Add Event"
+        android:hint="Update Bank"
         android:padding="15dp"
         android:textColor="@color/black"
         android:textSize="20dp" />

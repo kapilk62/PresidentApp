@@ -45,7 +45,7 @@ public class Add_event extends AppCompatActivity implements
         txtTime=findViewById(R.id.in_time);
         EventName=findViewById(R.id.event_name_txt_fld);
         EventDescription=findViewById(R.id.event_description_txt_fld);
-        btnEventShow=findViewById(R.id.add_event_button_show);
+        btnEventShow=findViewById(R.id.add_bank_button);
 
         btnDatePicker.setOnClickListener(this);
         btnTimePicker.setOnClickListener(this);
