@@ -64,5 +64,6 @@ public class MybuildngAddBank extends AppCompatActivity {
         }else{
             Toast.makeText(this, "You should enter the bank name", Toast.LENGTH_LONG).show();
         }
+
     }
 }

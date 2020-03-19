@@ -4,13 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.presidentapp.Adapter.Bank_Details_adapter;
-import com.example.presidentapp.Add_event;
-import com.example.presidentapp.Complaints;
-import com.example.presidentapp.Event;
-import com.example.presidentapp.EventList;
-import com.example.presidentapp.Model.EventModel;
 import com.example.presidentapp.Model.MyBuildingAddBankModel;
-import com.example.presidentapp.Model.Rule;
+import com.example.presidentapp.MyBuildingEditBank;
 import com.example.presidentapp.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -53,16 +48,15 @@ public class MyBuildingBank extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 MyBuildingAddBankModel myBuildingAddBankModel = bankdetailsmodellist.get(position);
                 Intent intent = new Intent(getApplicationContext(), MyBuildingShowBankDetails.class);
-
+                intent.putExtra("BankId",myBuildingAddBankModel.getAddbankId());
                 intent.putExtra("BANKNAME",myBuildingAddBankModel.getAddbankname());
                 intent.putExtra("BANKUPIID",myBuildingAddBankModel.getAddbankUPIId());
                 intent.putExtra("BANKACCOUNTNAME",myBuildingAddBankModel.getAddbankaccountname());
                 intent.putExtra("BANKACCOUNTNUMBER",myBuildingAddBankModel.getAddbankaccountnumber());
                 intent.putExtra("BANKIFSCCODE",myBuildingAddBankModel.getAddbankIFSCcode());
                 intent.putExtra("BANKADDRESS",myBuildingAddBankModel.getAddbankaddress());
-
                 startActivity(intent);
-                Log.d(TAG, "onItemClick: "+myBuildingAddBankModel.getAddbankIFSCcode());
+                Log.d(TAG, "onItemClick: "+myBuildingAddBankModel.getAddbankId());
                 openbankdetails(myBuildingAddBankModel.getAddbankname(),myBuildingAddBankModel.getAddbankUPIId(),myBuildingAddBankModel.getAddbankaccountname(),myBuildingAddBankModel.getAddbankaccountnumber(),myBuildingAddBankModel.getAddbankIFSCcode(),myBuildingAddBankModel.getAddbankaddress());
 
 

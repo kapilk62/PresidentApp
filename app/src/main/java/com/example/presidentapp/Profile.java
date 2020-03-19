@@ -63,7 +63,6 @@ public class Profile extends AppCompatActivity{
                 profileLastName.setText(user.getLast_name());
                 profileEmail.setText(user.getEmail());
                 profileMobile.setText(user.getMobile_number());
-
             }
 
             @Override
