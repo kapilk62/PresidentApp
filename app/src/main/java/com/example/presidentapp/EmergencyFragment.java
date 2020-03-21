@@ -11,6 +11,7 @@ import android.widget.ListView;
 import com.example.presidentapp.Adapter.Emergency_number_adapter;
 import com.example.presidentapp.Model.Emergency_Num_Model;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,7 +45,8 @@ public class EmergencyFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_emergency, container, false);
         context=getActivity();
-        databaseEmergencyNumbers = FirebaseDatabase.getInstance().getReference("Emergency_Numbers");
+        String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        databaseEmergencyNumbers = FirebaseDatabase.getInstance().getReference("Emergency_Numbers").child(currentuserId);
         listViewEmergencyNumbers = (ListView) v.findViewById(R.id.listViewEmergencyNumber);
         EmergencyNumberList = new ArrayList<>();
         //Inflate the layout for this fragment

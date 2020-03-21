@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.presidentapp.Model.Emergency_Num_Model;
 import com.example.presidentapp.Model.Vendor_Num_Model;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -41,7 +42,8 @@ public class VendorForm extends AppCompatActivity {
         vendordetailsCategory = findViewById(R.id.VendorSpinner);
         addVendorBtn = findViewById(R.id.VendorSubmitBtn);
 
-        databaseVendorDetails = FirebaseDatabase.getInstance().getReference("Vendor_details");
+        String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        databaseVendorDetails = FirebaseDatabase.getInstance().getReference("Vendor_details").child(currentuserId);
 
         addVendorBtn.setOnClickListener(new View.OnClickListener() {
             @Override

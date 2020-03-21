@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.presidentapp.Model.Emergency_Num_Model;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -34,7 +35,8 @@ public class EmergencyForm extends AppCompatActivity {
         emergencyNumber = findViewById(R.id.EmerNumber);
         addEmergencyBtn = findViewById(R.id.EmerSubmitBtn);
 
-        databaseEmergencyNumbers = FirebaseDatabase.getInstance().getReference("Emergency_Numbers");
+        String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        databaseEmergencyNumbers = FirebaseDatabase.getInstance().getReference("Emergency_Numbers").child(currentuserId);
 
         addEmergencyBtn.setOnClickListener(new View.OnClickListener() {
             @Override

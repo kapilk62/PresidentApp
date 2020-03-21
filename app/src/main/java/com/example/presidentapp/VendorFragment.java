@@ -17,6 +17,7 @@ import com.example.presidentapp.Adapter.Vendor_number_adapter;
 import com.example.presidentapp.Model.Emergency_Num_Model;
 import com.example.presidentapp.Model.Vendor_Num_Model;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -51,7 +52,9 @@ public class VendorFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_vendor, container, false);
         context=getActivity();
-        databaseVendorDetails = FirebaseDatabase.getInstance().getReference("Vendor_details");
+
+        String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        databaseVendorDetails = FirebaseDatabase.getInstance().getReference("Vendor_details").child(currentuserId);
         listViewVendorNumber = (ListView) v.findViewById(R.id.listViewVendorDetails);
         VendorDetailList = new ArrayList<>();
         //Inflate the layout for this fragment

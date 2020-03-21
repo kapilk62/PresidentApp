@@ -63,7 +63,9 @@ public class Create_New_Society extends AppCompatActivity{
         buildingname = findViewById(R.id.building_name);
         buildingwings = findViewById(R.id.building_wings);
         buildingaddress = findViewById(R.id.building_address);
-        databaseReferenceNewSociety = FirebaseDatabase.getInstance().getReference("New Buildings");
+
+        String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        databaseReferenceNewSociety = FirebaseDatabase.getInstance().getReference("New Buildings").child(currentuserId);
 
         arrayList_parent = new ArrayList<>();
         arrayList_parent.add("Andhra Paresh");
