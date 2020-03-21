@@ -7,6 +7,7 @@ import com.example.presidentapp.Adapter.Bank_Details_adapter;
 import com.example.presidentapp.Model.MyBuildingAddBankModel;
 import com.example.presidentapp.MyBuildingEditBank;
 import com.example.presidentapp.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,7 +37,8 @@ public class MyBuildingBank extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_building_bank);
 
-        databaseReferencebankDetails = FirebaseDatabase.getInstance().getReference("Add Bank");
+        String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        databaseReferencebankDetails = FirebaseDatabase.getInstance().getReference("Add Bank").child(currentuserId);
 
         listViewBankDetails = findViewById(R.id.listviewbankdetails);
         bankdetailsmodellist = new ArrayList<>();

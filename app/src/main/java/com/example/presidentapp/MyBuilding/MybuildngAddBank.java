@@ -36,8 +36,8 @@ public class MybuildngAddBank extends AppCompatActivity {
         bankifsccode = findViewById(R.id.ifsc_code_txt_fld);
         bankaddress = findViewById(R.id.bank_address_txt_fld);
         addbank = findViewById(R.id.add_bank_button);
-
-        databaseReferenceAddBank = FirebaseDatabase.getInstance().getReference("Add Bank");
+        String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        databaseReferenceAddBank = FirebaseDatabase.getInstance().getReference("Add Bank").child(currentuserId);
         addbank.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

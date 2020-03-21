@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.presidentapp.Model.EventModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -46,7 +47,8 @@ public class Event extends AppCompatActivity{
         setContentView(R.layout.activity_event);
 
         btnAddEvent  = findViewById(R.id.add_event_button);
-        databaseEvent = FirebaseDatabase.getInstance().getReference("Events");
+        String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        databaseEvent = FirebaseDatabase.getInstance().getReference("Events").child(currentuserId);
 
         listViewEvents = (ListView) findViewById(R.id.listviewevents);
         eventModelList = new ArrayList<>();

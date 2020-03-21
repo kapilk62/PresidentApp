@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.presidentapp.Adapter.RuleList;
 import com.example.presidentapp.Model.Rule;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -43,8 +44,8 @@ public class Rules extends AppCompatActivity{
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rules);
-
-        databaseRule = FirebaseDatabase.getInstance().getReference("rules");
+        String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        databaseRule = FirebaseDatabase.getInstance().getReference("rules").child(currentuserId);
 
         editTextRule = (EditText) findViewById(R.id.add_rule_txtfld);
         btnAddRule = findViewById(R.id.add_rule_btn);
