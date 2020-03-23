@@ -57,7 +57,7 @@ public class MyBuildingBank extends AppCompatActivity {
                 intent.putExtra("BANKACCOUNTNUMBER",myBuildingAddBankModel.getAddbankaccountnumber());
                 intent.putExtra("BANKIFSCCODE",myBuildingAddBankModel.getAddbankIFSCcode());
                 intent.putExtra("BANKADDRESS",myBuildingAddBankModel.getAddbankaddress());
-                startActivity(intent);
+                    startActivity(intent);
                 Log.d(TAG, "onItemClick: "+myBuildingAddBankModel.getAddbankId());
                 openbankdetails(myBuildingAddBankModel.getAddbankname(),myBuildingAddBankModel.getAddbankUPIId(),myBuildingAddBankModel.getAddbankaccountname(),myBuildingAddBankModel.getAddbankaccountnumber(),myBuildingAddBankModel.getAddbankIFSCcode(),myBuildingAddBankModel.getAddbankaddress());
 

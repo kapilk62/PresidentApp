@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         else if (id==R.id.scomplaints){
-            Intent i = new Intent(MainActivity.this,Bills.class);
+            Intent i = new Intent(MainActivity.this,Complaints.class);
             startActivity(i);
         }
 

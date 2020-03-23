@@ -36,4 +36,29 @@
         <item>Driver Service</item>
         <item>News Paper Supplier</item>
     </array>
+
+    <array name="Complaint_Category">
+        <item>Access To Common Amenities</item>
+        <item>CCTV</item>
+        <item>Electricity Supply</item>
+        <item>Inappropriate Behaviour</item>
+        <item>Noise Pollution</item>
+        <item>Parking Problems</item>
+        <item>Plumbling Issue</item>
+        <item>Rent, Maintenance and Other Dues</item>
+        <item>Security Issues</item>
+        <item>Waste Disposal and Management</item>
+        <item>Water Supply Problems</item>
+    </array>
+
+    <array name="Complaint_Priority">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </array>
+    <array name="Complaint_Status">
+        <item>Closed</item>
+        <item>In Progress</item>
+        <item>Open</item>
+    </array>
 </resources>
