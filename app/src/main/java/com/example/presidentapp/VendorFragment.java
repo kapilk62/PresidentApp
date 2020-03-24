@@ -46,14 +46,14 @@ public class VendorFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private Activity context;
+
+    String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_vendor, container, false);
         context=getActivity();
-
-        String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         databaseVendorDetails = FirebaseDatabase.getInstance().getReference("Vendor_details").child(currentuserId);
         listViewVendorNumber = (ListView) v.findViewById(R.id.listViewVendorDetails);
         VendorDetailList = new ArrayList<>();

@@ -38,7 +38,7 @@ public class MybuildngAddBank extends AppCompatActivity {
         addbank = findViewById(R.id.add_bank_button);
         String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         databaseReferenceAddBank = FirebaseDatabase.getInstance().getReference("Add Bank").child(currentuserId);
-        addbank.setOnClickListener(new View.OnClickListener(){
+        addbank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AddBankDetails();
@@ -47,21 +47,21 @@ public class MybuildngAddBank extends AppCompatActivity {
         });
     }
 
-    private void AddBankDetails(){
+    private void AddBankDetails() {
 
-        String getbankname =  bankname.getText().toString().trim();
+        String getbankname = bankname.getText().toString().trim();
         String getupiid = bankupiid.getText().toString().trim();
         String getbankaccountname = bankaccountname.getText().toString().trim();
         String getbankaccountnumber = bankaccountnumber.getText().toString().trim();
         String getbankifsccode = bankifsccode.getText().toString().trim();
         String getbankaddress = bankaddress.getText().toString().trim();
 
-        if(!TextUtils.isEmpty(getbankname)){
+        if (!TextUtils.isEmpty(getbankname)) {
             String bankId = databaseReferenceAddBank.push().getKey();
-            MyBuildingAddBankModel myBuildingAddBankModel = new MyBuildingAddBankModel(bankId, getbankname,getupiid,getbankaccountname,getbankaccountnumber,getbankifsccode,getbankaddress);
+            MyBuildingAddBankModel myBuildingAddBankModel = new MyBuildingAddBankModel(bankId, getbankname, getupiid, getbankaccountname, getbankaccountnumber, getbankifsccode, getbankaddress);
             databaseReferenceAddBank.child(bankId).setValue(myBuildingAddBankModel);
-            Toast.makeText(this,"New Bank added",Toast.LENGTH_LONG).show();
-        }else{
+            Toast.makeText(this, "New Bank added", Toast.LENGTH_LONG).show();
+        } else {
             Toast.makeText(this, "You should enter the bank name", Toast.LENGTH_LONG).show();
         }
 

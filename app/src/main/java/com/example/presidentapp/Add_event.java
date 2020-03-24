@@ -41,17 +41,17 @@ public class Add_event extends AppCompatActivity implements
         String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         databaseEvents = FirebaseDatabase.getInstance().getReference("Events").child(currentuserId);
 
-        btnDatePicker=(Button)findViewById(R.id.btn_date);
-        btnTimePicker=(Button)findViewById(R.id.btn_time);
-        txtDate=findViewById(R.id.in_date);
-        txtTime=findViewById(R.id.in_time);
-        EventName=findViewById(R.id.event_name_txt_fld);
-        EventDescription=findViewById(R.id.event_description_txt_fld);
-        btnEventShow=findViewById(R.id.add_bank_button);
+        btnDatePicker = (Button) findViewById(R.id.btn_date);
+        btnTimePicker = (Button) findViewById(R.id.btn_time);
+        txtDate = findViewById(R.id.in_date);
+        txtTime = findViewById(R.id.in_time);
+        EventName = findViewById(R.id.event_name_txt_fld);
+        EventDescription = findViewById(R.id.event_description_txt_fld);
+        btnEventShow = findViewById(R.id.add_bank_button);
 
         btnDatePicker.setOnClickListener(this);
         btnTimePicker.setOnClickListener(this);
-        btnEventShow.setOnClickListener(new View.OnClickListener(){
+        btnEventShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addEvent();
@@ -66,19 +66,19 @@ public class Add_event extends AppCompatActivity implements
 
     }
 
-    private void addEvent(){
+    private void addEvent() {
 
-        String eventname =  EventName.getText().toString().trim();
+        String eventname = EventName.getText().toString().trim();
         String eventdescription = EventDescription.getText().toString().trim();
         String eventdate = txtDate.getText().toString().trim();
         String eventtime = txtTime.getText().toString().trim();
 
-        if(!TextUtils.isEmpty(eventname)){
+        if (!TextUtils.isEmpty(eventname)) {
             String eventId = databaseEvents.push().getKey();
-            EventModel eventModel = new EventModel(eventId,eventname,eventdescription,eventdate,eventtime);
+            EventModel eventModel = new EventModel(eventId, eventname, eventdescription, eventdate, eventtime);
             databaseEvents.child(eventId).setValue(eventModel);
-            Toast.makeText(this,"Event added",Toast.LENGTH_LONG).show();
-        }else{
+            Toast.makeText(this, "Event added", Toast.LENGTH_LONG).show();
+        } else {
             Toast.makeText(this, "You should enter the Event Name", Toast.LENGTH_LONG).show();
         }
     }

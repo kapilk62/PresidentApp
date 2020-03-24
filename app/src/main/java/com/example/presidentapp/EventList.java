@@ -16,13 +16,12 @@ import com.example.presidentapp.Model.EventModel;
 import java.util.List;
 
 
-
-public class EventList extends ArrayAdapter<EventModel>{
+public class EventList extends ArrayAdapter<EventModel> {
     private static final String TAG = "ProfileActivity11";
     private Activity context;
     private List<EventModel> eventModelList;
 
-    public EventList(Activity context, List<EventModel> eventModelList){
+    public EventList(Activity context, List<EventModel> eventModelList) {
         super(context, R.layout.event_adapter, eventModelList);
         this.context = context;
         this.eventModelList = eventModelList;
@@ -48,9 +47,9 @@ public class EventList extends ArrayAdapter<EventModel>{
         textVieweventdate.setText(eventModel.getEventDate());
         textVieweventtime.setText(eventModel.getEventTime());
 
-        Log.d(TAG, "getView: "+eventModel.getEventName());
-        Log.d(TAG, "getViewd : "+eventModel.getEventDescription());
-        Log.d(TAG, "getViewDate: "+eventModel.getEventDate());
+        Log.d(TAG, "getView: " + eventModel.getEventName());
+        Log.d(TAG, "getViewd : " + eventModel.getEventDescription());
+        Log.d(TAG, "getViewDate: " + eventModel.getEventDate());
 
         return listViewItem;
     }

@@ -43,23 +43,23 @@ public class MyBuildingBank extends AppCompatActivity {
         listViewBankDetails = findViewById(R.id.listviewbankdetails);
         bankdetailsmodellist = new ArrayList<>();
 
-        listViewBankDetails.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        listViewBankDetails.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 MyBuildingAddBankModel myBuildingAddBankModel = bankdetailsmodellist.get(position);
                 Intent intent = new Intent(getApplicationContext(), MyBuildingShowBankDetails.class);
-                intent.putExtra("BankId",myBuildingAddBankModel.getAddbankId());
-                intent.putExtra("BANKNAME",myBuildingAddBankModel.getAddbankname());
-                intent.putExtra("BANKUPIID",myBuildingAddBankModel.getAddbankUPIId());
-                intent.putExtra("BANKACCOUNTNAME",myBuildingAddBankModel.getAddbankaccountname());
-                intent.putExtra("BANKACCOUNTNUMBER",myBuildingAddBankModel.getAddbankaccountnumber());
-                intent.putExtra("BANKIFSCCODE",myBuildingAddBankModel.getAddbankIFSCcode());
-                intent.putExtra("BANKADDRESS",myBuildingAddBankModel.getAddbankaddress());
+                intent.putExtra("BankId", myBuildingAddBankModel.getAddbankId());
+                intent.putExtra("BANKNAME", myBuildingAddBankModel.getAddbankname());
+                intent.putExtra("BANKUPIID", myBuildingAddBankModel.getAddbankUPIId());
+                intent.putExtra("BANKACCOUNTNAME", myBuildingAddBankModel.getAddbankaccountname());
+                intent.putExtra("BANKACCOUNTNUMBER", myBuildingAddBankModel.getAddbankaccountnumber());
+                intent.putExtra("BANKIFSCCODE", myBuildingAddBankModel.getAddbankIFSCcode());
+                intent.putExtra("BANKADDRESS", myBuildingAddBankModel.getAddbankaddress());
                 startActivity(intent);
-                Log.d(TAG, "onItemClick: "+myBuildingAddBankModel.getAddbankId());
-                openbankdetails(myBuildingAddBankModel.getAddbankname(),myBuildingAddBankModel.getAddbankUPIId(),myBuildingAddBankModel.getAddbankaccountname(),myBuildingAddBankModel.getAddbankaccountnumber(),myBuildingAddBankModel.getAddbankIFSCcode(),myBuildingAddBankModel.getAddbankaddress());
+                Log.d(TAG, "onItemClick: " + myBuildingAddBankModel.getAddbankId());
+                openbankdetails(myBuildingAddBankModel.getAddbankname(), myBuildingAddBankModel.getAddbankUPIId(), myBuildingAddBankModel.getAddbankaccountname(), myBuildingAddBankModel.getAddbankaccountnumber(), myBuildingAddBankModel.getAddbankIFSCcode(), myBuildingAddBankModel.getAddbankaddress());
 
 
             }
@@ -75,17 +75,17 @@ public class MyBuildingBank extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        databaseReferencebankDetails.addValueEventListener(new ValueEventListener(){
+        databaseReferencebankDetails.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 bankdetailsmodellist.clear();
 
-                for(DataSnapshot bankdetailsSnapshot : dataSnapshot.getChildren()){
+                for (DataSnapshot bankdetailsSnapshot : dataSnapshot.getChildren()) {
                     MyBuildingAddBankModel myBuildingAddBankMode = bankdetailsSnapshot.getValue(MyBuildingAddBankModel.class);
                     bankdetailsmodellist.add(myBuildingAddBankMode);
 
                 }
-                Bank_Details_adapter adapter = new Bank_Details_adapter( MyBuildingBank.this, bankdetailsmodellist);
+                Bank_Details_adapter adapter = new Bank_Details_adapter(MyBuildingBank.this, bankdetailsmodellist);
                 listViewBankDetails.setAdapter(adapter);
             }
 

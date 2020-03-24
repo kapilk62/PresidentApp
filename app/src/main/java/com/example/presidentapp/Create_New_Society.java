@@ -3,6 +3,7 @@ package com.example.presidentapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.hardware.ConsumerIrManager;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -65,7 +66,7 @@ public class Create_New_Society extends AppCompatActivity{
         buildingaddress = findViewById(R.id.building_address);
 
         String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseReferenceNewSociety = FirebaseDatabase.getInstance().getReference("New Buildings").child(currentuserId);
+        databaseReferenceNewSociety = FirebaseDatabase.getInstance().getReference("Users").child(currentuserId).child("New Building");
 
         arrayList_parent = new ArrayList<>();
         arrayList_parent.add("Andhra Paresh");
@@ -131,7 +132,8 @@ public class Create_New_Society extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 CreateNewSociety();
-                finish();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
 
