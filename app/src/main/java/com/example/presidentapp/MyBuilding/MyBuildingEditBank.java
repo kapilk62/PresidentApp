@@ -1,6 +1,5 @@
-package com.example.presidentapp;
+package com.example.presidentapp.MyBuilding;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,15 +11,11 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.presidentapp.Model.MyBuildingAddBankModel;
-import com.example.presidentapp.Model.User;
-import com.example.presidentapp.MyBuilding.MyBuildingBank;
+import com.example.presidentapp.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class MyBuildingEditBank extends AppCompatActivity {
 

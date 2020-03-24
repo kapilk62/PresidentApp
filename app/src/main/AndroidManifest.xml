@@ -11,9 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ShowComplaintDetails"></activity>
+        <activity android:name=".ComplaintEdit"></activity>
+        <activity android:name=".ShowComplaintDetails" />
         <activity android:name=".Add_complaints" />
-        <activity android:name=".MyBuildingEditBank" />
+        <activity android:name=".MyBuilding.MyBuildingEditBank" />
         <activity android:name=".Adapter.Bank_Full_Details_adapter" />
         <activity android:name=".MyBuilding.MyBuildingShowBankDetails" />
         <activity android:name=".MyBuilding.MybuildngAddBank" />

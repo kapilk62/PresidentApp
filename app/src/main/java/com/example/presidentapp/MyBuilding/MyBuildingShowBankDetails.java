@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.example.presidentapp.Model.MyBuildingAddBankModel;
 
-import com.example.presidentapp.MyBuildingEditBank;
 import com.example.presidentapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
