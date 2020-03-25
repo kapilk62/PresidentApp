@@ -35,6 +35,7 @@ public class Event extends AppCompatActivity{
     ListView listViewEvents;
     DatabaseReference databaseEvent;
     List<EventModel> eventModelList;
+    final String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
 
@@ -47,7 +48,7 @@ public class Event extends AppCompatActivity{
         setContentView(R.layout.activity_event);
 
         btnAddEvent  = findViewById(R.id.add_event_button);
-        String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
         databaseEvent = FirebaseDatabase.getInstance().getReference("Events").child(currentuserId);
 
         listViewEvents = (ListView) findViewById(R.id.listviewevents);
@@ -156,14 +157,14 @@ public class Event extends AppCompatActivity{
     }
 
     private void deleteEvent(String eventId) {
-        DatabaseReference drRule = FirebaseDatabase.getInstance().getReference("Events").child(eventId);
+        DatabaseReference drRule = FirebaseDatabase.getInstance().getReference("Events").child(currentuserId).child(eventId);
         drRule.removeValue();
 
         Toast.makeText(this, "event is deleted", Toast.LENGTH_LONG).show();
     }
 
     private boolean updateEvent(String eventId, String eventName, String eventDescription, String eventDate, String eventTime){
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Events").child(eventId);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Events").child(currentuserId).child(eventId);
         EventModel eventModel = new EventModel(eventId, eventName, eventDescription, eventDate, eventTime);
         databaseReference.setValue(eventModel);
         Toast.makeText(this, "Event Updated", Toast.LENGTH_LONG).show();
