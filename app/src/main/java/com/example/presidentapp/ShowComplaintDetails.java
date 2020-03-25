@@ -26,6 +26,8 @@ public class ShowComplaintDetails extends AppCompatActivity{
     TextView complaintname,complaintdescription,complaintcategory,complaintpriority,complaintstatus;
     FirebaseDatabase firebaseDatabase;
     FirebaseAuth firebaseAuth;
+    final String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +50,7 @@ public class ShowComplaintDetails extends AppCompatActivity{
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        DatabaseReference databaseReferencecomplaintdetailsshow = firebaseDatabase.getReference("Add Complaint");
+        DatabaseReference databaseReferencecomplaintdetailsshow = firebaseDatabase.getReference("Add Complaint").child(currentuserId);
 
         databaseReferencecomplaintdetailsshow.addValueEventListener(new ValueEventListener(){
             @Override
@@ -108,7 +110,7 @@ public class ShowComplaintDetails extends AppCompatActivity{
         return true;
     }
     private void deleteComplaint(String ComplaintId) {
-        DatabaseReference databaseReferenceComplaint = FirebaseDatabase.getInstance().getReference("Add Complaint").child(ComplaintId);
+        DatabaseReference databaseReferenceComplaint = FirebaseDatabase.getInstance().getReference("Add Complaint").child(currentuserId).child(ComplaintId);
         databaseReferenceComplaint.removeValue();
 
         Toast.makeText(this, "Complaint is deleted", Toast.LENGTH_LONG).show();

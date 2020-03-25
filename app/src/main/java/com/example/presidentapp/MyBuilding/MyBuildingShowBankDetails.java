@@ -29,6 +29,7 @@ public class MyBuildingShowBankDetails extends AppCompatActivity{
 
     private static final String TAG = "1";
 
+    final String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
     @Override
@@ -54,7 +55,7 @@ public class MyBuildingShowBankDetails extends AppCompatActivity{
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        DatabaseReference databaseReferencebankdetailsshow = firebaseDatabase.getReference("Add Bank");
+        DatabaseReference databaseReferencebankdetailsshow = firebaseDatabase.getReference("Add Bank").child(currentuserId);
 
         databaseReferencebankdetailsshow.addValueEventListener(new ValueEventListener(){
             @Override
@@ -121,7 +122,7 @@ public class MyBuildingShowBankDetails extends AppCompatActivity{
         return true;
     }
     private void deleteBank(String bankId) {
-        DatabaseReference databaseReferencebank = FirebaseDatabase.getInstance().getReference("Add Bank").child(bankId);
+        DatabaseReference databaseReferencebank = FirebaseDatabase.getInstance().getReference("Add Bank").child(currentuserId).child(bankId);
         databaseReferencebank.removeValue();
 
         Toast.makeText(this, "event is deleted", Toast.LENGTH_LONG).show();

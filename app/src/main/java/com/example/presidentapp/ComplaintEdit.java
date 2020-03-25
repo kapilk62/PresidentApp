@@ -25,6 +25,7 @@ public class ComplaintEdit extends AppCompatActivity{
     Spinner complaintcategory, complaintpriority, complaintstatus;
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
+    final String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +77,7 @@ public class ComplaintEdit extends AppCompatActivity{
     }
 
     private boolean updateComaplintDetails(String addcomplaintId, String complaintName, String complaintDescription, String complaintCategory, String complaintPriority, String complaintStatus) {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Add Complaint").child(addcomplaintId);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Add Complaint").child(currentuserId).child(addcomplaintId);
         AddComplaintsModel addComplaintsModel = new AddComplaintsModel(addcomplaintId, complaintName, complaintDescription, complaintCategory, complaintPriority, complaintStatus);
         databaseReference.setValue(addComplaintsModel);
         Toast.makeText(this, "Complaint Details Updated", Toast.LENGTH_LONG).show();

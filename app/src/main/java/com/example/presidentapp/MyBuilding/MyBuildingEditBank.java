@@ -24,6 +24,7 @@ public class MyBuildingEditBank extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
     private static final String TAG = "1";
+    final String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +96,7 @@ public class MyBuildingEditBank extends AppCompatActivity {
 
 
     private boolean updateBankDetails(String addbankId, String  bankName,String bankUpiId , String bankAccountName ,String bankAccountNumber ,String bankIfscCode , String bankAddress){
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Add Bank").child(addbankId);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Add Bank").child(currentuserId).child(addbankId);
         MyBuildingAddBankModel myBuildingAddBankModel = new MyBuildingAddBankModel(addbankId, bankName, bankUpiId , bankAccountName , bankAccountNumber, bankIfscCode , bankAddress);
         databaseReference.setValue(myBuildingAddBankModel);
         Toast.makeText(this, "Bank Details Updated", Toast.LENGTH_LONG).show();
