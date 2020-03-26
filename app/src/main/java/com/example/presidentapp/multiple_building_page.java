@@ -29,7 +29,7 @@ public class multiple_building_page extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(currentuserId).child("New Building");
         databaseReference.keepSynced(true);
 
-        adminBuildingList = findViewById(R.id.recyclerviewadmin);
+        adminBuildingList = findViewById(R.id.recyclerViewAdmin);
         adminBuildingList.setHasFixedSize(true);
         adminBuildingList.setLayoutManager( new LinearLayoutManager(this));
 
