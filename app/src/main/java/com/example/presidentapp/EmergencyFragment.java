@@ -1,6 +1,9 @@
 package com.example.presidentapp;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -45,11 +48,18 @@ public class EmergencyFragment extends Fragment {
     DatabaseReference databaseEmergencyNumbers;
     List<Emergency_Num_Model> EmergencyNumberList;
     final String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    private static final String TAG = "Hello";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     private Activity context;
+    TextInputEditText editTextEmergencyname;
+    TextInputEditText editTextEmergencynumber;
+    View dialogView;
+    Button buttonUpdate;
+    Button buttonDelete;
+    AlertDialog alertDialog;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,6 +70,14 @@ public class EmergencyFragment extends Fragment {
         listViewEmergencyNumbers = (ListView) v.findViewById(R.id.listViewEmergencyNumber);
         EmergencyNumberList = new ArrayList<>();
         //Inflate the layout for this fragment
+        listViewEmergencyNumbers.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Emergency_Num_Model emergency_num_model =  EmergencyNumberList.get(position);
+                showupdatedialog(parent,view.getContext(),emergency_num_model.getEmergencyNumberId(),emergency_num_model.getEmergencyName(),emergency_num_model.getEmergencyNumber());
+                return false;
+            }
+        });
         return v;
 
     }
@@ -125,31 +143,26 @@ public class EmergencyFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-            listViewEmergencyNumbers.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
-                @Override
-                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                    Emergency_Num_Model emergency_num_model =  EmergencyNumberList.get(position);
-                    showupdatedialog(emergency_num_model.getEmergencyNumberId(),emergency_num_model.getEmergencyName(),emergency_num_model.getEmergencyNumber());
-                    return false;
-                }
-            });
+
         }
     }
-    private void showupdatedialog(final String emergencynumberId, final String emergencyname, final String emergencynumber){
+    private void showupdatedialog(AdapterView<?> parent,Context context,final String emergencynumberId, final String emergencyname, final String emergencynumber){
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
         LayoutInflater inflater = getLayoutInflater();
-        final View dialogView = inflater.inflate(R.layout.update_emergency_dialog, null);
+        dialogView = inflater.inflate(R.layout.update_emergency_dialog, parent,false);
+
+
         dialogBuilder.setView(dialogView);
 
-        final TextInputEditText editTextEmergencyname = dialogView.findViewById(R.id.update_emergency_name_txt_fld);
-        final TextInputEditText editTextEmergencynumber = dialogView.findViewById(R.id.update_emergency_mobile_number__txt_fld);
+        editTextEmergencyname = dialogView.findViewById(R.id.update_emergency_name_txt_fld);
+        editTextEmergencynumber = dialogView.findViewById(R.id.update_emergency_mobile_number__txt_fld);
 
-        final Button buttonUpdate = dialogView.findViewById(R.id.update_emergency_btn);
-        final Button buttonDelete = dialogView.findViewById(R.id.delete_emergency_btn);
+        buttonUpdate = dialogView.findViewById(R.id.update_emergency_btn);
+        buttonDelete = dialogView.findViewById(R.id.delete_emergency_btn);
 
         dialogBuilder.setTitle("Updating emergencynumber: " + emergencyname);
 
-        final AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog = dialogBuilder.create();
         alertDialog.show();
 
         buttonUpdate.setOnClickListener(new View.OnClickListener(){
@@ -166,8 +179,9 @@ public class EmergencyFragment extends Fragment {
                     editTextEmergencynumber.setError("Emergency Mobile Number required");
                     return;
                 }
-                    updateEmergency(emergencynumberId, emergencyname, emergencynumber);
-                    alertDialog.dismiss();
+                updateEmergency(emergencynumberId, emergencyName, emergencyMobileNumber);
+                alertDialog.dismiss();
+                
             }
         });
         buttonDelete.setOnClickListener(new View.OnClickListener(){
@@ -178,17 +192,18 @@ public class EmergencyFragment extends Fragment {
             }
         });
     }
-    private boolean updateEmergency(String emergencyId, String emergencyName, String emegencyNumber){
+    private void updateEmergency(String emergencyId, String emergencyName, String emergencyNumber){
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Emergency_Numbers").child(currentuserId).child(emergencyId);
-        Emergency_Num_Model emergency_num_model = new Emergency_Num_Model(emergencyId, emergencyName, emegencyNumber);
+        Emergency_Num_Model emergency_num_model = new Emergency_Num_Model(emergencyId, emergencyName, emergencyNumber);
         databaseReference.setValue(emergency_num_model);
         Toast.makeText(context, "Emergency Number Updated", Toast.LENGTH_LONG).show();
-        return true;
+        Log.d(TAG, "onClick: "+emergencyName);
+
     }
     private void deleteEmergency(String emergencyId) {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Emergency_Numbers").child(currentuserId).child(emergencyId);
         databaseReference.removeValue();
 
-        Toast.makeText(context, "Emergency is deleted", Toast.LENGTH_LONG).show();
+        Toast.makeText(context, "Emergency Number is deleted", Toast.LENGTH_LONG).show();
     }
 }

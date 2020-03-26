@@ -12,7 +12,7 @@
         android:hint="Emergency Name"
         app:boxBackgroundColor="@color/white"
         app:helperTextEnabled="true"
-        app:startIconDrawable="@drawable/ic_event_black_24dp"
+        app:startIconDrawable="@drawable/ic_emergency"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -28,7 +28,7 @@
         android:hint="Emergency Mobile Number"
         app:boxBackgroundColor="@color/white"
         app:helperTextEnabled="true"
-        app:startIconDrawable="@drawable/ic_description"
+        app:startIconDrawable="@drawable/ic_mobilenumber"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
