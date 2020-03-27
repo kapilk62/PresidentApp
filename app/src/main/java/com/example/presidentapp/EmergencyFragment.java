@@ -147,7 +147,7 @@ public class EmergencyFragment extends Fragment {
         }
     }
     private void showupdatedialog(AdapterView<?> parent,Context context,final String emergencynumberId, final String emergencyname, final String emergencynumber){
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
         LayoutInflater inflater = getLayoutInflater();
         dialogView = inflater.inflate(R.layout.update_emergency_dialog, parent,false);
 
@@ -181,7 +181,7 @@ public class EmergencyFragment extends Fragment {
                 }
                 updateEmergency(emergencynumberId, emergencyName, emergencyMobileNumber);
                 alertDialog.dismiss();
-                
+
             }
         });
         buttonDelete.setOnClickListener(new View.OnClickListener(){
