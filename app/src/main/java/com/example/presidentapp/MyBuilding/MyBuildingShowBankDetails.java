@@ -29,8 +29,7 @@ public class MyBuildingShowBankDetails extends AppCompatActivity{
     String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
     private static final String TAG = "1";
-
-    final String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    
 
 
     @Override
