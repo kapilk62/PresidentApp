@@ -61,4 +61,10 @@
         <item>In Progress</item>
         <item>Open</item>
     </array>
+    <array name="Announcement_Type">
+        <item>Admin</item>
+        <item>Owner</item>
+        <item>Rent</item>
+        <item>For All</item>
+    </array>
 </resources>

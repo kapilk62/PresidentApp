@@ -99,7 +99,7 @@ public class Event extends AppCompatActivity{
         });
     }
 
-    private void showupdatedialog(final String eventId, final String eventName, final String eventDescription, final String eventDate, final String eventTime) {
+        private void showupdatedialog(final String eventId, final String eventName, final String eventDescription, final String eventDate, final String eventTime) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
 
         LayoutInflater inflater = getLayoutInflater();

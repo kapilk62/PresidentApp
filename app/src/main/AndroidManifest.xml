@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ComplaintEdit"></activity>
+        <activity android:name=".Add_announcements"></activity>
+        <activity android:name=".Announcements" />
+        <activity android:name=".ComplaintEdit" />
         <activity android:name=".ShowComplaintDetails" />
         <activity android:name=".Add_complaints" />
         <activity android:name=".MyBuilding.MyBuildingEditBank" />
