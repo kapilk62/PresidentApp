@@ -1,14 +1,14 @@
 package com.example.presidentapp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.presidentapp.Model.CreateNewSocietyModel;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -41,8 +41,18 @@ public class multiple_building_page extends AppCompatActivity {
         FirebaseRecyclerAdapter<CreateNewSocietyModel,buildingAdminViewHolder>firebaseRecyclerAdapter=new FirebaseRecyclerAdapter<CreateNewSocietyModel, buildingAdminViewHolder>
                 (CreateNewSocietyModel.class,R.layout.cardview_admin,buildingAdminViewHolder.class,databaseReference) {
             @Override
-            protected void populateViewHolder(buildingAdminViewHolder buildingAdminViewHolder, CreateNewSocietyModel createNewSocietyModel, int i) {
+            protected void populateViewHolder(buildingAdminViewHolder buildingAdminViewHolder, CreateNewSocietyModel createNewSocietyModel, final int i) {
                 buildingAdminViewHolder.setBuildingName(createNewSocietyModel.getBuildingName());
+                buildingAdminViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String buildingId = getRef(i).getKey();
+                        Intent intent = new Intent(multiple_building_page.this,MainActivity.class);
+                        intent.putExtra("BUILDINGID",buildingId);
+                        startActivity(intent);
+                    }
+                });
+
             }
         };
         adminBuildingList.setAdapter(firebaseRecyclerAdapter);

@@ -31,13 +31,11 @@ import java.util.List;
 public class Rules extends AppCompatActivity {
     EditText editTextRule;
     Button btnAddRule;
-
     DatabaseReference databaseRule;
-
     ListView listViewRules;
-
     List<Rule> ruleList;
     String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    String buildingId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +43,9 @@ public class Rules extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rules);
-
-        databaseRule = FirebaseDatabase.getInstance().getReference("Users").child(currentuserId).child("New Building").child("Rules");
+        GlobalClass globalClass = (GlobalClass) getApplicationContext();
+        buildingId = globalClass.getBuildingId();
+        databaseRule = FirebaseDatabase.getInstance().getReference("Rules").child(currentuserId).child(buildingId);
 
         editTextRule = (EditText) findViewById(R.id.add_rule_txtfld);
         btnAddRule = findViewById(R.id.add_rule_btn);
@@ -142,13 +141,13 @@ public class Rules extends AppCompatActivity {
     }
 
     private void deleteRule(String ruleId) {
-        DatabaseReference drRule = FirebaseDatabase.getInstance().getReference("rules").child(currentuserId).child(ruleId);
+        DatabaseReference drRule = FirebaseDatabase.getInstance().getReference("Rules").child(currentuserId).child(buildingId).child(ruleId);
         drRule.removeValue();
         Toast.makeText(this, "Rule is deleted", Toast.LENGTH_LONG).show();
     }
 
     private boolean updateRule(String id, String rule) {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("rules").child(currentuserId).child(id);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Rules").child(currentuserId).child(buildingId).child(id);
         Rule rule1 = new Rule(id, rule);
         databaseReference.setValue(rule1);
         Toast.makeText(this, "Rule Updated", Toast.LENGTH_LONG).show();

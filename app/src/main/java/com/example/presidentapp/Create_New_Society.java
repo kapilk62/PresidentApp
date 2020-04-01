@@ -57,7 +57,6 @@ public class Create_New_Society extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create__new__society);
-
         sp_state = findViewById(R.id.building_state_spinner);
         sp_city = findViewById(R.id.building_city_spinner);
         sp_buildingtype = findViewById(R.id.building_type_spinner);
@@ -65,6 +64,12 @@ public class Create_New_Society extends AppCompatActivity{
         buildingname = findViewById(R.id.building_name);
         buildingwings = findViewById(R.id.building_wings);
         buildingaddress = findViewById(R.id.building_address);
+
+//        GlobalClass globalClass = (GlobalClass) getApplicationContext();
+//
+//        Toast.makeText(Create_New_Society.this,""+ globalClass.getBuildingId(),Toast.LENGTH_LONG).show();
+
+
 
         String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         databaseReferenceNewSociety = FirebaseDatabase.getInstance().getReference("Users").child(currentuserId).child("New Building");
