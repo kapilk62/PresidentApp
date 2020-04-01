@@ -29,13 +29,13 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Event extends AppCompatActivity{
+public class Event extends AppCompatActivity {
 
     FloatingActionButton btnAddEvent;
     ListView listViewEvents;
     DatabaseReference databaseEvent;
     List<EventModel> eventModelList;
-
+    String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
     @Override
@@ -46,18 +46,18 @@ public class Event extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
 
-        btnAddEvent  = findViewById(R.id.add_event_button);
+        btnAddEvent = findViewById(R.id.add_event_button);
         String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         databaseEvent = FirebaseDatabase.getInstance().getReference("Events").child(currentuserId);
 
         listViewEvents = (ListView) findViewById(R.id.listviewevents);
         eventModelList = new ArrayList<>();
 
-        listViewEvents.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
+        listViewEvents.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 EventModel eventModel = eventModelList.get(position);
-                showupdatedialog(eventModel.getEventId(),eventModel.getEventName(),eventModel.getEventDescription(),eventModel.getEventDate(),eventModel.getEventTime());
+                showupdatedialog(eventModel.getEventId(), eventModel.getEventName(), eventModel.getEventDescription(), eventModel.getEventDate(), eventModel.getEventTime());
                 return false;
             }
         });
@@ -78,11 +78,11 @@ public class Event extends AppCompatActivity{
     protected void onStart() {
         super.onStart();
 
-        databaseEvent.addValueEventListener(new ValueEventListener(){
+        databaseEvent.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 eventModelList.clear();
-                for(DataSnapshot eventSnapshot : dataSnapshot.getChildren()){
+                for (DataSnapshot eventSnapshot : dataSnapshot.getChildren()) {
                     EventModel eventModel = eventSnapshot.getValue(EventModel.class);
 
                     eventModelList.add(eventModel);
@@ -120,7 +120,7 @@ public class Event extends AppCompatActivity{
         alertDialog.show();
 
 
-        buttonUpdate.setOnClickListener(new View.OnClickListener(){
+        buttonUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String eventName = editTextEventname.getText().toString().trim();
@@ -146,7 +146,7 @@ public class Event extends AppCompatActivity{
                 alertDialog.dismiss();
             }
         });
-        buttonDelete.setOnClickListener(new View.OnClickListener(){
+        buttonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 deleteEvent(eventId);
@@ -156,14 +156,14 @@ public class Event extends AppCompatActivity{
     }
 
     private void deleteEvent(String eventId) {
-        DatabaseReference drRule = FirebaseDatabase.getInstance().getReference("Events").child(eventId);
+        DatabaseReference drRule = FirebaseDatabase.getInstance().getReference("Events").child(currentuserId).child(eventId);
         drRule.removeValue();
 
         Toast.makeText(this, "event is deleted", Toast.LENGTH_LONG).show();
     }
 
-    private boolean updateEvent(String eventId, String eventName, String eventDescription, String eventDate, String eventTime){
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Events").child(eventId);
+    private boolean updateEvent(String eventId, String eventName, String eventDescription, String eventDate, String eventTime) {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Events").child(currentuserId).child(eventId);
         EventModel eventModel = new EventModel(eventId, eventName, eventDescription, eventDate, eventTime);
         databaseReference.setValue(eventModel);
         Toast.makeText(this, "Event Updated", Toast.LENGTH_LONG).show();

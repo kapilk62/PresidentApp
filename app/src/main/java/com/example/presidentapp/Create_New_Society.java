@@ -3,8 +3,10 @@ package com.example.presidentapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.hardware.ConsumerIrManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -55,7 +57,6 @@ public class Create_New_Society extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create__new__society);
-
         sp_state = findViewById(R.id.building_state_spinner);
         sp_city = findViewById(R.id.building_city_spinner);
         sp_buildingtype = findViewById(R.id.building_type_spinner);
@@ -64,8 +65,14 @@ public class Create_New_Society extends AppCompatActivity{
         buildingwings = findViewById(R.id.building_wings);
         buildingaddress = findViewById(R.id.building_address);
 
+//        GlobalClass globalClass = (GlobalClass) getApplicationContext();
+//
+//        Toast.makeText(Create_New_Society.this,""+ globalClass.getBuildingId(),Toast.LENGTH_LONG).show();
+
+
+
         String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseReferenceNewSociety = FirebaseDatabase.getInstance().getReference("New Buildings").child(currentuserId);
+        databaseReferenceNewSociety = FirebaseDatabase.getInstance().getReference("Users").child(currentuserId).child("New Building");
 
         arrayList_parent = new ArrayList<>();
         arrayList_parent.add("Andhra Paresh");
@@ -131,7 +138,8 @@ public class Create_New_Society extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 CreateNewSociety();
-                finish();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
 

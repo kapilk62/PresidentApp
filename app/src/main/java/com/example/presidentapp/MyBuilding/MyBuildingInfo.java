@@ -28,6 +28,7 @@ public class MyBuildingInfo extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     FirebaseAuth firebaseAuth;
 
+    String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +39,13 @@ public class MyBuildingInfo extends AppCompatActivity {
         buildingnumber = findViewById(R.id.textViewbuildingmobilenumber);
         buildingaddress = findViewById(R.id.textViewbuildingaddress);
 
-        //CreateNewSocietyModel createNewSocietyModel = new CreateNewSocietyModel();
-        //User user = new User();
-
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
         DatabaseReference databaseReferenceuser = firebaseDatabase.getInstance().getReference("Users").child(firebaseAuth.getUid());
-        DatabaseReference databaseReferencecreatenewsociety = firebaseDatabase.getReference("New Buildings");
+        DatabaseReference databaseReferencecreatenewsociety = firebaseDatabase.getReference("New Buildings").child(currentuserId);
 
-        databaseReferenceuser.addValueEventListener(new ValueEventListener(){
+        databaseReferenceuser.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
@@ -56,11 +54,11 @@ public class MyBuildingInfo extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(MyBuildingInfo.this, databaseError.getCode(),Toast.LENGTH_LONG).show();
+                Toast.makeText(MyBuildingInfo.this, databaseError.getCode(), Toast.LENGTH_LONG).show();
             }
         });
 
-        databaseReferencecreatenewsociety.addValueEventListener(new ValueEventListener(){
+        databaseReferencecreatenewsociety.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 CreateNewSocietyModel createNewSocietyModel = dataSnapshot.getValue(CreateNewSocietyModel.class);
@@ -70,7 +68,7 @@ public class MyBuildingInfo extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(MyBuildingInfo.this, databaseError.getCode(),Toast.LENGTH_LONG).show();
+                Toast.makeText(MyBuildingInfo.this, databaseError.getCode(), Toast.LENGTH_LONG).show();
             }
         });
     }

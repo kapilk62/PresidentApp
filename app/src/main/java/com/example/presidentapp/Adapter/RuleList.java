@@ -15,11 +15,11 @@ import com.example.presidentapp.R;
 
 import java.util.List;
 
-public class RuleList extends ArrayAdapter<Rule>{
+public class RuleList extends ArrayAdapter<Rule> {
     private Activity context;
     private List<Rule> ruleList;
 
-    public RuleList(Activity context, List<Rule> ruleList){
+    public RuleList(Activity context, List<Rule> ruleList) {
         super(context, R.layout.ruleshow, ruleList);
         this.context = context;
         this.ruleList = ruleList;
@@ -37,7 +37,7 @@ public class RuleList extends ArrayAdapter<Rule>{
 
         Rule rule = ruleList.get(position);
 
-        textViewrule.setText("➡ "+rule.getRule());
+        textViewrule.setText("➡ " + rule.getRule());
 
         return listViewItem;
     }

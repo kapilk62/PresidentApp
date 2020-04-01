@@ -14,12 +14,13 @@ import android.view.View;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
     private CardView billsCard, membersCard, societyfundCard, emergencynumberCard, mybuldingCard, complaintsCard, vehiclesCard, gatekeeperCard;
     private DrawerLayout mDrawerlayout;
     private ActionBarDrawerToggle mToggle;
-
+    private static String buildingId;
     private NavigationView mNavigationView;
 
     @Override
@@ -54,6 +55,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mNavigationView.setNavigationItemSelectedListener(this);
 
+        buildingId = getIntent().getExtras().get("BUILDINGID").toString();
+
+        GlobalClass globalClass = (GlobalClass) getApplicationContext();
+        globalClass.setBuildingId(buildingId);
 
     }
 
@@ -106,7 +111,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         else if(id==R.id.swallet)
         {
-
+            Intent i = new Intent(MainActivity.this,multiple_building_page.class);
+            startActivity(i);
         }
 
         else if(id==R.id.smember)

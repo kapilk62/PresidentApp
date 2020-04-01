@@ -28,15 +28,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Rules extends AppCompatActivity{
+public class Rules extends AppCompatActivity {
     EditText editTextRule;
     Button btnAddRule;
-
     DatabaseReference databaseRule;
-
     ListView listViewRules;
-
     List<Rule> ruleList;
+    String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    String buildingId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +43,9 @@ public class Rules extends AppCompatActivity{
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rules);
-        String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseRule = FirebaseDatabase.getInstance().getReference("rules").child(currentuserId);
+        GlobalClass globalClass = (GlobalClass) getApplicationContext();
+        buildingId = globalClass.getBuildingId();
+        databaseRule = FirebaseDatabase.getInstance().getReference("Rules").child(currentuserId).child(buildingId);
 
         editTextRule = (EditText) findViewById(R.id.add_rule_txtfld);
         btnAddRule = findViewById(R.id.add_rule_btn);
@@ -53,7 +53,7 @@ public class Rules extends AppCompatActivity{
         listViewRules = findViewById(R.id.listViewRules);
 
         ruleList = new ArrayList<>();
-        btnAddRule.setOnClickListener(new View.OnClickListener(){
+        btnAddRule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addRule();
@@ -61,12 +61,12 @@ public class Rules extends AppCompatActivity{
             }
         });
 
-        listViewRules.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
+        listViewRules.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 Rule rule = ruleList.get(position);
 
-                showupdatedialog(rule.getRuleId(),rule.getRule());
+                showupdatedialog(rule.getRuleId(), rule.getRule());
                 return false;
             }
         });
@@ -77,13 +77,13 @@ public class Rules extends AppCompatActivity{
     protected void onStart() {
         super.onStart();
 
-        databaseRule.addValueEventListener(new ValueEventListener(){
+        databaseRule.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 ruleList.clear();
 
-                for(DataSnapshot ruleSnapshot : dataSnapshot.getChildren()){
+                for (DataSnapshot ruleSnapshot : dataSnapshot.getChildren()) {
                     Rule rule = ruleSnapshot.getValue(Rule.class);
 
                     ruleList.add(rule);
@@ -99,7 +99,7 @@ public class Rules extends AppCompatActivity{
         });
     }
 
-    private void showupdatedialog(final String ruleId, String rule){
+    private void showupdatedialog(final String ruleId, String rule) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
 
         LayoutInflater inflater = getLayoutInflater();
@@ -110,26 +110,26 @@ public class Rules extends AppCompatActivity{
         final Button buttonUpdate = dialogView.findViewById(R.id.update_rule_btn);
         final Button buttonDelete = dialogView.findViewById(R.id.delete_rule_btn);
 
-        dialogBuilder.setTitle("Updating rule: "+rule);
+        dialogBuilder.setTitle("Updating rule: " + rule);
 
         final AlertDialog alertDialog = dialogBuilder.create();
         alertDialog.show();
 
 
-        buttonUpdate.setOnClickListener(new View.OnClickListener(){
+        buttonUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String rule = editTextRule.getText().toString().trim();
 
-                if(TextUtils.isEmpty(rule)){
+                if (TextUtils.isEmpty(rule)) {
                     editTextRule.setError("Rule required");
                     return;
                 }
-                updateRule(ruleId,rule);
+                updateRule(ruleId, rule);
                 alertDialog.dismiss();
             }
         });
-        buttonDelete.setOnClickListener(new View.OnClickListener(){
+        buttonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 deleteRule(ruleId);
@@ -141,33 +141,31 @@ public class Rules extends AppCompatActivity{
     }
 
     private void deleteRule(String ruleId) {
-        DatabaseReference drRule = FirebaseDatabase.getInstance().getReference("rules").child(ruleId);
+        DatabaseReference drRule = FirebaseDatabase.getInstance().getReference("Rules").child(currentuserId).child(buildingId).child(ruleId);
         drRule.removeValue();
-
         Toast.makeText(this, "Rule is deleted", Toast.LENGTH_LONG).show();
     }
 
-    private boolean updateRule(String id, String rule){
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("rules").child(id);
+    private boolean updateRule(String id, String rule) {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Rules").child(currentuserId).child(buildingId).child(id);
         Rule rule1 = new Rule(id, rule);
         databaseReference.setValue(rule1);
         Toast.makeText(this, "Rule Updated", Toast.LENGTH_LONG).show();
         return true;
     }
 
-    private void addRule(){
-
-        String rule =  editTextRule.getText().toString().trim();
-
-        if(!TextUtils.isEmpty(rule)){
-               String ruleId = databaseRule.push().getKey();
-               Rule rule1 = new Rule(ruleId, rule);
-               databaseRule.child(ruleId).setValue(rule1);
-               Toast.makeText(this,"Rule added",Toast.LENGTH_LONG).show();
-        }else{
+    private void addRule() {
+        String rule = editTextRule.getText().toString().trim();
+        if (!TextUtils.isEmpty(rule)) {
+            String ruleId = databaseRule.push().getKey();
+            Rule rule1 = new Rule(ruleId, rule);
+            databaseRule.child(ruleId).setValue(rule1);
+            Toast.makeText(this, "Rule added", Toast.LENGTH_LONG).show();
+        } else {
             Toast.makeText(this, "You should enter the rule", Toast.LENGTH_LONG).show();
         }
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

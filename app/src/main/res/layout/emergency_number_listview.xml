@@ -10,11 +10,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/lightblue"/>
 
     <TextView
         android:id="@+id/textViewEmergencyNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="TextView"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/black"
+        android:layout_marginStart="10dp"/>
 </LinearLayout>

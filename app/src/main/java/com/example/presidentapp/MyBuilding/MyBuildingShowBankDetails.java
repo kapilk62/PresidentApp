@@ -26,6 +26,7 @@ public class MyBuildingShowBankDetails extends AppCompatActivity{
     TextView bankname, bankupiid, bankaccountname, bankaccountnumber, bankifsccode, bankaddress;
     FirebaseDatabase firebaseDatabase;
     FirebaseAuth firebaseAuth;
+    String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
     private static final String TAG = "1";
 
