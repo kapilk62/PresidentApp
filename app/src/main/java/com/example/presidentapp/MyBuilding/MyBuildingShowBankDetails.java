@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.presidentapp.Model.MyBuildingAddBankModel;
-
 import com.example.presidentapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -29,7 +28,7 @@ public class MyBuildingShowBankDetails extends AppCompatActivity{
     String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
     private static final String TAG = "1";
-    
+
 
 
     @Override
@@ -121,6 +120,7 @@ public class MyBuildingShowBankDetails extends AppCompatActivity{
         }
         return true;
     }
+
     private void deleteBank(String bankId) {
         DatabaseReference databaseReferencebank = FirebaseDatabase.getInstance().getReference("Add Bank").child(currentuserId).child(bankId);
         databaseReferencebank.removeValue();
