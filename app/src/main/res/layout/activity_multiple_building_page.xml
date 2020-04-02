@@ -4,11 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".multiple_building_page">
 
+    <androidx.cardview.widget.CardView
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="5dp"
+        android:orientation="vertical"
+        app:cardBackgroundColor="@color/white"
+        android:layout_margin="10dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusableInTouchMode="false"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/ic_add_btn"></ImageView>
+
+            <TextView
+                android:id="@+id/building_name_cardView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/alike_angular"
+                android:text="Create New Building"
+                android:textColor="@color/black"
+                android:textSize="18sp">
+            </TextView>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recyclerViewAdmin">
     </androidx.recyclerview.widget.RecyclerView>
+
 </LinearLayout>
