@@ -127,7 +127,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         else if(id==R.id.sannouncements)
         {
-
+            Intent i = new Intent(MainActivity.this,Announcements.class);
+            startActivity(i);
         }
 
         else if(id==R.id.sbalance_sheet)

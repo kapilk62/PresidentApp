@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:name=".GlobalClass"
         android:theme="@style/AppTheme">
+        <activity android:name=".Add_announcements"></activity>
+        <activity android:name=".Announcements" />
+        <activity android:name=".ComplaintEdit" />
         <activity
             android:name=".multiple_building_page"
             android:label="My properties"
@@ -41,7 +44,7 @@
             android:name=".Create_New_Society" />
         <activity
             android:name=".Join_Building_Page" />
-        <activity android:name=".ComplaintEdit"></activity>
+
         <activity android:name=".ShowComplaintDetails" />
         <activity android:name=".Add_complaints" />
         <activity android:name=".MyBuilding.MyBuildingEditBank" />
@@ -101,7 +104,6 @@
             android:label="Bills"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:screenOrientation="portrait"
             android:name=".MainActivity"
             android:label="Dashboard"
             android:launchMode="standard" />

@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:layout_centerHorizontal="true"
-    android:padding="15dp">
-
-
+    android:padding="20dp"
+    tools:context=".Add_announcements">
     <com.google.android.material.textfield.TextInputLayout
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Event Name"
+        android:hint="Announcement Name"
         app:boxBackgroundColor="@color/white"
         app:helperTextEnabled="true"
-        app:startIconDrawable="@drawable/ic_event_black_24dp"
+        app:startIconDrawable="@drawable/ic_announcement"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/event_name_txt_fld"
+            android:id="@+id/announcement_name_txt_fld"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -30,18 +28,32 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Add Description"
+        android:hint="Announcement Description"
         app:boxBackgroundColor="@color/white"
         app:helperTextEnabled="true"
-        app:startIconDrawable="@drawable/ic_description"
+        app:startIconDrawable="@drawable/ic_announcement"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/event_description_txt_fld"
+            android:id="@+id/announcement_description_txt_fld"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"/>
+            android:layout_height="wrap_content"/>
+
     </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Announcement Type"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:textStyle="bold"/>
+    <Spinner
+        android:id="@+id/announcement_type_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:entries="@array/Announcement_Type" />
 
     <com.google.android.material.textfield.TextInputLayout
 
@@ -101,16 +113,15 @@
         android:layout_below="@+id/btn_date"
         android:layout_alignLeft="@+id/btn_date"
         android:layout_alignStart="@+id/btn_date" />
-
     <Button
-        android:id="@+id/add_event_button"
+        android:id="@+id/add_announcement_button"
         style="@style/TextAppearance.App.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="15dp"
         android:layout_marginTop="15dp"
-        android:hint="Add Event"
+        android:hint="Add Announcement"
         android:padding="15dp"
         android:textColor="@color/black"
         android:textSize="20dp" />
