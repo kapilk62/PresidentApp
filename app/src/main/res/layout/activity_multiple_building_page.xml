@@ -9,6 +9,7 @@
 
     <androidx.cardview.widget.CardView
         android:clickable="true"
+        android:id="@+id/create_new_society_cardView"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         app:cardCornerRadius="12dp"
@@ -33,7 +34,7 @@
                 android:src="@drawable/ic_add_btn"></ImageView>
 
             <TextView
-                android:id="@+id/building_name_cardView"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
