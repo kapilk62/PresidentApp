@@ -33,7 +33,7 @@ public class multiple_building_page extends AppCompatActivity implements View.On
         createNewSociety = findViewById(R.id.create_new_society_cardView);
         adminBuildingList = findViewById(R.id.recyclerViewAdmin);
         adminBuildingList.setHasFixedSize(true);
-        adminBuildingList.setLayoutManager( new LinearLayoutManager(this));
+        adminBuildingList.setLayoutManager(new LinearLayoutManager(this));
 
         createNewSociety.setOnClickListener(this);
 
@@ -42,8 +42,8 @@ public class multiple_building_page extends AppCompatActivity implements View.On
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseRecyclerAdapter<CreateNewSocietyModel,buildingAdminViewHolder>firebaseRecyclerAdapter=new FirebaseRecyclerAdapter<CreateNewSocietyModel, buildingAdminViewHolder>
-                (CreateNewSocietyModel.class,R.layout.cardview_admin,buildingAdminViewHolder.class,databaseReference) {
+        FirebaseRecyclerAdapter<CreateNewSocietyModel, buildingAdminViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<CreateNewSocietyModel, buildingAdminViewHolder>
+                (CreateNewSocietyModel.class, R.layout.cardview_admin, buildingAdminViewHolder.class, databaseReference) {
             @Override
             protected void populateViewHolder(buildingAdminViewHolder buildingAdminViewHolder, CreateNewSocietyModel createNewSocietyModel, final int i) {
                 buildingAdminViewHolder.setBuildingName(createNewSocietyModel.getBuildingName());
@@ -51,8 +51,8 @@ public class multiple_building_page extends AppCompatActivity implements View.On
                     @Override
                     public void onClick(View view) {
                         String buildingId = getRef(i).getKey();
-                        Intent intent = new Intent(multiple_building_page.this,MainActivity.class);
-                        intent.putExtra("BUILDINGID",buildingId);
+                        Intent intent = new Intent(multiple_building_page.this, MainActivity.class);
+                        intent.putExtra("BUILDINGID", buildingId);
                         startActivity(intent);
                     }
                 });
@@ -68,14 +68,15 @@ public class multiple_building_page extends AppCompatActivity implements View.On
         startActivity(intent);
     }
 
-    public static class buildingAdminViewHolder extends RecyclerView.ViewHolder{
+    public static class buildingAdminViewHolder extends RecyclerView.ViewHolder {
         View view;
-        public buildingAdminViewHolder(View itemView)
-        {
+
+        public buildingAdminViewHolder(View itemView) {
             super(itemView);
-            view=itemView;
+            view = itemView;
         }
-        public void setBuildingName(String buildingName){
+
+        public void setBuildingName(String buildingName) {
             TextView building_name = view.findViewById(R.id.building_name_cardView);
             building_name.setText(buildingName);
         }
