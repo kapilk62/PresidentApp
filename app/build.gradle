@@ -39,4 +39,6 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     //noinspection GradleCompatible
     implementation 'com.android.support:recyclerview-v7:28.0.0'
+    //country picker
+    implementation 'com.github.joielechong:countrycodepicker:2.4.2'
 }

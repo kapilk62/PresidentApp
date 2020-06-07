@@ -5,46 +5,42 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".GlobalClass"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".GlobalClass"
         android:theme="@style/AppTheme">
-        <activity android:name=".Add_announcements"></activity>
+        <activity android:name=".UserInfo"></activity>
+        <activity
+            android:name=".Register_user"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Add_announcements" />
         <activity android:name=".Announcements" />
         <activity android:name=".ComplaintEdit" />
         <activity
             android:name=".multiple_building_page"
             android:label="My properties"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".MyBuildingEditBank" />
-        <activity
-            android:name=".Adapter.Bank_Full_Details_adapter" />
-        <activity
-            android:name=".MyBuilding.MyBuildingShowBankDetails" />
-        <activity
-            android:name=".MyBuilding.MybuildngAddBank" />
-        <activity
-            android:name=".MyBuilding.MyBuildingDocuments" />
-        <activity
-            android:name=".MyBuilding.MyBuildingBank" />
-        <activity
-            android:name=".MyBuilding.MyBuildingStatistics" />
-        <activity
-            android:name=".MyBuilding.MyBuildingInfo" />
-        <activity
-            android:name=".MyBuilding.MyBuildingWings" />
-        <activity
-            android:name=".Join_Your_Building" />
-        <activity
-            android:name=".Create_New_Society" />
-        <activity
-            android:name=".Join_Building_Page" />
-
+            android:screenOrientation="portrait" />
+        <activity android:name=".MyBuildingEditBank" />
+        <activity android:name=".Adapter.Bank_Full_Details_adapter" />
+        <activity android:name=".MyBuilding.MyBuildingShowBankDetails" />
+        <activity android:name=".MyBuilding.MybuildngAddBank" />
+        <activity android:name=".MyBuilding.MyBuildingDocuments" />
+        <activity android:name=".MyBuilding.MyBuildingBank" />
+        <activity android:name=".MyBuilding.MyBuildingStatistics" />
+        <activity android:name=".MyBuilding.MyBuildingInfo" />
+        <activity android:name=".MyBuilding.MyBuildingWings" />
+        <activity android:name=".Join_Your_Building" />
+        <activity android:name=".Create_New_Society" />
+        <activity android:name=".Join_Building_Page" />
         <activity android:name=".ShowComplaintDetails" />
         <activity android:name=".Add_complaints" />
         <activity android:name=".MyBuilding.MyBuildingEditBank" />
@@ -110,17 +106,11 @@
         <activity
             android:name=".LoginActivity"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".RegisterActivity"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

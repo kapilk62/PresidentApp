@@ -96,7 +96,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
-                fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+               /* fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
@@ -142,7 +142,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                         }
                     }
-                });
+                });*/
             }
         });
 

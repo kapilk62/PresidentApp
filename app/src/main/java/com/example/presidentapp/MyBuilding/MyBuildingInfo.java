@@ -49,7 +49,7 @@ public class MyBuildingInfo extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
-                buildingnumber.setText(user.getMobile_number());
+                //buildingnumber.setText(user.getMobile_number());
             }
 
             @Override

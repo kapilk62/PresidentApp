@@ -62,7 +62,7 @@ public class Profile extends AppCompatActivity{
                 profileFirstName.setText(user.getFirst_name());
                 profileLastName.setText(user.getLast_name());
                 profileEmail.setText(user.getEmail());
-                profileMobile.setText(user.getMobile_number());
+                //profileMobile.setText(user.getMobile_number());
             }
 
             @Override
@@ -113,7 +113,7 @@ public class Profile extends AppCompatActivity{
 
     private boolean updateprofile(String FirstName, String LastName, String Email , String MobileNumber){
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseAuth.getUid());
-        User user = new User(FirstName, LastName, Email, MobileNumber);
+        User user = new User(FirstName, LastName, Email);
         databaseReference.setValue(user);
         Toast.makeText(this, "Profile Updated", Toast.LENGTH_LONG).show();
         return true;
