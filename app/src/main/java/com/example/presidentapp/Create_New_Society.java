@@ -72,7 +72,7 @@ public class Create_New_Society extends AppCompatActivity{
 
 
         String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseReferenceNewSociety = FirebaseDatabase.getInstance().getReference("Users").child(currentuserId).child("New Building");
+        databaseReferenceNewSociety = FirebaseDatabase.getInstance().getReference("New Building").child(currentuserId);
 
         arrayList_parent = new ArrayList<>();
         arrayList_parent.add("Andhra Paresh");

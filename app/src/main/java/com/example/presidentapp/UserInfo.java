@@ -43,7 +43,7 @@ public class UserInfo extends AppCompatActivity {
                   String userInfoId = databaseReference.getKey();
 
                   User user =new  User(firstName,lastName,userEmail);
-                  databaseReference.child(userInfoId).setValue(user);
+                  databaseReference.setValue(user);
 
                   startActivity(new Intent(getApplicationContext(),multiple_building_page.class));
                   finish();

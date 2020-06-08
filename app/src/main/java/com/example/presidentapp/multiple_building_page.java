@@ -27,7 +27,7 @@ public class multiple_building_page extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multiple_building_page);
         String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(currentuserId).child("New Building");
+        databaseReference = FirebaseDatabase.getInstance().getReference("New Building").child(currentuserId);
         databaseReference.keepSynced(true);
 
         createNewSociety = findViewById(R.id.create_new_society_cardView);
