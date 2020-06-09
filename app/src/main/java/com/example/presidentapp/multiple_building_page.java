@@ -85,7 +85,7 @@ public class multiple_building_page extends AppCompatActivity implements View.On
         else if (id==R.id.logoutbutton)
         {
             FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+            startActivity(new Intent(getApplicationContext(),Register_user.class));
             finish();
         }
 
