@@ -1,26 +1,37 @@
 package com.example.presidentapp;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.presidentapp.Model.CreateNewSocietyModel;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class multiple_building_page extends AppCompatActivity implements View.OnClickListener {
+import static android.app.PendingIntent.getActivity;
+
+public class multiple_building_page extends AppCompatActivity implements View.OnClickListener ,NavigationView.OnNavigationItemSelectedListener {
 
     private RecyclerView adminBuildingList;
     DatabaseReference databaseReference;
     CardView createNewSociety;
+    private DrawerLayout mDrawerlayout;
+    private ActionBarDrawerToggle mToggle;
+    private NavigationView mNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +46,61 @@ public class multiple_building_page extends AppCompatActivity implements View.On
         adminBuildingList.setHasFixedSize(true);
         adminBuildingList.setLayoutManager(new LinearLayoutManager(this));
 
+        mDrawerlayout = findViewById(R.id.drawer);
+        mToggle = new ActionBarDrawerToggle(this, mDrawerlayout, R.string.open, R.string.close);
+        mDrawerlayout.addDrawerListener(mToggle);
+        mToggle.syncState();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        mNavigationView = findViewById(R.id.navigationView);
+        mNavigationView.setNavigationItemSelectedListener(this);
+
         createNewSociety.setOnClickListener(this);
 
     }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (mToggle.onOptionsItemSelected(item)) {
+
+            return true;
+        }
+        else {
+            return super.onOptionsItemSelected(item);
+        }
+
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item){
+        int id=item.getItemId();
+
+        if(id==R.id.sprofile)
+        {
+            Intent i = new Intent(multiple_building_page.this,Profile.class);
+            startActivity(i);
+        }
+
+        else if (id==R.id.logoutbutton)
+        {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+            finish();
+        }
+
+        else if(id==R.id.scontact_us)
+        {
+            Intent i = new Intent(multiple_building_page.this, ContactsActivity.class);
+            startActivity(i);
+        }
+
+        DrawerLayout drawer1 =findViewById(R.id.drawer);
+        drawer1.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+
 
     @Override
     protected void onStart() {
