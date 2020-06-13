@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,7 +18,7 @@ import com.example.presidentapp.R;
 
 import java.util.ArrayList;
 
-public class RecyclerView_Members_Adapter extends RecyclerView.Adapter {
+public class RecyclerView_Members_Adapter extends RecyclerView.Adapter<RecyclerView_Members_Adapter.ViewHolder> {
     ArrayList mValues;
     Context mContext;
     protected ItemListener mListener;
@@ -73,8 +74,8 @@ public class RecyclerView_Members_Adapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        
+    public void onBindViewHolder(@NonNull ViewHolder Vholder, int position) {
+            Vholder.setData((Member_DataModel) mValues.get(position));
     }
 
     @Override
