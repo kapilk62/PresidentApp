@@ -53,7 +53,7 @@ public class Profile extends AppCompatActivity{
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Loading...");
         progressDialog.show();
-        DatabaseReference databaseReference = firebaseDatabase.getInstance().getReference("Users").child(firebaseAuth.getUid());
+        DatabaseReference databaseReference = firebaseDatabase.getInstance().getReference("Users").child("President").child(firebaseAuth.getUid());
         databaseReference.addValueEventListener(new ValueEventListener(){
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -112,7 +112,7 @@ public class Profile extends AppCompatActivity{
     }
 
     private boolean updateprofile(String FirstName, String LastName, String Email , String MobileNumber){
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseAuth.getUid());
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child("President").child(firebaseAuth.getUid());
         User user = new User(FirstName, LastName, Email);
         databaseReference.setValue(user);
         Toast.makeText(this, "Profile Updated", Toast.LENGTH_LONG).show();

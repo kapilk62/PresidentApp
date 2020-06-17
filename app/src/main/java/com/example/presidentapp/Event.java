@@ -36,7 +36,7 @@ public class Event extends AppCompatActivity{
     DatabaseReference databaseEvent;
     List<EventModel> eventModelList;
     final String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
+    String buildingId;
 
 
     @Override
@@ -46,10 +46,12 @@ public class Event extends AppCompatActivity{
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
+        GlobalClass globalClass = (GlobalClass) getApplicationContext();
+        buildingId = globalClass.getBuildingId();
 
         btnAddEvent  = findViewById(R.id.add_event_button);
 
-        databaseEvent = FirebaseDatabase.getInstance().getReference("Events").child(currentuserId);
+        databaseEvent = FirebaseDatabase.getInstance().getReference("Events").child(currentuserId).child(buildingId);
 
         listViewEvents = (ListView) findViewById(R.id.listviewevents);
         eventModelList = new ArrayList<>();
@@ -157,14 +159,14 @@ public class Event extends AppCompatActivity{
     }
 
     private void deleteEvent(String eventId) {
-        DatabaseReference drRule = FirebaseDatabase.getInstance().getReference("Events").child(currentuserId).child(eventId);
+        DatabaseReference drRule = FirebaseDatabase.getInstance().getReference("Events").child(currentuserId).child(buildingId).child(eventId);
         drRule.removeValue();
 
         Toast.makeText(this, "event is deleted", Toast.LENGTH_LONG).show();
     }
 
     private boolean updateEvent(String eventId, String eventName, String eventDescription, String eventDate, String eventTime){
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Events").child(currentuserId).child(eventId);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Events").child(currentuserId).child(buildingId).child(eventId);
         EventModel eventModel = new EventModel(eventId, eventName, eventDescription, eventDate, eventTime);
         databaseReference.setValue(eventModel);
         Toast.makeText(this, "Event Updated", Toast.LENGTH_LONG).show();
