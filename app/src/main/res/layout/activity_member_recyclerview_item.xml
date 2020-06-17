@@ -10,8 +10,8 @@
 <androidx.cardview.widget.CardView
     android:id="@+id/cardView"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    cardCornerRadius="100dp"
+    android:layout_height="150dp"
+    cardCornerRadius="40dp"
     cardElevation="50dp"
     cardMaxElevation="60dp"
     contentPadding="40dp"
@@ -29,8 +29,8 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_centerInParent="true"
             android:tint="@android:color/white"
             android:padding="5dp" />
@@ -38,8 +38,8 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:textColor="@android:color/white"
             android:layout_below="@+id/imageView" />

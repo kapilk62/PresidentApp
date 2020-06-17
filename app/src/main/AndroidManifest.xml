@@ -103,6 +103,11 @@
             android:name=".MainActivity"
             android:label="Dashboard"
             android:launchMode="standard" />
+        <activity android:name=".Member_Flats"
+            android:label="MemberFlats"
+            android:launchMode="standard">
+
+        </activity>
         <activity
             android:name=".LoginActivity"
             android:launchMode="singleTask"
