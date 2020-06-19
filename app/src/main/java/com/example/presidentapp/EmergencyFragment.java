@@ -59,14 +59,16 @@ public class EmergencyFragment extends Fragment {
     View dialogView;
     Button buttonUpdate;
     Button buttonDelete;
+    String buildingId;
     AlertDialog alertDialog;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_emergency, container, false);
         context=getActivity();
-
-        databaseEmergencyNumbers = FirebaseDatabase.getInstance().getReference("Emergency_Numbers").child(currentuserId);
+        GlobalClass globalClass = (GlobalClass) context.getApplicationContext();
+        buildingId = globalClass.getBuildingId();
+        databaseEmergencyNumbers = FirebaseDatabase.getInstance().getReference("Emergency_Numbers").child(buildingId).child(currentuserId);
         listViewEmergencyNumbers = (ListView) v.findViewById(R.id.listViewEmergencyNumber);
         EmergencyNumberList = new ArrayList<>();
         //Inflate the layout for this fragment

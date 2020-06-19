@@ -21,6 +21,7 @@ public class EmergencyForm extends AppCompatActivity {
 
     TextInputEditText emergencyNumberName , emergencyNumber;
     Button addEmergencyBtn;
+    String buildingId;
     DatabaseReference databaseEmergencyNumbers;
 
 
@@ -35,8 +36,11 @@ public class EmergencyForm extends AppCompatActivity {
         emergencyNumber = findViewById(R.id.EmerNumber);
         addEmergencyBtn = findViewById(R.id.EmerSubmitBtn);
 
+        GlobalClass globalClass = (GlobalClass) getApplicationContext();
+        buildingId = globalClass.getBuildingId();
+
         String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseEmergencyNumbers = FirebaseDatabase.getInstance().getReference("Emergency_Numbers").child(currentuserId);
+        databaseEmergencyNumbers = FirebaseDatabase.getInstance().getReference("Emergency_Numbers").child(buildingId).child(currentuserId);
 
         addEmergencyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
