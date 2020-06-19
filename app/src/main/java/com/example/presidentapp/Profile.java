@@ -45,7 +45,7 @@ public class Profile extends AppCompatActivity{
         profileFirstName = findViewById(R.id.firstname_txt_fld);
         profileLastName = findViewById(R.id.lastename_txt_fld);
         profileEmail = findViewById(R.id.email_txt_fld);
-        profileMobile = (TextInputEditText) findViewById(R.id.mob_no_txt_fld);
+        //profileMobile = (TextInputEditText) findViewById(R.id.mob_no_txt_fld);
         updateprofilebutton = findViewById(R.id.updateprofile_btn);
 
         firebaseAuth = FirebaseAuth.getInstance();
