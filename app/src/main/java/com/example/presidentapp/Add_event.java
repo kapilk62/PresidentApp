@@ -38,11 +38,12 @@ public class Add_event extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_event);
+        GlobalClass globalClass = (GlobalClass) getApplicationContext();
+        buildingId = globalClass.getBuildingId();
         String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         databaseEvents = FirebaseDatabase.getInstance().getReference("Events").child(currentuserId).child(buildingId);
 
-        GlobalClass globalClass = (GlobalClass) getApplicationContext();
-        buildingId = globalClass.getBuildingId();
+
 
         btnDatePicker=(Button)findViewById(R.id.btn_date);
         btnTimePicker=(Button)findViewById(R.id.btn_time);

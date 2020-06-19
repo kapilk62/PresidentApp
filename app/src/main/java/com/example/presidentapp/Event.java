@@ -48,7 +48,6 @@ public class Event extends AppCompatActivity{
         setContentView(R.layout.activity_event);
         GlobalClass globalClass = (GlobalClass) getApplicationContext();
         buildingId = globalClass.getBuildingId();
-
         btnAddEvent  = findViewById(R.id.add_event_button);
 
         databaseEvent = FirebaseDatabase.getInstance().getReference("Events").child(currentuserId).child(buildingId);
@@ -101,7 +100,7 @@ public class Event extends AppCompatActivity{
         });
     }
 
-        private void showupdatedialog(final String eventId, final String eventName, final String eventDescription, final String eventDate, final String eventTime) {
+    private void showupdatedialog(final String eventId, final String eventName, final String eventDescription, final String eventDate, final String eventTime) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
 
         LayoutInflater inflater = getLayoutInflater();
@@ -176,7 +175,6 @@ public class Event extends AppCompatActivity{
     public void AddEvent(View view) {
         Intent intent = new Intent(getApplicationContext(), Add_event.class);
         startActivity(intent);
-
     }
 
 }
