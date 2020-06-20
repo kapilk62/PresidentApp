@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.presidentapp.GlobalClass;
 import com.example.presidentapp.Model.CreateNewSocietyModel;
 import com.example.presidentapp.Model.MyBuildingAddBankModel;
 import com.example.presidentapp.R;
@@ -22,12 +23,17 @@ public class MybuildngAddBank extends AppCompatActivity {
     DatabaseReference databaseReferenceAddBank;
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
+    String buildingId;
     Button addbank;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mybuildng_add_bank);
+
+        GlobalClass globalClass = (GlobalClass) getApplicationContext();
+        buildingId = globalClass.getBuildingId();
+
 
         bankname = findViewById(R.id.bank_name_txt_fld);
         bankupiid = findViewById(R.id.upi_id_txt_fld);
@@ -37,7 +43,7 @@ public class MybuildngAddBank extends AppCompatActivity {
         bankaddress = findViewById(R.id.bank_address_txt_fld);
         addbank = findViewById(R.id.add_bank_button);
         String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseReferenceAddBank = FirebaseDatabase.getInstance().getReference("Add Bank").child(currentuserId);
+        databaseReferenceAddBank = FirebaseDatabase.getInstance().getReference("Add Bank").child(currentuserId).child(buildingId);
         addbank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

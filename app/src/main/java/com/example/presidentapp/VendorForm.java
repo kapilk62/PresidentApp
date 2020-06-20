@@ -27,6 +27,7 @@ public class VendorForm extends AppCompatActivity {
     Button addVendorBtn;
     Spinner vendordetailsCategory;
     DatabaseReference databaseVendorDetails;
+    String buildingId;
 
     private Spinner spinner;
     @Override
@@ -42,8 +43,10 @@ public class VendorForm extends AppCompatActivity {
         vendordetailsCategory = findViewById(R.id.VendorSpinner);
         addVendorBtn = findViewById(R.id.VendorSubmitBtn);
 
+        GlobalClass globalClass = (GlobalClass) getApplicationContext();
+        buildingId = globalClass.getBuildingId();
         String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseVendorDetails = FirebaseDatabase.getInstance().getReference("Vendor_details").child(currentuserId);
+        databaseVendorDetails = FirebaseDatabase.getInstance().getReference("Vendor_details").child(buildingId).child(currentuserId);
 
         addVendorBtn.setOnClickListener(new View.OnClickListener() {
             @Override

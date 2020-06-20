@@ -59,14 +59,16 @@ public class EmergencyFragment extends Fragment {
     View dialogView;
     Button buttonUpdate;
     Button buttonDelete;
+    String buildingId;
     AlertDialog alertDialog;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_emergency, container, false);
         context=getActivity();
-
-        databaseEmergencyNumbers = FirebaseDatabase.getInstance().getReference("Emergency_Numbers").child(currentuserId);
+        GlobalClass globalClass = (GlobalClass) context.getApplicationContext();
+        buildingId = globalClass.getBuildingId();
+        databaseEmergencyNumbers = FirebaseDatabase.getInstance().getReference("Emergency_Numbers").child(buildingId).child(currentuserId);
         listViewEmergencyNumbers = (ListView) v.findViewById(R.id.listViewEmergencyNumber);
         EmergencyNumberList = new ArrayList<>();
         //Inflate the layout for this fragment
@@ -193,7 +195,7 @@ public class EmergencyFragment extends Fragment {
         });
     }
     private void updateEmergency(String emergencyId, String emergencyName, String emergencyNumber){
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Emergency_Numbers").child(currentuserId).child(emergencyId);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Emergency_Numbers").child(currentuserId).child(buildingId).child(emergencyId);
         Emergency_Num_Model emergency_num_model = new Emergency_Num_Model(emergencyId, emergencyName, emergencyNumber);
         databaseReference.setValue(emergency_num_model);
         Toast.makeText(context, "Emergency Number Updated", Toast.LENGTH_LONG).show();
@@ -201,7 +203,7 @@ public class EmergencyFragment extends Fragment {
 
     }
     private void deleteEmergency(String emergencyId) {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Emergency_Numbers").child(currentuserId).child(emergencyId);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Emergency_Numbers").child(currentuserId).child(buildingId).child(emergencyId);
         databaseReference.removeValue();
 
         Toast.makeText(context, "Emergency Number is deleted", Toast.LENGTH_LONG).show();

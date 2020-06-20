@@ -31,7 +31,7 @@ import java.sql.Array;
 import java.sql.Struct;
 import java.util.ArrayList;
 
-public class Create_New_Society extends AppCompatActivity{
+public class Create_New_Society extends AppCompatActivity {
     private static final String TAG = "wings";
     Spinner sp_state, sp_city, sp_buildingtype;
     ArrayList<String> arrayList_parent;
@@ -39,10 +39,10 @@ public class Create_New_Society extends AppCompatActivity{
 
     ArrayList<String> arrayList_AndhraPradesh, arrayList_ArunachalPradesh, arrayList_Assam, arrayList_Bihar, arrayList_Chandigarh,
             arrayList_Chhattisgarh, arrayList_Dadra_Nagar_Haveli, arrayList_Daman_and_Diu, arrayList_Delhi, arrayList_Goa, arrayList_Gujarat,
-    arrayList_Haryana, arrayList_HimachalPradesh, arrayList_JammuKashmir, arrayList_Jharkhand, arrayList_Karnataka, arrayList_Kerala,
-    arrayList_Lakshadweep, arrayList_MadhyaPradesh, arrayList_Maharashtra, arrayList_Manipur, arrayList_Meghalaya, arrayList_Mizoram,
-    arrayList_Nagaland, arrayList_Odisha, arrayList_Puducherry, arrayList_Punjab, arrayList_Rajasthan, arrayList_Sikkim, arrayList_TamilNadu,
-    arrayList_Telangana, arrayList_Tripura, arrayList_Uttarakhand, arrayList_UttarPradesh, arrayList_WestBengal;
+            arrayList_Haryana, arrayList_HimachalPradesh, arrayList_JammuKashmir, arrayList_Jharkhand, arrayList_Karnataka, arrayList_Kerala,
+            arrayList_Lakshadweep, arrayList_MadhyaPradesh, arrayList_Maharashtra, arrayList_Manipur, arrayList_Meghalaya, arrayList_Mizoram,
+            arrayList_Nagaland, arrayList_Odisha, arrayList_Puducherry, arrayList_Punjab, arrayList_Rajasthan, arrayList_Sikkim, arrayList_TamilNadu,
+            arrayList_Telangana, arrayList_Tripura, arrayList_Uttarakhand, arrayList_UttarPradesh, arrayList_WestBengal;
 
     ArrayAdapter<String> arrayAdapter_child;
 
@@ -53,6 +53,7 @@ public class Create_New_Society extends AppCompatActivity{
     FirebaseDatabase firebaseDatabase;
 
     String get1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +69,6 @@ public class Create_New_Society extends AppCompatActivity{
 //        GlobalClass globalClass = (GlobalClass) getApplicationContext();
 //
 //        Toast.makeText(Create_New_Society.this,""+ globalClass.getBuildingId(),Toast.LENGTH_LONG).show();
-
 
 
         String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -112,7 +112,7 @@ public class Create_New_Society extends AppCompatActivity{
         arrayList_parent.add("West Bengal");
 
 
-        arrayAdapter_parent = new ArrayAdapter<>(getApplication(),android.R.layout.simple_spinner_dropdown_item,arrayList_parent);
+        arrayAdapter_parent = new ArrayAdapter<>(getApplication(), android.R.layout.simple_spinner_dropdown_item, arrayList_parent);
 
         sp_state.setAdapter(arrayAdapter_parent);
 
@@ -120,21 +120,21 @@ public class Create_New_Society extends AppCompatActivity{
         firebaseDatabase = FirebaseDatabase.getInstance();
 
         final DatabaseReference databaseReference = firebaseDatabase.getInstance().getReference("New Buildings").child("M2XQKEWMfXQFGydHcBA");
-        databaseReference.addValueEventListener(new ValueEventListener(){
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 CreateNewSocietyModel createNewSocietyModel = dataSnapshot.getValue(CreateNewSocietyModel.class);
                 String pic = dataSnapshot.child("buildingWings").getValue(String.class);
-                Log.d(TAG, "onDataChange: wing::"+pic);
+                Log.d(TAG, "onDataChange: wing::" + pic);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(Create_New_Society.this, databaseError.getCode(),Toast.LENGTH_LONG).show();
+                Toast.makeText(Create_New_Society.this, databaseError.getCode(), Toast.LENGTH_LONG).show();
             }
         });
 
-        btnCreateNewSociety.setOnClickListener(new View.OnClickListener(){
+        btnCreateNewSociety.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CreateNewSociety();
@@ -311,7 +311,7 @@ public class Create_New_Society extends AppCompatActivity{
         arrayList_Delhi.add("South East Delhi");
         arrayList_Delhi.add("South West Delhi");
         arrayList_Delhi.add("West Delhi");
-       //position 9
+        //position 9
         arrayList_Goa = new ArrayList<>();
         arrayList_Goa.add("North Goa");
         arrayList_Goa.add("South Goa");
@@ -438,7 +438,7 @@ public class Create_New_Society extends AppCompatActivity{
         arrayList_Jharkhand.add("Seraikela-Kharsawan");
         arrayList_Jharkhand.add("Simdega");
         arrayList_Jharkhand.add("West Singhbhum");
-       //position 15
+        //position 15
         arrayList_Karnataka = new ArrayList<>();
         arrayList_Karnataka.add("Bagalkot");
         arrayList_Karnataka.add("Ballari (Bellary)");
@@ -823,7 +823,7 @@ public class Create_New_Society extends AppCompatActivity{
         arrayList_Tripura.add("Unakoti");
         arrayList_Tripura.add("West Tripura");
         //positon 32
-        arrayList_Uttarakhand= new ArrayList<>();
+        arrayList_Uttarakhand = new ArrayList<>();
         arrayList_Uttarakhand.add("Almora");
         arrayList_Uttarakhand.add("Bageshwar");
         arrayList_Uttarakhand.add("Chamoli");
@@ -940,113 +940,113 @@ public class Create_New_Society extends AppCompatActivity{
         //END
 
 
-        sp_state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+        sp_state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position==0){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_AndhraPradesh);
+                if (position == 0) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_AndhraPradesh);
                 }
-                if(position==1){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_ArunachalPradesh);
+                if (position == 1) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_ArunachalPradesh);
                 }
-                if(position==2){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Assam);
+                if (position == 2) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Assam);
                 }
-                if(position==3){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Bihar);
+                if (position == 3) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Bihar);
                 }
-                if(position==4){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Chandigarh);
+                if (position == 4) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Chandigarh);
                 }
-                if(position==5){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Chhattisgarh);
+                if (position == 5) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Chhattisgarh);
                 }
-                if(position==6){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Dadra_Nagar_Haveli);
+                if (position == 6) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Dadra_Nagar_Haveli);
                 }
-                if(position==7){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Daman_and_Diu);
+                if (position == 7) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Daman_and_Diu);
                 }
-                if(position==8){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Delhi);
+                if (position == 8) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Delhi);
                 }
-                if(position==9){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Goa);
+                if (position == 9) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Goa);
                 }
-                if(position==10){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Gujarat);
+                if (position == 10) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Gujarat);
                 }
-                if(position==11){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Haryana);
+                if (position == 11) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Haryana);
                 }
-                if(position==12){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_HimachalPradesh);
+                if (position == 12) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_HimachalPradesh);
                 }
-                if(position==13){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_JammuKashmir);
+                if (position == 13) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_JammuKashmir);
                 }
-                if(position==14){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Jharkhand);
+                if (position == 14) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Jharkhand);
                 }
-                if(position==15){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Karnataka);
+                if (position == 15) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Karnataka);
                 }
-                if(position==16){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Kerala);
+                if (position == 16) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Kerala);
                 }
-                if(position==17){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Lakshadweep);
+                if (position == 17) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Lakshadweep);
                 }
-                if(position==18){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_MadhyaPradesh);
+                if (position == 18) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_MadhyaPradesh);
                 }
-                if(position==19){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Maharashtra);
+                if (position == 19) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Maharashtra);
                 }
-                if(position==20){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Manipur);
+                if (position == 20) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Manipur);
                 }
-                if(position==21){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Meghalaya);
+                if (position == 21) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Meghalaya);
                 }
-                if(position==22){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Mizoram);
+                if (position == 22) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Mizoram);
                 }
-                if(position==23){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Nagaland);
+                if (position == 23) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Nagaland);
                 }
-                if(position==24){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Odisha);
+                if (position == 24) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Odisha);
                 }
-                if(position==25){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Puducherry);
+                if (position == 25) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Puducherry);
                 }
-                if(position==26){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Punjab);
+                if (position == 26) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Punjab);
                 }
-                if(position==27){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Rajasthan);
+                if (position == 27) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Rajasthan);
                 }
-                if(position==28){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Sikkim);
+                if (position == 28) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Sikkim);
                 }
-                if(position==29){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_TamilNadu);
+                if (position == 29) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_TamilNadu);
                 }
-                if(position==30){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Telangana);
+                if (position == 30) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Telangana);
                 }
-                if(position==31){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Tripura);
+                if (position == 31) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Tripura);
                 }
-                if(position==32){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_Uttarakhand);
+                if (position == 32) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_Uttarakhand);
                 }
-                if(position==33){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_UttarPradesh);
+                if (position == 33) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_UttarPradesh);
                 }
-                if(position==34){
-                    arrayAdapter_child=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList_WestBengal);
+                if (position == 34) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList_WestBengal);
                 }
                 sp_city.setAdapter(arrayAdapter_child);
             }
@@ -1059,21 +1059,21 @@ public class Create_New_Society extends AppCompatActivity{
         });
     }
 
-    private void CreateNewSociety(){
+    private void CreateNewSociety() {
 
-        String getbuildingtype =  sp_buildingtype.getSelectedItem().toString().trim();
+        String getbuildingtype = sp_buildingtype.getSelectedItem().toString().trim();
         String getbuildingstate = sp_state.getSelectedItem().toString().trim();
         String getbuildingcity = sp_city.getSelectedItem().toString().trim();
         String getbuildingname = buildingname.getText().toString().trim();
         String getbuildingwings = buildingwings.getText().toString().trim();
         String getbuildingaddress = buildingaddress.getText().toString().trim();
 
-        if(!TextUtils.isEmpty(getbuildingtype)){
+        if (!TextUtils.isEmpty(getbuildingtype)) {
             String buildingId = databaseReferenceNewSociety.push().getKey();
-            CreateNewSocietyModel createNewSocietyModel = new CreateNewSocietyModel(buildingId, getbuildingtype,getbuildingname,getbuildingwings,getbuildingstate,getbuildingcity,getbuildingaddress);
+            CreateNewSocietyModel createNewSocietyModel = new CreateNewSocietyModel(buildingId, getbuildingtype, getbuildingname, getbuildingwings, getbuildingstate, getbuildingcity, getbuildingaddress);
             databaseReferenceNewSociety.child(buildingId).setValue(createNewSocietyModel);
-            Toast.makeText(this,"New Society added",Toast.LENGTH_LONG).show();
-        }else{
+            Toast.makeText(this, "New Society added", Toast.LENGTH_LONG).show();
+        } else {
             Toast.makeText(this, "You should enter the type", Toast.LENGTH_LONG).show();
         }
     }

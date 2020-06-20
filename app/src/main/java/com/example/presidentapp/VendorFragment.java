@@ -58,6 +58,7 @@ public class VendorFragment extends Fragment {
     private Activity context;
     TextInputEditText editTextVendorname;
     TextInputEditText editTextVendornumber;
+    String buildingId;
     TextInputEditText editTextVendoraddress;
     Spinner editSpinnervendorCategory;
     View dialogView;
@@ -71,8 +72,11 @@ public class VendorFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_vendor, container, false);
         context=getActivity();
 
+        GlobalClass globalClass = (GlobalClass) context.getApplicationContext();
+        buildingId = globalClass.getBuildingId();
+
         String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseVendorDetails = FirebaseDatabase.getInstance().getReference("Vendor_details").child(currentuserId);
+        databaseVendorDetails = FirebaseDatabase.getInstance().getReference("Vendor_details").child(buildingId).child(currentuserId);
         listViewVendorNumber = (ListView) v.findViewById(R.id.listViewVendorDetails);
         VendorDetailList = new ArrayList<>();
         //Inflate the layout for this fragment
@@ -200,7 +204,7 @@ public class VendorFragment extends Fragment {
         });
     }
     private void updateVendor(String vendorId, String vendorName, String vendorNumber, String vendorAddress, String vendorCategory){
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Vendor_details").child(currentuserId).child(vendorId);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Vendor_details").child(currentuserId).child(buildingId).child(vendorId);
         Vendor_Num_Model vendor_num_model = new Vendor_Num_Model(vendorId, vendorName, vendorAddress, vendorAddress, vendorCategory);
         databaseReference.setValue(vendor_num_model);
         Toast.makeText(context, "Vendor Updated", Toast.LENGTH_LONG).show();
@@ -208,7 +212,7 @@ public class VendorFragment extends Fragment {
 
     }
     private void deleteVendor(String vendorId) {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Vendor_details").child(currentuserId).child(vendorId);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Vendor_details").child(currentuserId).child(buildingId).child(vendorId);
         databaseReference.removeValue();
 
         Toast.makeText(context, "Vendor is deleted", Toast.LENGTH_LONG).show();
