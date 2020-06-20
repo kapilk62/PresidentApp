@@ -32,6 +32,7 @@ public class Announcements extends AppCompatActivity{
 
     ListView listViewAnnouncement;
     DatabaseReference databaseReferenceAnnouncement;
+    String buildingId;
     List<AddAnnouncementModel> addAnnouncementModelList;
     final String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
     @Override
@@ -39,7 +40,10 @@ public class Announcements extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_announcements);
 
-        databaseReferenceAnnouncement = FirebaseDatabase.getInstance().getReference("Add Annoucements").child(currentuserId);
+        GlobalClass globalClass = (GlobalClass) getApplicationContext();
+        buildingId = globalClass.getBuildingId();
+
+        databaseReferenceAnnouncement = FirebaseDatabase.getInstance().getReference("Add Annoucements").child(currentuserId).child(buildingId);
 
         listViewAnnouncement = findViewById(R.id.listviewannouncementdetails);
         addAnnouncementModelList = new ArrayList<>();
@@ -100,13 +104,13 @@ public class Announcements extends AppCompatActivity{
         });
     }
     private void updateAnnoucement(String annoucementId, String annoucementName, String annoucementDescrpition,String annoucementDate,String annoucementTime, String annoucementType) {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Add Annoucements").child(currentuserId).child(annoucementId);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Add Annoucements").child(currentuserId).child(buildingId).child(annoucementId);
         AddAnnouncementModel addAnnouncementModel = new AddAnnouncementModel(annoucementId,annoucementName,annoucementDescrpition,annoucementDate,annoucementTime,annoucementType);
         databaseReference.setValue(addAnnouncementModel);
     }
 
     private void deleteAnnoucement(String annoucementId) {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Add Annoucements").child(currentuserId).child(annoucementId);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Add Annoucements").child(currentuserId).child(buildingId).child(annoucementId);
         databaseReference.removeValue();
 
         Toast.makeText(this, "announcement is deleted", Toast.LENGTH_LONG).show();

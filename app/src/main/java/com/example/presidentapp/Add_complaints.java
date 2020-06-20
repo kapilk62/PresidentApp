@@ -20,12 +20,14 @@ public class Add_complaints extends AppCompatActivity{
     TextInputEditText complaintname, complaintdescription;
     Spinner complaintcategory, complaintpriority, complaintstatus;
     Button addcomplaint;
+    String buildingId;
     DatabaseReference databaseReferenceAddComplaint;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_complaints);
-
+        GlobalClass globalClass = (GlobalClass) getApplicationContext();
+        buildingId = globalClass.getBuildingId();
         complaintname = findViewById(R.id.complaint_name_txt_fld);
         complaintdescription=findViewById(R.id.complaint_description_txt_fld);
         complaintcategory=findViewById(R.id.complaint_category_spinner);
@@ -33,7 +35,7 @@ public class Add_complaints extends AppCompatActivity{
         complaintstatus=findViewById(R.id.complaint_status_spinner);
         addcomplaint=findViewById(R.id.add_complaint_button);
         String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseReferenceAddComplaint = FirebaseDatabase.getInstance().getReference("Add Complaint").child(currentuserId);
+        databaseReferenceAddComplaint = FirebaseDatabase.getInstance().getReference("Add Complaint").child(currentuserId).child(buildingId);
         addcomplaint.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
