@@ -68,7 +68,7 @@ public class EmergencyFragment extends Fragment {
         context=getActivity();
         GlobalClass globalClass = (GlobalClass) context.getApplicationContext();
         buildingId = globalClass.getBuildingId();
-        databaseEmergencyNumbers = FirebaseDatabase.getInstance().getReference("Emergency_Numbers").child(buildingId).child(currentuserId);
+        databaseEmergencyNumbers = FirebaseDatabase.getInstance().getReference("Emergency_Numbers").child(currentuserId).child(buildingId);
         listViewEmergencyNumbers = (ListView) v.findViewById(R.id.listViewEmergencyNumber);
         EmergencyNumberList = new ArrayList<>();
         //Inflate the layout for this fragment
