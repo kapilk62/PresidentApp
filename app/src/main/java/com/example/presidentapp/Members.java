@@ -31,7 +31,7 @@ public class Members extends AppCompatActivity implements RecyclerView_Members_A
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         arrayList = new ArrayList();
-        arrayList.add(new Member_DataModel("Item 1", R.drawable.ic_account_name, "#09A9FF"));
+        arrayList.add(new Member_DataModel("Item 1", R.drawable.ic_account_name, "#3E51B1"));
         arrayList.add(new Member_DataModel("Item 2", R.drawable.flag_honduras, "#3E51B1"));
         arrayList.add(new Member_DataModel("Item 3", R.drawable.ic_email, "#673BB7"));
         arrayList.add(new Member_DataModel("Item 4", R.drawable.ic_upiid, "#4BAA50"));

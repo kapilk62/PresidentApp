@@ -22,8 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Add_announcements" />
-        <activity android:name=".Announcements" />
+        <activity android:name=".Add_announcements"
+            android:label="Add Announcements"
+            android:parentActivityName=".Announcements"/>
+
+        <activity android:name=".Announcements"
+            android:label="Announcements"
+            android:parentActivityName=".Announcements"/>
+
         <activity android:name=".ComplaintEdit" />
         <activity
             android:name=".multiple_building_page"
@@ -46,19 +52,24 @@
         <activity android:name=".MyBuilding.MyBuildingEditBank" />
         <activity
             android:name=".VendorForm"
+            android:label="Vendor Details Form"
             android:parentActivityName=".Emergency_Number" />
         <activity
             android:name=".Add_event"
+            android:label="Add Event"
             android:parentActivityName=".Event" />
         <activity
             android:name=".Event"
-            android:parentActivityName=".MainActivity" />
+            android:label="Events"
+            android:parentActivityName=".Event" />
         <activity
             android:name=".EmergencyForm"
+            android:label="Emergency Details Form"
             android:parentActivityName=".Emergency_Number" />
         <activity
             android:name=".ContactsActivity"
-            android:parentActivityName=".MainActivity" />
+            android:label="Contact Us"
+            android:parentActivityName=".ContactsActivity" />
         <activity
             android:name=".Profile"
             android:label="Profile"
@@ -66,45 +77,45 @@
         <activity
             android:name=".Rules"
             android:label="Rules"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Rules" />
         <activity
             android:name=".Gate_Keeper"
-            android:label="Gate_Keeper"
-            android:parentActivityName=".MainActivity" />
+            android:label="Gate Keeper"
+            android:parentActivityName=".Gate_Keeper" />
         <activity
             android:name=".Vehicles"
             android:label="Vehicles"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Vehicles" />
         <activity
             android:name=".Complaints"
             android:label="Complaints"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Complaints" />
         <activity
             android:name=".My_Building"
-            android:label="My_Building"
-            android:parentActivityName=".MainActivity" />
+            android:label="My Building"
+            android:parentActivityName=".My_Building" />
         <activity
             android:name=".Emergency_Number"
-            android:label="Emergency_Number"
-            android:parentActivityName=".MainActivity" />
+            android:label="Emergency Number"
+            android:parentActivityName=".Emergency_Number" />
         <activity
             android:name=".Society_Fund"
-            android:label="Society_Fund"
-            android:parentActivityName=".MainActivity" />
+            android:label="Society Fund"
+            android:parentActivityName=".Society_Fund" />
         <activity
             android:name=".Members"
             android:label="Members"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Members" />
         <activity
             android:name=".Bills"
             android:label="Bills"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Bills" />
         <activity
             android:name=".MainActivity"
             android:label="Dashboard"
             android:launchMode="standard" />
         <activity android:name=".Member_Flats"
-            android:label="MemberFlats"
+            android:label="Member Flats"
             android:launchMode="standard">
 
         </activity>

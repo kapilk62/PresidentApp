@@ -138,7 +138,7 @@ public class Create_New_Society extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 CreateNewSociety();
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), multiple_building_page.class);
                 startActivity(intent);
             }
         });
