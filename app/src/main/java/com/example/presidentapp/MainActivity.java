@@ -11,22 +11,38 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.presidentapp.Model.CreateNewSocietyModel;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
-    private CardView billsCard, membersCard, societyfundCard, emergencynumberCard, mybuldingCard, complaintsCard, vehiclesCard, gatekeeperCard;
+    private CardView share_code_Card,billsCard, membersCard, societyfundCard, emergencynumberCard, mybuldingCard, complaintsCard, vehiclesCard, gatekeeperCard;
     private DrawerLayout mDrawerlayout;
     private ActionBarDrawerToggle mToggle;
     private static String buildingId;
     private NavigationView mNavigationView;
+    DatabaseReference databaseReference;
+    String currentuserId;
+    TextView society_code_tv,society_info_tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        society_code_tv = findViewById(R.id.Society_code_share);
+        society_info_tv = findViewById(R.id.society_name_share);
+        share_code_Card = findViewById(R.id.share_card_view);
         billsCard = findViewById(R.id.bills);
         membersCard = findViewById(R.id.members);
         societyfundCard = findViewById(R.id.society_fund);
@@ -37,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         gatekeeperCard = findViewById(R.id.gatekeeper);
         mNavigationView = findViewById(R.id.navigationView);
 
-
+        share_code_Card.setOnClickListener(this);
         billsCard.setOnClickListener(this);
         membersCard.setOnClickListener(this);
         societyfundCard.setOnClickListener(this);
@@ -56,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mNavigationView.setNavigationItemSelectedListener(this);
 
         buildingId = getIntent().getExtras().get("BUILDINGID").toString();
+        databaseReference = FirebaseDatabase.getInstance().getReference("New Building").child(currentuserId).child(buildingId);
 
         GlobalClass globalClass = (GlobalClass) getApplicationContext();
         globalClass.setBuildingId(buildingId);
@@ -173,6 +190,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         Intent i;
         switch (view.getId()) {
+            case R.id.share_card_view:
+                i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_SUBJECT,"Society Code");
+                String shareBody= "step 1:open an member app and login or sign-Up.\nStep 2: Enter Your Details if you are not already login.\nStep 3: Enter Following joining code\n"+ currentuserId +"\n4: Select your society";
+                i.putExtra(Intent.EXTRA_TEXT,shareBody);
+                startActivity(Intent.createChooser(i,"Society Code"));
+                break;
+
             case R.id.bills:
                 i = new Intent(this, Bills.class);
                 startActivity(i);
@@ -209,6 +235,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                CreateNewSocietyModel createNewSocietyModel = dataSnapshot.getValue(CreateNewSocietyModel.class);
+                society_code_tv.setText(currentuserId);
+                society_info_tv.setText("Share above code with building member to join "+createNewSocietyModel.getBuildingName()+".");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
 }
