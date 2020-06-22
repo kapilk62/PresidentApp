@@ -52,7 +52,7 @@ public class Announcements extends AppCompatActivity{
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 AddAnnouncementModel addAnnouncementModel = addAnnouncementModelList.get(position);
-                showupdatedialog(addAnnouncementModel.getAnnoucementId(),addAnnouncementModel.getAnnoucementName(),addAnnouncementModel.getAnnoucementDescrpition(),addAnnouncementModel.getAnnoucementTime(),addAnnouncementModel.getAnnoucementTime(),addAnnouncementModel.getAnnoucementType());
+                showupdatedialog(addAnnouncementModel.getAnnoucementId(),addAnnouncementModel.getAnnoucementName(),addAnnouncementModel.getAnnoucementDescrpition(),addAnnouncementModel.getAnnoucementDate(),addAnnouncementModel.getAnnoucementTime(),addAnnouncementModel.getAnnoucementType());
                 return false;
             }
         });
