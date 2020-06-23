@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.presidentapp.Adapter.Bank_Details_adapter;
+import com.example.presidentapp.GlobalClass;
 import com.example.presidentapp.Model.MyBuildingAddBankModel;
 import com.example.presidentapp.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,15 +30,20 @@ public class MyBuildingBank extends AppCompatActivity {
     ListView listViewBankDetails;
     DatabaseReference databaseReferencebankDetails;
     List<MyBuildingAddBankModel> bankdetailsmodellist;
+    String buildingId;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_building_bank);
+        GlobalClass globalClass = (GlobalClass) getApplicationContext();
+        buildingId = globalClass.getBuildingId();
+
 
         String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseReferencebankDetails = FirebaseDatabase.getInstance().getReference("Add Bank").child(currentuserId);
+        databaseReferencebankDetails = FirebaseDatabase.getInstance().getReference("Add Bank").child(currentuserId).child(buildingId);
 
         listViewBankDetails = findViewById(R.id.listviewbankdetails);
         bankdetailsmodellist = new ArrayList<>();

@@ -30,12 +30,12 @@ public class ContactsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     public void phoneapp(View view){
-        Intent phoneIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("tel:9090900990"));
+        Intent phoneIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("tel:8153843401"));
         startActivity(phoneIntent);
     }
 
     public void mailapp(View view){
-        Intent mailIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:epartment@gmail.com"));
+        Intent mailIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:vgrathod46@gmail.com"));
         startActivity(mailIntent);
     }
 }

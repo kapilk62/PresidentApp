@@ -24,24 +24,6 @@
         android:layout_marginBottom="20dp">
     </TextView>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mobile Number"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:textColor="@color/lightblue">
-    </TextView>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:id="@+id/textViewbuildingmobilenumber"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp">
-    </TextView>
 
     <TextView
         android:layout_width="match_parent"

@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.presidentapp.Create_New_Society;
+import com.example.presidentapp.GlobalClass;
 import com.example.presidentapp.Model.CreateNewSocietyModel;
 import com.example.presidentapp.Model.User;
 import com.example.presidentapp.Profile;
@@ -27,8 +28,9 @@ public class MyBuildingInfo extends AppCompatActivity {
     DatabaseReference databaseReference;
     FirebaseDatabase firebaseDatabase;
     FirebaseAuth firebaseAuth;
+    String buildingId;
 
-    String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    String currentuserId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,27 +38,17 @@ public class MyBuildingInfo extends AppCompatActivity {
         setContentView(R.layout.activity_my_building_info);
 
         buildingname = findViewById(R.id.textViewbuildingname);
-        buildingnumber = findViewById(R.id.textViewbuildingmobilenumber);
+      //  buildingnumber = findViewById(R.id.textViewbuildingmobilenumber);
         buildingaddress = findViewById(R.id.textViewbuildingaddress);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
+        GlobalClass globalClass = (GlobalClass) getApplicationContext();
+        buildingId = globalClass.getBuildingId();
+        currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        DatabaseReference databaseReferenceuser = firebaseDatabase.getInstance().getReference("Users").child(firebaseAuth.getUid());
-        DatabaseReference databaseReferencecreatenewsociety = firebaseDatabase.getReference("New Buildings").child(currentuserId);
-
-        databaseReferenceuser.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                //buildingnumber.setText(user.getMobile_number());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(MyBuildingInfo.this, databaseError.getCode(), Toast.LENGTH_LONG).show();
-            }
-        });
+        //DatabaseReference databaseReferenceuser = firebaseDatabase.getInstance().getReference("Users").child("President").child(currentuserId);
+        DatabaseReference databaseReferencecreatenewsociety = firebaseDatabase.getReference("New Buildings").child(currentuserId).child(buildingId);
 
         databaseReferencecreatenewsociety.addValueEventListener(new ValueEventListener() {
             @Override

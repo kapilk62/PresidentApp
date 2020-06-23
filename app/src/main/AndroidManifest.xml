@@ -12,7 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserInfo"></activity>
+        <activity android:name=".GateKeeper.GateKeeper_visitorstatshistory"></activity>
+        <activity android:name=".GateKeeper.GateKeeper_gates_add" />
+        <activity android:name=".GateKeeper.GateKeeper_gates" />
+        <activity android:name=".GateKeeper.GateKeeper_gatepass" />
+        <activity android:name=".GateKeeper.GateKeeper_gatekeepers" />
+        <activity android:name=".GateKeeper.GateKeeper_gatekeeper_add" />
+        <activity android:name=".UserInfo" />
         <activity
             android:name=".Register_user"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
@@ -177,7 +183,7 @@
         <activity
             android:name=".RegisterActivity"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
 
         <meta-data
             android:name="preloaded_fonts"

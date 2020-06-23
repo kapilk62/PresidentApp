@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:padding="15dp"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/white"
     tools:context=".Rules">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -27,7 +27,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/add_rule_txtfld"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:maxLength="100"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -35,8 +35,9 @@
     </com.google.android.material.textfield.TextInputLayout>
     <Button
         android:id="@+id/add_rule_btn"
-        android:layout_width="138dp"
+        android:layout_width="match_parent"
         android:layout_height="46dp"
+        android:layout_gravity="center"
         android:layout_marginTop="33dp"
         style="@style/TextAppearance.App.Button"
 

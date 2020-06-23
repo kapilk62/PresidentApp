@@ -32,7 +32,7 @@ public class UserInfo extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         userID = firebaseAuth.getCurrentUser().getUid();
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(userID);
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child("President").child(userID);
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

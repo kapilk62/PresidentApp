@@ -102,7 +102,7 @@ public class Register_user extends AppCompatActivity {
     }
 
     private void checkUserProfile() {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getUid());
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child("President").child(FirebaseAuth.getInstance().getUid());
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

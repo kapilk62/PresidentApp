@@ -33,13 +33,17 @@ public class Add_announcements extends AppCompatActivity implements
     String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
     Spinner AnnoucementType;
     DatabaseReference databaseAnnoucements;
+    String buildingId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_announcements);
 
-        databaseAnnoucements = FirebaseDatabase.getInstance().getReference("Add Annoucements").child(currentuserId);
+        GlobalClass globalClass = (GlobalClass) getApplicationContext();
+        buildingId = globalClass.getBuildingId();
+
+        databaseAnnoucements = FirebaseDatabase.getInstance().getReference("Add Annoucements").child(currentuserId).child(buildingId);
 
 
         btnDatePicker=(Button)findViewById(R.id.btn_date);

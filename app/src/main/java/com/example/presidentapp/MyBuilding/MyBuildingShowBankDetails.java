@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.presidentapp.GlobalClass;
 import com.example.presidentapp.Model.MyBuildingAddBankModel;
 import com.example.presidentapp.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,6 +26,7 @@ public class MyBuildingShowBankDetails extends AppCompatActivity{
     TextView bankname, bankupiid, bankaccountname, bankaccountnumber, bankifsccode, bankaddress;
     FirebaseDatabase firebaseDatabase;
     FirebaseAuth firebaseAuth;
+    String buildingId;
     String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
     private static final String TAG = "1";
@@ -35,6 +37,11 @@ public class MyBuildingShowBankDetails extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_building_show_bank_details);
+
+        GlobalClass globalClass = (GlobalClass) getApplicationContext();
+        buildingId = globalClass.getBuildingId();
+
+
         Intent intent = getIntent();
         final String BankName = intent.getStringExtra("BANKNAME");
         final String BankUpiId = intent.getStringExtra("BANKUPIID");
@@ -54,7 +61,7 @@ public class MyBuildingShowBankDetails extends AppCompatActivity{
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        DatabaseReference databaseReferencebankdetailsshow = firebaseDatabase.getReference("Add Bank").child(currentuserId);
+        DatabaseReference databaseReferencebankdetailsshow = firebaseDatabase.getReference("Add Bank").child(currentuserId).child(buildingId);
 
         databaseReferencebankdetailsshow.addValueEventListener(new ValueEventListener(){
             @Override
@@ -122,7 +129,7 @@ public class MyBuildingShowBankDetails extends AppCompatActivity{
     }
 
     private void deleteBank(String bankId) {
-        DatabaseReference databaseReferencebank = FirebaseDatabase.getInstance().getReference("Add Bank").child(currentuserId).child(bankId);
+        DatabaseReference databaseReferencebank = FirebaseDatabase.getInstance().getReference("Add Bank").child(currentuserId).child(buildingId).child(bankId);
         databaseReferencebank.removeValue();
 
         Toast.makeText(this, "event is deleted", Toast.LENGTH_LONG).show();
