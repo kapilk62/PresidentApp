@@ -76,7 +76,7 @@ public class VendorFragment extends Fragment {
         buildingId = globalClass.getBuildingId();
 
         String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseVendorDetails = FirebaseDatabase.getInstance().getReference("Vendor_details").child(buildingId).child(currentuserId);
+        databaseVendorDetails = FirebaseDatabase.getInstance().getReference("Vendor_details").child(currentuserId).child(buildingId);
         listViewVendorNumber = (ListView) v.findViewById(R.id.listViewVendorDetails);
         VendorDetailList = new ArrayList<>();
         //Inflate the layout for this fragment

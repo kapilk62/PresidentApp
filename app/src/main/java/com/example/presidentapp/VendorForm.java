@@ -46,7 +46,7 @@ public class VendorForm extends AppCompatActivity {
         GlobalClass globalClass = (GlobalClass) getApplicationContext();
         buildingId = globalClass.getBuildingId();
         String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseVendorDetails = FirebaseDatabase.getInstance().getReference("Vendor_details").child(buildingId).child(currentuserId);
+        databaseVendorDetails = FirebaseDatabase.getInstance().getReference("Vendor_details").child(currentuserId).child(buildingId);
 
         addVendorBtn.setOnClickListener(new View.OnClickListener() {
             @Override

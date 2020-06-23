@@ -40,7 +40,7 @@ public class EmergencyForm extends AppCompatActivity {
         buildingId = globalClass.getBuildingId();
 
         String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseEmergencyNumbers = FirebaseDatabase.getInstance().getReference("Emergency_Numbers").child(buildingId).child(currentuserId);
+        databaseEmergencyNumbers = FirebaseDatabase.getInstance().getReference("Emergency_Numbers").child(currentuserId).child(buildingId);
 
         addEmergencyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
