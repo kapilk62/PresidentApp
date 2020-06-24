@@ -147,7 +147,7 @@ public class Rules extends AppCompatActivity {
     }
 
     private boolean updateRule(String id, String rule) {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Rules").child(currentuserId).child(buildingId);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Rules").child(currentuserId).child(buildingId).child(id);
         Rule rule1 = new Rule(id, rule);
         databaseReference.setValue(rule1);
         Toast.makeText(this, "Rule Updated", Toast.LENGTH_LONG).show();

@@ -205,7 +205,7 @@ public class VendorFragment extends Fragment {
     }
     private void updateVendor(String vendorId, String vendorName, String vendorNumber, String vendorAddress, String vendorCategory){
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Vendor_details").child(currentuserId).child(buildingId).child(vendorId);
-        Vendor_Num_Model vendor_num_model = new Vendor_Num_Model(vendorId, vendorName, vendorAddress, vendorAddress, vendorCategory);
+        Vendor_Num_Model vendor_num_model = new Vendor_Num_Model(vendorId, vendorName, vendorNumber, vendorAddress, vendorCategory);
         databaseReference.setValue(vendor_num_model);
         Toast.makeText(context, "Vendor Updated", Toast.LENGTH_LONG).show();
 

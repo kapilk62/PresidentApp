@@ -51,7 +51,6 @@ public class RecyclerView_Member_Flats_adapter extends RecyclerView.Adapter<Recy
             this.item = item;
 
             textView.setText(item.text);
-            imageView.setImageResource(item.drawable);
             relativeLayout.setBackgroundColor(Color.parseColor(item.color));
 
         }

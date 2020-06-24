@@ -31,12 +31,12 @@ public class Members extends AppCompatActivity implements RecyclerView_Members_A
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         arrayList = new ArrayList();
-        arrayList.add(new Member_DataModel("Item 1", R.drawable.ic_account_name, "#3E51B1"));
-        arrayList.add(new Member_DataModel("Item 2", R.drawable.flag_honduras, "#3E51B1"));
-        arrayList.add(new Member_DataModel("Item 3", R.drawable.ic_email, "#673BB7"));
-        arrayList.add(new Member_DataModel("Item 4", R.drawable.ic_upiid, "#4BAA50"));
-        arrayList.add(new Member_DataModel("Item 5", R.drawable.ic_balancesheet, "#F94336"));
-        arrayList.add(new Member_DataModel("Item 6", R.drawable.ic_complaints, "#0A9B88"));
+        arrayList.add(new Member_DataModel("Floor 1" , "#202020"));
+        arrayList.add(new Member_DataModel("Floor 2" , "#202020"));
+        arrayList.add(new Member_DataModel("Floor 3",  "#202020"));
+        arrayList.add(new Member_DataModel("Floor 4",  "#202020"));
+        arrayList.add(new Member_DataModel("Floor 5",  "#202020"));
+        arrayList.add(new Member_DataModel("Floor 6",  "#202020"));
 
         RecyclerView_Members_Adapter adapter = new RecyclerView_Members_Adapter(this, arrayList, this);
         recyclerView.setAdapter(adapter);

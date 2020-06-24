@@ -51,7 +51,7 @@ public class RecyclerView_Members_Adapter extends RecyclerView.Adapter<RecyclerV
             this.item = item;
 
             textView.setText(item.text);
-            imageView.setImageResource(item.drawable);
+
             relativeLayout.setBackgroundColor(Color.parseColor(item.color));
 
         }

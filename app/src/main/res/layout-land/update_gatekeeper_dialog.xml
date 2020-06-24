@@ -71,7 +71,7 @@
             android:id="@+id/update_gatekeeper_mobile_number_txt_fld"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textMultiLine"/>
+            android:inputType="phone" />
     </com.google.android.material.textfield.TextInputLayout>
 
 

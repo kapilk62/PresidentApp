@@ -32,12 +32,11 @@ public class Member_Flats extends AppCompatActivity implements RecyclerView_Memb
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         arrayList = new ArrayList();
-        arrayList.add(new Member_Flats_DataModel("Item 1", R.drawable.ic_account_name, "#09A9FF"));
-        arrayList.add(new Member_Flats_DataModel("Item 2", R.drawable.flag_honduras, "#3E51B1"));
-        arrayList.add(new Member_Flats_DataModel("Item 3", R.drawable.ic_email, "#673BB7"));
-        arrayList.add(new Member_Flats_DataModel("Item 4", R.drawable.ic_upiid, "#4BAA50"));
-        arrayList.add(new Member_Flats_DataModel("Item 5", R.drawable.ic_balancesheet, "#F94336"));
-        arrayList.add(new Member_Flats_DataModel("Item 6", R.drawable.ic_complaints, "#0A9B88"));
+        arrayList.add(new Member_Flats_DataModel("A 101", "#202020"));
+        arrayList.add(new Member_Flats_DataModel("A 102",  "#202020"));
+        arrayList.add(new Member_Flats_DataModel("A 103", "#282828"));
+        arrayList.add(new Member_Flats_DataModel("A 104",  "#282828"));
+
 
         RecyclerView_Member_Flats_adapter adapter1 = new RecyclerView_Member_Flats_adapter(this, arrayList, this);
         recyclerView.setAdapter(adapter1);
@@ -47,7 +46,7 @@ public class Member_Flats extends AppCompatActivity implements RecyclerView_Memb
          AutoFitGridLayoutManager that auto fits the cells by the column width defined.
          **/
 
-        Member_flat_GridLayoutManager layoutManager = new Member_flat_GridLayoutManager(this, 300);
+        Member_flat_GridLayoutManager layoutManager = new Member_flat_GridLayoutManager(this, 100);
         recyclerView.setLayoutManager(layoutManager);
 
 
