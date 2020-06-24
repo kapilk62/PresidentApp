@@ -12,13 +12,39 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GateKeeper.GateKeeper_visitorstatshistory"></activity>
-        <activity android:name=".GateKeeper.GateKeeper_gates_add" />
-        <activity android:name=".GateKeeper.GateKeeper_gates" />
-        <activity android:name=".GateKeeper.GateKeeper_gatepass" />
-        <activity android:name=".GateKeeper.GateKeeper_gatekeepers" />
-        <activity android:name=".GateKeeper.GateKeeper_gatekeeper_add" />
-        <activity android:name=".UserInfo" />
+        <activity android:name=".GateKeeper.GateKeeper_visitorstatshistory"
+            android:label="Visitor Statistics and History"
+            android:parentActivityName=".GateKeeper.GateKeeper_visitorstatshistory"/>
+
+
+
+        <activity android:name=".GateKeeper.GateKeeper_gates_add"
+            android:label="Add Gate "
+            android:parentActivityName=".GateKeeper.GateKeeper_gates_add" />
+
+        <activity android:name=".GateKeeper.GateKeeper_gates"
+            android:label="Gates"
+            android:parentActivityName=".GateKeeper.GateKeeper_gates"/>
+
+        <activity android:name=".GateKeeper.GateKeeper_gatepass"
+            android:label="Gate Pass "
+            android:parentActivityName=".GateKeeper.GateKeeper_gatepass"/>
+
+        <activity android:name=".GateKeeper.GateKeeper_gatekeepers"
+            android:label="Gate Keepers"
+            android:parentActivityName=".GateKeeper.GateKeeper_gatekeepers"
+            />
+
+        <activity android:name=".GateKeeper.GateKeeper_gatekeeper_add"
+            android:label="Add Gate Keepers"
+            android:parentActivityName=".GateKeeper.GateKeeper_gatekeeper_add"
+            />
+
+        <activity android:name=".UserInfo"
+            android:label="User Info"
+            android:parentActivityName=".UserInfo" />
+        
+
         <activity
             android:name=".Register_user"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
