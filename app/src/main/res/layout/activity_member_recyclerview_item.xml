@@ -44,7 +44,7 @@
                android:layout_height="match_parent"
                android:textAlignment="center"
                android:textSize="30dp"
-
+                android:gravity="center"
                android:textColor="@android:color/white"
                android:layout_below="@+id/imageView" />
 
