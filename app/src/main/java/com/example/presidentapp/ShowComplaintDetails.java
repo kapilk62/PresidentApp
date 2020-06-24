@@ -27,7 +27,7 @@ public class ShowComplaintDetails extends AppCompatActivity{
     FirebaseDatabase firebaseDatabase;
     FirebaseAuth firebaseAuth;
     final String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
+    String buildingId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +46,9 @@ public class ShowComplaintDetails extends AppCompatActivity{
         complaintcategory = findViewById(R.id.complaintcategorytextviewclick);
         complaintpriority = findViewById(R.id.complaintprioritytextviewclick);
         complaintstatus = findViewById(R.id.complaintstatustextviewclick);
+
+        GlobalClass globalClass = (GlobalClass) getApplicationContext();
+        buildingId = globalClass.getBuildingId();
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -110,7 +113,7 @@ public class ShowComplaintDetails extends AppCompatActivity{
         return true;
     }
     private void deleteComplaint(String ComplaintId) {
-        DatabaseReference databaseReferenceComplaint = FirebaseDatabase.getInstance().getReference("Add Complaint").child(currentuserId).child(ComplaintId);
+        DatabaseReference databaseReferenceComplaint = FirebaseDatabase.getInstance().getReference("Add Complaint").child(currentuserId).child(buildingId).child(ComplaintId);
         databaseReferenceComplaint.removeValue();
 
         Toast.makeText(this, "Complaint is deleted", Toast.LENGTH_LONG).show();

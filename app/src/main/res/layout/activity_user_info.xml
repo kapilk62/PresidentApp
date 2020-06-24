@@ -16,7 +16,7 @@
         android:fontFamily="@font/alike_angular"
         android:hint="First Name"
         android:inputType="textPersonName"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textColorHint="#000000"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="10dp" />
@@ -29,10 +29,10 @@
         android:fontFamily="@font/alike_angular"
         android:hint="Last Name"
         android:inputType="textPersonName"
-        android:textColor="#ffffff"
+        android:textColor="#000000"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:textColorHint="#030303"
+        android:textColorHint="#000000"
         app:layout_constraintTop_toBottomOf="@+id/firstname"
         tools:layout_editor_absoluteX="19dp" />
 
@@ -46,8 +46,8 @@
         android:layout_marginEnd="10dp"
         android:hint="Email id"
         android:inputType="textEmailAddress"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FC000000"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         app:layout_constraintTop_toBottomOf="@+id/lastname"
         tools:layout_editor_absoluteX="26dp" />
 
@@ -56,7 +56,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:text="Save"
+        style="@style/TextAppearance.App.Button"
         app:layout_constraintTop_toBottomOf="@+id/emailid"
         tools:layout_editor_absoluteX="0dp">
 

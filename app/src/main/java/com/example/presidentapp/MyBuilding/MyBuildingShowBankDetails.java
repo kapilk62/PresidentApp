@@ -132,7 +132,7 @@ public class MyBuildingShowBankDetails extends AppCompatActivity{
         DatabaseReference databaseReferencebank = FirebaseDatabase.getInstance().getReference("Add Bank").child(currentuserId).child(buildingId).child(bankId);
         databaseReferencebank.removeValue();
 
-        Toast.makeText(this, "event is deleted", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "bank is deleted", Toast.LENGTH_LONG).show();
     }
 
 }

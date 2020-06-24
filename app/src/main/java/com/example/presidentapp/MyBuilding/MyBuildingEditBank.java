@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.presidentapp.GlobalClass;
 import com.example.presidentapp.Model.MyBuildingAddBankModel;
 import com.example.presidentapp.R;
 import com.google.android.material.textfield.TextInputEditText;
@@ -25,7 +26,7 @@ public class MyBuildingEditBank extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     private static final String TAG = "1";
     final String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
+    String buildingId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,9 @@ public class MyBuildingEditBank extends AppCompatActivity {
         bankifsccode = findViewById(R.id.edit_ifsc_code_txt_fld);
         bankaddress = findViewById(R.id.edit_bank_address_txt_fld);
         editBankDetailsButton = findViewById(R.id.edit_bank_button);
+
+        GlobalClass globalClass = (GlobalClass) getApplicationContext();
+        buildingId = globalClass.getBuildingId();
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -96,7 +100,7 @@ public class MyBuildingEditBank extends AppCompatActivity {
 
 
     private boolean updateBankDetails(String addbankId, String  bankName,String bankUpiId , String bankAccountName ,String bankAccountNumber ,String bankIfscCode , String bankAddress){
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Add Bank").child(currentuserId).child(addbankId);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Add Bank").child(currentuserId).child(buildingId).child(addbankId);
         MyBuildingAddBankModel myBuildingAddBankModel = new MyBuildingAddBankModel(addbankId, bankName, bankUpiId , bankAccountName , bankAccountNumber, bankIfscCode , bankAddress);
         databaseReference.setValue(myBuildingAddBankModel);
         Toast.makeText(this, "Bank Details Updated", Toast.LENGTH_LONG).show();
