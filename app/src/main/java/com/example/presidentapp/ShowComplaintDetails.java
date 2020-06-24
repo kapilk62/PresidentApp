@@ -117,5 +117,6 @@ public class ShowComplaintDetails extends AppCompatActivity{
         databaseReferenceComplaint.removeValue();
 
         Toast.makeText(this, "Complaint is deleted", Toast.LENGTH_LONG).show();
+        finish();
     }
 }

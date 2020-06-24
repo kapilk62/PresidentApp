@@ -67,6 +67,7 @@ public class Add_announcements extends AppCompatActivity implements
                 //annoucementType.setSelected();
                 Intent intent = new Intent(getApplicationContext(), Announcements.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

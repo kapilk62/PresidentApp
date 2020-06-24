@@ -12,16 +12,48 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GateKeeper.GateKeeper_gates_add"></activity>
-        <activity android:name=".GateKeeper.GateKeeper_gatekeeper_add" />
-        <activity android:name=".GateKeeper.GateKeeper_visitorstatshistory" />
-        <activity android:name=".GateKeeper.GateKeeper_gatepass" />
-        <activity android:name=".GateKeeper.GateKeeper_gates" />
-        <activity android:name=".GateKeeper.GateKeeper_gatekeepers" />
-        <activity android:name=".Add_announcements" />
-        <activity android:name=".Announcements" />
-        <activity android:name=".ComplaintEdit" />
 
+        <activity android:name=".GateKeeper.GateKeeper_visitorstatshistory"
+            android:label="Visitor Statistics and History"
+            android:parentActivityName=".GateKeeper.GateKeeper_visitorstatshistory"/>
+
+
+
+        <activity android:name=".GateKeeper.GateKeeper_gates_add"
+            android:label="Add Gate "
+            android:parentActivityName=".GateKeeper.GateKeeper_gates_add" />
+
+        <activity android:name=".GateKeeper.GateKeeper_gates"
+            android:label="Gates"
+            android:parentActivityName=".GateKeeper.GateKeeper_gates"/>
+
+        <activity android:name=".GateKeeper.GateKeeper_gatepass"
+            android:label="Gate Pass "
+            android:parentActivityName=".GateKeeper.GateKeeper_gatepass"/>
+
+        <activity android:name=".GateKeeper.GateKeeper_gatekeepers"
+            android:label="Gate Keepers"
+            android:parentActivityName=".GateKeeper.GateKeeper_gatekeepers"
+            />
+
+        <activity android:name=".GateKeeper.GateKeeper_gatekeeper_add"
+            android:label="Add Gate Keepers"
+            android:parentActivityName=".GateKeeper.GateKeeper_gatekeeper_add"
+            />
+
+
+
+        <activity android:name=".Add_announcements"
+            android:label="Add Announcements"
+            android:parentActivityName=".Add_announcements" />
+
+        <activity android:name=".Announcements"
+            android:label="Announcements"
+            android:parentActivityName=".Announcements" />
+
+        <activity android:name=".ComplaintEdit"
+            android:label="Edit Complaint"
+            android:parentActivityName=".ComplaintEdit"/>
 
 
         <activity
@@ -44,22 +76,59 @@
 
         <activity
             android:name=".multiple_building_page"
-            android:label="My properties"
+            android:label="My Society"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".MyBuilding.MyBuildingShowBankDetails" />
-        <activity android:name=".MyBuilding.MybuildngAddBank" />
-        <activity android:name=".MyBuilding.MyBuildingDocuments" />
-        <activity android:name=".MyBuilding.MyBuildingBank" />
-        <activity android:name=".MyBuilding.MyBuildingStatistics" />
-        <activity android:name=".MyBuilding.MyBuildingInfo" />
-        <activity android:name=".MyBuilding.MyBuildingWings" />
+        <activity android:name=".MyBuilding.MyBuildingShowBankDetails"
+            android:label="Bank Details"
+            android:parentActivityName=".MyBuilding.MyBuildingShowBankDetails"/>
+
+        <activity android:name=".MyBuilding.MybuildngAddBank"
+            android:label="Add Bank Detail"
+            android:parentActivityName=".MyBuilding.MybuildngAddBank"/>
+
+        <activity android:name=".MyBuilding.MyBuildingDocuments"
+            android:label="Documents"
+            android:parentActivityName=".MyBuilding.MyBuildingDocuments" />
+
+        <activity android:name=".MyBuilding.MyBuildingBank"
+            android:label="Bank"
+            android:parentActivityName=".MyBuilding.MyBuildingBank" />
+
+        <activity android:name=".MyBuilding.MyBuildingStatistics"
+            android:label="Statistics"
+            android:parentActivityName=".MyBuilding.MyBuildingStatistics"/>
+
+        <activity android:name=".MyBuilding.MyBuildingInfo"
+            android:label="Building Information"
+            android:parentActivityName=".MyBuilding.MyBuildingInfo"/>
+
+        <activity android:name=".MyBuilding.MyBuildingWings"
+            android:label="Wings Details "
+            android:parentActivityName=".MyBuilding.MyBuildingWings" />
+
         <activity android:name=".Join_Your_Building" />
-        <activity android:name=".Create_New_Society" />
+
+        <activity android:name=".Create_New_Society"
+            android:label="Create New Society"
+            android:parentActivityName=".Create_New_Society"/>
+
         <activity android:name=".Join_Building_Page" />
-        <activity android:name=".ShowComplaintDetails" />
-        <activity android:name=".Add_complaints" />
-        <activity android:name=".MyBuilding.MyBuildingEditBank" />
+
+
+        <activity android:name=".ShowComplaintDetails"
+            android:label="Complaints Details"
+            android:parentActivityName=".MainActivity" />
+
+
+        <activity android:name=".Add_complaints"
+            android:label="Add New Complaint"
+            android:parentActivityName=".Add_complaints"/>
+
+        <activity android:name=".MyBuilding.MyBuildingEditBank"
+            android:label="Edit Bank Details"
+            android:parentActivityName=".MyBuilding.MyBuildingEditBank"/>
+
         <activity
             android:name=".VendorForm"
             android:label="Vendor Details Form"

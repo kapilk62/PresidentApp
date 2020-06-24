@@ -133,6 +133,7 @@ public class MyBuildingShowBankDetails extends AppCompatActivity{
         databaseReferencebank.removeValue();
 
         Toast.makeText(this, "bank is deleted", Toast.LENGTH_LONG).show();
+        finish();
     }
 
 }

@@ -143,5 +143,6 @@ public class Announcements extends AppCompatActivity{
     public void AddAnnouncement(View view) {
         Intent intent = new Intent(getApplicationContext(), Add_announcements.class);
         startActivity(intent);
+        finish();
     }
 }

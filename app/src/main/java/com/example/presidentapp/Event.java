@@ -175,6 +175,7 @@ public class Event extends AppCompatActivity{
     public void AddEvent(View view) {
         Intent intent = new Intent(getApplicationContext(), Add_event.class);
         startActivity(intent);
+        finish();
     }
 
 }

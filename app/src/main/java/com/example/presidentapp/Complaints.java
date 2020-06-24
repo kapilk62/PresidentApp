@@ -87,5 +87,6 @@ public class Complaints extends AppCompatActivity {
     public void AddComplaints(View view) {
         Intent intent = new Intent(getApplicationContext(), Add_complaints.class);
         startActivity(intent);
+        finish();
     }
 }

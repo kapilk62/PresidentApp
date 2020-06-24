@@ -65,6 +65,7 @@ public class Add_event extends AppCompatActivity implements
                 txtTime.setText(null);
                 Intent intent = new Intent(getApplicationContext(), Event.class);
                 startActivity(intent);
+                finish();
             }
         });
 
