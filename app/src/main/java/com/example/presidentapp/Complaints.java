@@ -24,15 +24,17 @@ import java.util.List;
 public class Complaints extends AppCompatActivity {
 
     ListView listViewComplaintDetails;
+    String buildingId;
     DatabaseReference databaseReferencecomplaintDetails;
     List<AddComplaintsModel> complaintdetailsmodelllist;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complaints);
-
+        GlobalClass globalClass = (GlobalClass) getApplicationContext();
+        buildingId = globalClass.getBuildingId();
         String currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseReferencecomplaintDetails = FirebaseDatabase.getInstance().getReference("Add Complaint").child(currentuserId);
+        databaseReferencecomplaintDetails = FirebaseDatabase.getInstance().getReference("Add Complaint").child(currentuserId).child(buildingId);
 
         listViewComplaintDetails = findViewById(R.id.listviewcomplaintsdetails);
         complaintdetailsmodelllist = new ArrayList<>();

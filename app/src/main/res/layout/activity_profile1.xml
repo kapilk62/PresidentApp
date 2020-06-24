@@ -96,23 +96,7 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Mobile Number"
-                app:boxBackgroundColor="@color/white"
-                app:helperTextEnabled="true"
-                app:startIconDrawable="@drawable/ic_mobilenumber"
-                tools:ignore="MissingConstraints">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/mob_no_txt_fld"
-                    android:inputType="phone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/updateprofile_btn"

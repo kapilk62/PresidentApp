@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".GlobalClass"
+
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -21,12 +21,24 @@
         <activity android:name=".Add_announcements" />
         <activity android:name=".Announcements" />
         <activity android:name=".ComplaintEdit" />
+
+
+
+
+
+
+
+
+        <activity android:name=".UserInfo"
+            android:label="User Info"
+            android:parentActivityName=".UserInfo" />
+
+
         <activity
             android:name=".multiple_building_page"
             android:label="My properties"
             android:screenOrientation="portrait" />
-        <activity android:name=".MyBuildingEditBank" />
-        <activity android:name=".Adapter.Bank_Full_Details_adapter" />
+
         <activity android:name=".MyBuilding.MyBuildingShowBankDetails" />
         <activity android:name=".MyBuilding.MybuildngAddBank" />
         <activity android:name=".MyBuilding.MyBuildingDocuments" />
@@ -42,73 +54,79 @@
         <activity android:name=".MyBuilding.MyBuildingEditBank" />
         <activity
             android:name=".VendorForm"
-            android:parentActivityName=".Emergency_Number" />
+            android:label="Vendor Details Form"
+            android:parentActivityName=".VendorForm" />
         <activity
             android:name=".Add_event"
-            android:parentActivityName=".Event" />
+            android:label="Add Event"
+            android:parentActivityName=".Add_event" />
         <activity
             android:name=".Event"
-            android:parentActivityName=".MainActivity" />
+            android:label="Events"
+            android:parentActivityName=".Event" />
         <activity
             android:name=".EmergencyForm"
-            android:parentActivityName=".Emergency_Number" />
+            android:label="Emergency Details Form"
+            android:parentActivityName=".EmergencyForm" />
         <activity
             android:name=".ContactsActivity"
-            android:parentActivityName=".MainActivity" />
+            android:label="Contact Us"
+            android:parentActivityName=".ContactsActivity" />
         <activity
             android:name=".Profile"
             android:label="Profile"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Profile" />
         <activity
             android:name=".Rules"
             android:label="Rules"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Rules" />
         <activity
             android:name=".Gate_Keeper"
-            android:label="Gate_Keeper"
-            android:parentActivityName=".MainActivity" />
+            android:label="Gate Keeper"
+            android:parentActivityName=".Gate_Keeper" />
         <activity
             android:name=".Vehicles"
             android:label="Vehicles"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Vehicles" />
         <activity
             android:name=".Complaints"
             android:label="Complaints"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Complaints" />
         <activity
             android:name=".My_Building"
-            android:label="My_Building"
-            android:parentActivityName=".MainActivity" />
+            android:label="My Building"
+            android:parentActivityName=".My_Building" />
         <activity
             android:name=".Emergency_Number"
-            android:label="Emergency_Number"
-            android:parentActivityName=".MainActivity" />
+            android:label="Emergency Number"
+            android:parentActivityName=".Emergency_Number" />
         <activity
             android:name=".Society_Fund"
-            android:label="Society_Fund"
-            android:parentActivityName=".MainActivity" />
+            android:label="Society Fund"
+            android:parentActivityName=".Society_Fund" />
         <activity
             android:name=".Members"
             android:label="Members"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Members" />
         <activity
             android:name=".Bills"
             android:label="Bills"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Bills" />
         <activity
             android:name=".MainActivity"
             android:label="Dashboard"
             android:launchMode="standard" />
+
+        <activity android:name=".Member_Flats"
+            android:label="Member Flats"
+            android:parentActivityName=".Member_Flats"
+            android:launchMode="standard">
+
+        </activity>
         <activity
             android:name=".LoginActivity"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".RegisterActivity"
             android:launchMode="singleTask"

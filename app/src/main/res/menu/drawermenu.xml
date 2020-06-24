@@ -13,7 +13,6 @@
     <item android:id="@+id/sbalance_sheet" android:title="Balance Sheet" android:icon="@drawable/ic_balancesheet"/>
     <item android:id="@+id/srules" android:title="Rules" android:icon="@drawable/ic_rules"/>
     <item android:id="@+id/snotification" android:title="Notification" android:icon="@drawable/ic_notifications"/>
-    <item android:id="@+id/ssetting" android:title="Setting" android:icon="@drawable/ic_settings_black_24dp"/>
     <item android:id="@+id/logoutbutton" android:title="Logout" android:icon="@drawable/ic_logout" />
     <item android:id="@+id/scontact_us" android:title="Contact Us" android:icon="@drawable/ic_contactus"  />
 </menu>

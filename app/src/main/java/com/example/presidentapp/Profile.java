@@ -25,12 +25,13 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Profile extends AppCompatActivity{
     private static final String TAG = "ProfileActivity";
-    TextInputEditText profileFirstName,profileLastName,profileEmail,profileMobile;
+    TextInputEditText profileFirstName,profileLastName,profileEmail;
     Button updateprofilebutton;
     String FIRST_NAME = null;
     String LAST_NAME = null;
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
+    String currentuserId;
     DatabaseReference databaseUsers;
 
     @SuppressLint("WrongViewCast")
@@ -45,15 +46,17 @@ public class Profile extends AppCompatActivity{
         profileFirstName = findViewById(R.id.firstname_txt_fld);
         profileLastName = findViewById(R.id.lastename_txt_fld);
         profileEmail = findViewById(R.id.email_txt_fld);
-        profileMobile = (TextInputEditText) findViewById(R.id.mob_no_txt_fld);
+        //profileMobile = (TextInputEditText) findViewById(R.id.mob_no_txt_fld);
         updateprofilebutton = findViewById(R.id.updateprofile_btn);
+
+        currentuserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Loading...");
         progressDialog.show();
-        DatabaseReference databaseReference = firebaseDatabase.getInstance().getReference("Users").child(firebaseAuth.getUid());
+        DatabaseReference databaseReference = firebaseDatabase.getInstance().getReference("Users").child("President").child(currentuserId);
         databaseReference.addValueEventListener(new ValueEventListener(){
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -62,7 +65,7 @@ public class Profile extends AppCompatActivity{
                 profileFirstName.setText(user.getFirst_name());
                 profileLastName.setText(user.getLast_name());
                 profileEmail.setText(user.getEmail());
-                profileMobile.setText(user.getMobile_number());
+                //profileMobile.setText(user.getMobile_number());
             }
 
             @Override
@@ -79,8 +82,8 @@ public class Profile extends AppCompatActivity{
                 String first_name = profileFirstName.getText().toString().trim();
                 String last_name = profileLastName.getText().toString().trim();
                 String email = profileEmail.getText().toString().trim();
-                String mobile_number = profileMobile.getText().toString();
-                Log.d(TAG, "onClick: "+mobile_number);
+               // String mobile_number = profileMobile.getText().toString();
+               // Log.d(TAG, "onClick: "+mobile_number);
                 if(TextUtils.isEmpty(first_name)){
                     profileFirstName.setError("First Name Required");
                 }
@@ -90,10 +93,7 @@ public class Profile extends AppCompatActivity{
                 if(TextUtils.isEmpty(email)){
                     profileEmail.setError("Email Id Required");
                 }
-                if(TextUtils.isEmpty(mobile_number)){
-                    profileMobile.setError("Mobile Number Required");
-                }
-                updateprofile(first_name,last_name,email,mobile_number);
+                updateprofile(first_name,last_name,email);
                 finish();
             }
         });
@@ -111,9 +111,9 @@ public class Profile extends AppCompatActivity{
         return super.onOptionsItemSelected(item);
     }
 
-    private boolean updateprofile(String FirstName, String LastName, String Email , String MobileNumber){
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseAuth.getUid());
-        User user = new User(FirstName, LastName, Email, MobileNumber);
+    private boolean updateprofile(String FirstName, String LastName, String Email){
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child("President").child(currentuserId);
+        User user = new User(FirstName, LastName, Email);
         databaseReference.setValue(user);
         Toast.makeText(this, "Profile Updated", Toast.LENGTH_LONG).show();
         return true;
